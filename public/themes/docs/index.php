@@ -14,7 +14,7 @@
 
     Assets::add_css('bootstrap.css');
     Assets::add_css('bootstrap-theme.css');
-    Assets::add_css('github');
+    Assets::add_css('highlight/github.css');
     echo Assets::css();
     ?>
 </head>
