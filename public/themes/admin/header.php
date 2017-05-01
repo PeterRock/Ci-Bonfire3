@@ -19,6 +19,8 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
         echo isset($toolbar_title) ? "{$toolbar_title} : " : '';
         e($this->settings_lib->item('site.title'));
     ?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="robots" content="noindex" />
     <?php

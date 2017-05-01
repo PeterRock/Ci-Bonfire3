@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <title>Docs - <?php e($this->settings_lib->item('site.title')); ?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
     <?php
     $jqueryVersion = '1.7.2';
     $highlightScript = '$("pre code").each(function(i, e) {hljs.highlightBlock(e)});';
