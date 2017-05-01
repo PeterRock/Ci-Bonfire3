@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <?php
-    $jqueryVersion = '1.7.2';
     $highlightScript = '$("pre code").each(function(i, e) {hljs.highlightBlock(e)});';
 
     Assets::add_js('bootstrap.min.js');
@@ -87,8 +86,7 @@
 
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/<?php echo $jqueryVersion; ?>/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo js_path(); ?>jquery-<?php echo $jqueryVersion; ?>.min.js"><\/script>')</script>
+    <?php echo Assets::js("jquery-1.12.4.min.js"); ?>
     <?php echo Assets::js(); ?>
 </body>
 </html>
