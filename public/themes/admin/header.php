@@ -3,6 +3,7 @@
 Assets::add_css(array(
     'bootstrap.css',
     'bootstrap-responsive.css',
+    'font-awesome.min.css',
 ));
 
 if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
@@ -51,39 +52,40 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                 <!-- Shortcut Menu -->
                 <div class="nav pull-right" id="shortcuts">
                     <div class="btn-group">
-                        <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#"><img src="<?php echo Template::theme_url('images/keyboard-icon.png'); ?>" id="shortkeys_show" title="Keyboard Shortcuts" alt="Keyboard Shortcuts" /></a>
+                        <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#">
+                            <i class="fa fa-keyboard-o"></i>
+                        </a>
                         <ul class="dropdown-menu pull-right toolbar-keys">
                             <li>
                                 <div class="inner keys">
                                     <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
                                     <ul>
                                         <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
-                                        <li><span><?php e($data); ?></span> : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?></li>
+                                            <li><span><?php e($data); ?></span> : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?></li>
                                         <?php endforeach; ?>
                                     </ul>
-				    <?php if ( has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage') ): ?>
-                                    <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
-				    <?php endif; ?>
+                                    <?php if ( has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage') ): ?>
+                                        <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
+                                    <?php endif; ?>
                                 </div>
                             </li>
-						</ul>
-					</div>
+                        </ul>
+                    </div>
                 </div>
                 <?php endif;?>
                 <div class="nav-collapse in collapse">
                     <!-- User Menu -->
                     <div class="nav pull-right" id="user-menu">
                         <div class="btn-group">
-                            <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn dark" title="<?php echo lang('bf_user_settings'); ?>">
+                            <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn" title="<?php echo lang('bf_user_settings'); ?>">
                                 <?php
                                 $userDisplayName = isset($current_user->display_name) && ! empty($current_user->display_name) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email);
                                 echo $userDisplayName;
                                 ?>
                             </a>
-                            <?php
-                            /* Change **light** to **dark** to match colors */
-                            ?>
-                            <a class="btn dropdown-toggle light" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                            <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
                             <ul class="dropdown-menu pull-right toolbar-profile">
                                 <li>
                                     <div class="inner">
