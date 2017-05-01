@@ -14,7 +14,7 @@ Assets::add_js('mobile');
     <?php
     /* Modernizr is loaded before CSS so CSS can utilize its features */
     ?>
-    <script src="<?php echo js_path(); ?>modernizr-2.5.3.js"></script>
+    <script src="<?php echo js_path(); ?>modernizr-2.8.3.js"></script>
     <?php echo Assets::css(null, 'screen', true); ?>
 	<script type="text/javascript">
         (function(doc) {
