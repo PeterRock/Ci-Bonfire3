@@ -1,6 +1,8 @@
 # Helpful sections not specific to CodeIgniter - excerpted from
 # https://github.com/h5bp/server-configs/
 
+SetEnv CI_ENV development
+
 # ----------------------------------------------------------------------
 # Proper MIME type for all files
 # ----------------------------------------------------------------------
