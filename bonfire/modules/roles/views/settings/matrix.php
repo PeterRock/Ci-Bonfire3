@@ -27,7 +27,7 @@ if (isset($domains) && is_array($domains) && count($domains)) :
                 ?>
                 <input type="checkbox" name="role_permissions[]" class="" value="<?php echo $currentRolePermission['perm_id']; ?>"<?php if (isset($currentRolePermission['value']) && $currentRolePermission['value'] == 1) { echo ' checked="checked"'; } ?> />
                 <?php else: ?>
-                    <span class="help-inline small"><?php echo lang('role_not_used') ?></span>
+                    <span class="help-block small"><?php echo lang('role_not_used') ?></span>
                 <?php endif; ?>
             </td>
             <?php endforeach; ?>

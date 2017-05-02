@@ -27,7 +27,7 @@
                 <label for="file_name" class="control-label"><?php echo lang('database_filename'); ?></label>
                 <div class="controls">
                     <input type="text" name="file_name" id="file_name" value="<?php echo set_value('file_name', empty($file) ? '' : $file); ?>" />
-                    <span class="help-inline"><?php echo form_error('file_name'); ?></span>
+                    <span class="help-block"><?php echo form_error('file_name'); ?></span>
                 </div>
             </div>
             <div class="form-group<?php echo form_error('drop_tables') ? ' has-error' : ''; ?>">
@@ -37,7 +37,7 @@
                         <option value="0" <?php echo set_select('drop_tables', '0'); ?>><?php echo lang('bf_no'); ?></option>
                         <option value="1" <?php echo set_select('drop_tables', '1'); ?>><?php echo lang('bf_yes'); ?></option>
                     </select>
-                    <span class="help-inline"><?php echo form_error('drop_tables'); ?></span>
+                    <span class="help-block"><?php echo form_error('drop_tables'); ?></span>
                 </div>
             </div>
             <div class="form-group<?php echo form_error('add_inserts') ? ' has-error' : ''; ?>">
@@ -47,7 +47,7 @@
                         <option value="0" <?php echo set_select('add_inserts', '0'); ?>><?php echo lang('bf_no'); ?></option>
                         <option value="1" <?php echo set_select('add_inserts', '1', true); ?>><?php echo lang('bf_yes'); ?></option>
                     </select>
-                    <span class="help-inline"><?php echo form_error('add_inserts'); ?></span>
+                    <span class="help-block"><?php echo form_error('add_inserts'); ?></span>
                 </div>
             </div>
             <div class="form-group<?php echo form_error('file_type') ? ' has-error' : ''; ?>">
@@ -58,7 +58,7 @@
                         <option value="gzip" <?php echo set_select('file_type', 'gzip'); ?>><?php echo lang('database_gzip'); ?></option>
                         <option value="zip" <?php echo set_select('file_type', 'zip'); ?>><?php echo lang('database_zip'); ?></option>
                     </select>
-                    <span class="help-inline"><?php echo form_error('file_type'); ?></span>
+                    <span class="help-block"><?php echo form_error('file_type'); ?></span>
                 </div>
             </div>
             <div class="alert alert-warning">

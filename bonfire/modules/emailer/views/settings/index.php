@@ -6,7 +6,7 @@
                 <label class="control-label" for="sender_email"><?php echo lang('emailer_system_email'); ?></label>
                 <div class="controls">
                     <input type="email" name="sender_email" id="sender_email" class="input-xlarge" value="<?php echo set_value('sender_email', $sender_email); ?>" />
-                    <span class='help-inline'><?php echo form_error('sender_email'); ?></span>
+                    <span class='help-block'><?php echo form_error('sender_email'); ?></span>
                     <p class="help-block"><?php echo lang('emailer_system_email_note'); ?></p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <option value='sendmail' <?php echo set_select('protocol', 'sendmail', $protocol == 'sendmail'); ?>><?php echo lang('emailer_protocol_sendmail'); ?></option>
                         <option value='smtp' <?php echo set_select('protocol', 'smtp', $protocol == 'smtp'); ?>><?php echo lang('emailer_protocol_smtp'); ?></option>
                     </select>
-                    <span class="help-inline"><?php echo form_error('protocol'); ?></span>
+                    <span class="help-block"><?php echo form_error('protocol'); ?></span>
                 </div>
             </div>
         </fieldset>
@@ -43,7 +43,7 @@
                     <label class="control-label" for="mailpath"><?php echo lang('emailer_sendmail_path'); ?></label>
                     <div class="controls">
                         <input type="text" name="mailpath" id="mailpath" class="input-xlarge" value="<?php echo set_value('mailpath', $mailpath) ?>" />
-                        <span class="help-inline"><?php echo form_error('mailpath'); ?></span>
+                        <span class="help-block"><?php echo form_error('mailpath'); ?></span>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <label class="control-label" for="smtp_host"><?php echo lang('emailer_smtp_address'); ?></label>
                     <div class="controls">
                         <input type="text" name="smtp_host" id="smtp_host" class="input-xlarge" value="<?php echo set_value('smtp_host', $smtp_host) ?>" />
-                        <span class="help-inline"><?php echo form_error('smtp_host'); ?></span>
+                        <span class="help-block"><?php echo form_error('smtp_host'); ?></span>
                     </div>
                 </div>
 

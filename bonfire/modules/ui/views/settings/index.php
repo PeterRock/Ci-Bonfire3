@@ -13,7 +13,7 @@
                     <th><?php echo lang('ui_action'); ?></th>
                     <th colspan="2">
                         <?php echo lang('ui_shortcut'); ?>
-                        <span class="help-inline"><?php echo lang('ui_shortcut_help'); ?></span>
+                        <span class="help-block"><?php echo lang('ui_shortcut_help'); ?></span>
                     </th>
                 </tr>
             </thead>

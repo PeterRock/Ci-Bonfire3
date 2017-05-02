@@ -16,21 +16,21 @@ if (validation_errors()) :
                 <label class="control-label" for="role_name"><?php echo lang('role_name'); ?></label>
                 <div class="controls">
                     <input type="text" name="role_name" id="role_name" class="input-xlarge" value="<?php echo set_value('role_name', isset($role) ? $role->role_name : ''); ?>" />
-                    <span class="help-inline"><?php echo form_error('role_name'); ?></span>
+                    <span class="help-block"><?php echo form_error('role_name'); ?></span>
                 </div>
             </div>
             <div class="description form-group<?php echo form_error('description') ? ' has-error' : ''; ?>">
                 <label class="control-label" for="description"><?php echo lang('bf_description'); ?></label>
                 <div class="controls">
                     <textarea name="description" id="description" rows="3" class="input-xlarge"><?php echo set_value('description', isset($role) ? $role->description : ''); ?></textarea>
-                    <span class="help-inline"><?php echo form_error('description') ? form_error('description') : lang('role_max_desc_length'); ?></span>
+                    <span class="help-block"><?php echo form_error('description') ? form_error('description') : lang('role_max_desc_length'); ?></span>
                 </div>
             </div>
             <div class="form-group<?php echo form_error('login_destination') ? ' has-error' : ''; ?>">
                 <label class="control-label" for="login_destination"><?php echo lang('role_login_destination'); ?></label>
                 <div class="controls">
                     <input type="text" name="login_destination" id="login_destination" class="input-xlarge" value="<?php echo set_value('login_destination', isset($role) ? $role->login_destination : ''); ?>" />
-                    <span class="help-inline"><?php
+                    <span class="help-block"><?php
                         echo form_error('login_destination') ? form_error('login_destination') . '<br />' : '';
                         echo lang('role_destination_note');
                     ?></span>
@@ -50,7 +50,7 @@ if (validation_errors()) :
                         endif;
                         ?>
                     </select>
-                    <span class="help-inline"><?php
+                    <span class="help-block"><?php
                         echo form_error('default_context') ? form_error('default_context') . '<br />' : '';
                         echo lang('role_default_context_note');
                     ?></span>
@@ -76,7 +76,7 @@ if (validation_errors()) :
                         <input type="radio" name="can_delete" id="can_delete_no" value="0" <?php echo set_radio('can_delete', 0, isset($role) && $role->can_delete == 0); ?> />
                         <?php echo lang('bf_no'); ?>
                     </label>
-                    <span class="help-inline"><?php echo lang('role_can_delete_note'); ?></span>
+                    <span class="help-block"><?php echo lang('role_can_delete_note'); ?></span>
                 </div>
             </div>
         </fieldset>

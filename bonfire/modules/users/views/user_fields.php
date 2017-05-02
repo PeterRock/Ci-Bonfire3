@@ -15,14 +15,14 @@ $defaultTimezone = isset($user->timezone) ? $user->timezone : strtoupper(setting
     <label class="control-label required" for="email"><?php echo lang('bf_email'); ?></label>
     <div class="controls">
         <input class="<?php echo $controlClass; ?>" type="text" id="email" name="email" value="<?php echo set_value('email', isset($user) ? $user->email : ''); ?>" />
-        <span class="help-inline"><?php echo form_error('email'); ?></span>
+        <span class="help-block"><?php echo form_error('email'); ?></span>
     </div>
 </div>
 <div class="form-group<?php echo form_error('display_name') ? $errorClass : ''; ?>">
     <label class="control-label" for="display_name"><?php echo lang('bf_display_name'); ?></label>
     <div class="controls">
         <input class="<?php echo $controlClass; ?>" type="text" id="display_name" name="display_name" value="<?php echo set_value('display_name', isset($user) ? $user->display_name : ''); ?>" />
-        <span class="help-inline"><?php echo form_error('display_name'); ?></span>
+        <span class="help-block"><?php echo form_error('display_name'); ?></span>
     </div>
 </div>
 <?php if (settings_item('auth.login_type') !== 'email' || settings_item('auth.use_usernames')) : ?>
@@ -30,7 +30,7 @@ $defaultTimezone = isset($user->timezone) ? $user->timezone : strtoupper(setting
     <label class="control-label required" for="username"><?php echo lang('bf_username'); ?></label>
     <div class="controls">
         <input class="<?php echo $controlClass; ?>" type="text" id="username" name="username" value="<?php echo set_value('username', isset($user) ? $user->username : ''); ?>" />
-        <span class="help-inline"><?php echo form_error('username'); ?></span>
+        <span class="help-block"><?php echo form_error('username'); ?></span>
     </div>
 </div>
 <?php endif; ?>
@@ -38,7 +38,7 @@ $defaultTimezone = isset($user->timezone) ? $user->timezone : strtoupper(setting
     <label class="control-label<?php echo $registerClass; ?>" for="password"><?php echo lang('bf_password'); ?></label>
     <div class="controls">
         <input class="<?php echo $controlClass; ?>" type="password" id="password" name="password" value="" />
-        <span class="help-inline"><?php echo form_error('password'); ?></span>
+        <span class="help-block"><?php echo form_error('password'); ?></span>
         <p class="help-block"><?php echo isset($password_hints) ? $password_hints : ''; ?></p>
     </div>
 </div>
@@ -46,7 +46,7 @@ $defaultTimezone = isset($user->timezone) ? $user->timezone : strtoupper(setting
     <label class="control-label<?php echo $registerClass; ?>" for="pass_confirm"><?php echo lang('bf_password_confirm'); ?></label>
     <div class="controls">
         <input class="<?php echo $controlClass; ?>" type="password" id="pass_confirm" name="pass_confirm" value="" />
-        <span class="help-inline"><?php echo form_error('pass_confirm'); ?></span>
+        <span class="help-block"><?php echo form_error('pass_confirm'); ?></span>
     </div>
 </div>
 <?php if ($editSettings) : ?>
@@ -78,7 +78,7 @@ if (! empty($languages) && is_array($languages)) :
             </option>
             <?php endforeach; ?>
         </select>
-        <span class="help-inline"><?php echo form_error('language'); ?></span>
+        <span class="help-block"><?php echo form_error('language'); ?></span>
     </div>
 </div>
 <?php
@@ -96,6 +96,6 @@ endif;
             array('id' => 'timezones')
         );
         ?>
-        <span class="help-inline"><?php echo form_error('timezones'); ?></span>
+        <span class="help-block"><?php echo form_error('timezones'); ?></span>
     </div>
 </div>

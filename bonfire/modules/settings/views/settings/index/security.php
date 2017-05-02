@@ -6,7 +6,7 @@
                 <input type="checkbox" name="allow_register" id="allow_register" value="1" <?php echo set_checkbox('auth.allow_register', 1, isset($settings['auth.allow_register']) && $settings['auth.allow_register'] == 1); ?> />
                 <?php echo lang('bf_allow_register'); ?>
             </label>
-            <span class='help-inline'><?php echo form_error('allow_register'); ?></span>
+            <span class='help-block'><?php echo form_error('allow_register'); ?></span>
         </div>
     </div>
     <div class="form-group<?php echo form_error('user_activation_method') ? $errorClass : ''; ?>">
@@ -17,7 +17,7 @@
                 <option value="1" <?php echo set_select('auth.user_activation_method', 1, isset($settings['auth.user_activation_method']) && $settings['auth.user_activation_method'] == 1); ?>><?php echo lang('bf_activate_email'); ?></option>
                 <option value="2" <?php echo set_select('auth.user_activation_method', 2, isset($settings['auth.user_activation_method']) && $settings['auth.user_activation_method'] == 2); ?>><?php echo lang('bf_activate_admin'); ?></option>
             </select>
-            <span class='help-inline'><?php echo form_error('user_activation_method'); ?></span>
+            <span class='help-block'><?php echo form_error('user_activation_method'); ?></span>
         </div>
     </div>
     <div class="form-group<?php echo form_error('login_type') ? $errorClass : ''; ?>">
@@ -28,7 +28,7 @@
                 <option value="username" <?php echo set_select('auth.login_type', 'username', isset($settings['auth.login_type']) && $settings['auth.login_type'] == 'username'); ?>><?php echo lang('bf_login_type_username'); ?></option>
                 <option value="both" <?php echo set_select('auth.login_type', 'both', isset($settings['auth.login_type']) && $settings['auth.login_type'] == 'both'); ?>><?php echo lang('bf_login_type_both'); ?></option>
             </select>
-            <span class='help-inline'><?php echo form_error('login_type'); ?></span>
+            <span class='help-block'><?php echo form_error('login_type'); ?></span>
         </div>
     </div>
     <div class="form-group">
@@ -76,14 +76,14 @@
                 <option value="1814400" <?php echo set_select('auth.remember_length', '1814400', isset($settings['auth.remember_length']) && $settings['auth.remember_length'] == '1814400'); ?>>3 <?php echo lang('bf_weeks'); ?></option>
                 <option value="2592000" <?php echo set_select('auth.remember_length', '2592000', isset($settings['auth.remember_length']) && $settings['auth.remember_length'] == '2592000'); ?>>30 <?php echo lang('bf_days'); ?></option>
             </select>
-            <span class='help-inline'><?php echo form_error('remember_length'); ?></span>
+            <span class='help-block'><?php echo form_error('remember_length'); ?></span>
         </div>
     </div>
     <div class="form-group<?php echo form_error('password_min_length') ? $errorClass : ''; ?>" id="password-strength">
         <label class="control-label" for="password_min_length"><?php echo lang('bf_password_strength'); ?></label>
         <div class="controls">
             <input type="text" name="password_min_length" id="password_min_length" value="<?php echo set_value('password_min_length', isset($settings['auth.password_min_length']) ? $settings['auth.password_min_length'] : ''); ?>" class="col-md-1" />
-            <span class="help-inline"><?php echo (form_error('password_min_length') ? form_error('password_min_length') . '<br />' : '') . lang('bf_password_length_help'); ?></span>
+            <span class="help-block"><?php echo (form_error('password_min_length') ? form_error('password_min_length') . '<br />' : '') . lang('bf_password_length_help'); ?></span>
         </div>
     </div>
     <div class="form-group">
@@ -117,14 +117,14 @@
                 <option <?php echo set_select('password_iterations', 16, isset($settings['password_iterations']) && $settings['password_iterations'] == 16) ?>>16</option>
                 <option <?php echo set_select('password_iterations', 31, isset($settings['password_iterations']) && $settings['password_iterations'] == 31) ?>>31</option>
             </select>
-            <span class="help-inline"><?php echo (form_error('password_iterations') ? form_error('password_iterations') . '<br />' : '') . lang('bf_password_iterations_note'); ?></span>
+            <span class="help-block"><?php echo (form_error('password_iterations') ? form_error('password_iterations') . '<br />' : '') . lang('bf_password_iterations_note'); ?></span>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label" for="force_pass_reset"><?php echo lang('set_force_reset'); ?></label>
         <div class="controls">
             <a href="<?php echo site_url(SITE_AREA . '/settings/users/force_password_reset_all'); ?>" class="btn btn-danger" onclick="return confirm('<?php echo lang('set_password_reset_confirm'); ?>');"><?php echo lang('set_reset'); ?></a>
-            <span class="help-inline"><?php echo lang('set_reset_note'); ?></span>
+            <span class="help-block"><?php echo lang('set_reset_note'); ?></span>
         </div>
     </div>
 </fieldset>

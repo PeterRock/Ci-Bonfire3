@@ -38,7 +38,7 @@ $.strength("#username", "#password", {
 
 		if ($(password).val() != '') {
 			if (!span.length) {
-				$(password).after('<span class="help-inline" id="strength" style="display: inline-block;"><span class="label label-default"><i class="strength-icon glyphicon-white"></i> <span class="txt"></span></span></span>');
+				$(password).after('<span class="help-block" id="strength" style="display: inline-block;"><span class="label label-default"><i class="strength-icon glyphicon-white"></i> <span class="txt"></span></span></span>');
 			}
 			$('#strength .label')
 				.removeClass('label-danger')
@@ -63,7 +63,7 @@ $('#pass_confirm').blur(function() {
 	{
         var span = $("#match");
         if (!span.length) {
-            $('#pass_confirm').after('<span class="help-inline" id="match" style="display: inline-block;"><span class="label label-default"><i class="match-icon glyphicon-white"></i> <span class="txt"></span></span></span>');
+            $('#pass_confirm').after('<span class="help-block" id="match" style="display: inline-block;"><span class="label label-default"><i class="match-icon glyphicon-white"></i> <span class="txt"></span></span></span>');
         }
         var thisClass ='', txt = '', icon = '';
 		if ($('#pass_confirm').val() != $('#password').val())

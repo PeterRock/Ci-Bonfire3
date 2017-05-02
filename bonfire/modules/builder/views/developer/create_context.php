@@ -14,7 +14,7 @@
                 <label for="context_name" class="control-label"><?php echo lang('mb_context_name'); ?></label>
                 <div class="controls">
                     <input type="text" name="context_name" id="context_name" class="input-large" value="<?php echo settings_item('context_name'); ?>" />
-                    <span class="help-inline"><?php
+                    <span class="help-block"><?php
                         echo form_error('context_name') ? form_error('context_name') . '<br />' : '';
                         echo lang('mb_context_name_help');
                     ?></span>

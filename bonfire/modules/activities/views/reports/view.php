@@ -20,7 +20,7 @@ $hasPermissionDeleteUser   = isset($hasPermissionDeleteUser) ? $hasPermissionDel
                 $filter,
                 lang('activities_filter_head'),
                 '',
-                '<span class="help-inline">' . sprintf(
+                '<span class="help-block">' . sprintf(
                     lang('activities_filter_note'),
                     $vars['view_which'] == ucwords(lang('activities_date')) ? lang('activities_filter_from_before') : lang('activities_filter_only_for'),
                     strtolower($vars['view_which'])
