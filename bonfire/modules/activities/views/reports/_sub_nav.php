@@ -7,7 +7,7 @@ $pageModule = 'activity_module';
 $pageDate   = 'activity_date';
 
 ?>
-<ul class="navbar-nav nav-pills">
+<ul class="nav nav-pills">
 	<li<?php echo $checkSegment == '' ? ' class="active"' : ''; ?>>
         <?php echo anchor($activitiesReportsUrl, lang('activities_home')); ?>
 	</li>

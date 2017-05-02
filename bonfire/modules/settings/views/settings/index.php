@@ -31,7 +31,7 @@ if (validation_errors()) :
 <div class="admin-box">
     <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
         <div class="tabbable">
-            <ul class="navbar-nav nav-tabs">
+            <ul class="nav nav-tabs">
                 <li class="active"><a href="#main-settings" data-toggle="tab"><?php echo lang('set_tab_settings'); ?></a></li>
                 <li><a href="#security" data-toggle="tab"><?php echo lang('set_tab_security'); ?></a></li>
                 <?php if ($showDeveloperTab) : ?>

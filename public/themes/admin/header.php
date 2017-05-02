@@ -50,7 +50,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
         ) :
             ?>
             <!-- Shortcut Menu -->
-            <div class="navbar-nav pull-right" id="shortcuts">
+            <div class="nav pull-right" id="shortcuts">
                 <div class="btn-group">
                     <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#">
                         <i class="fa fa-keyboard-o"></i>
@@ -76,7 +76,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
         <?php endif; ?>
         <div class="navbar-collapse in collapse">
             <!-- User Menu -->
-            <div class="navbar-nav pull-right" id="user-menu">
+            <div class="nav pull-right" id="user-menu">
                 <div class="btn-group">
                     <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn btn-default"
                        title="<?php echo lang('bf_user_settings'); ?>">
