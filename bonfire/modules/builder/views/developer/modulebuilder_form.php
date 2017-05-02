@@ -410,7 +410,7 @@ $validationErrors = validation_errors();
                                 $validationRulesCount = "validation_rules{$count}[]";
                             ?>
                             <span class="faded">
-                                <label class="inline checkbox" for="<?php echo $validationRulesRuleCount; ?>">
+                                <label class="checkbox-inline" for="<?php echo $validationRulesRuleCount; ?>">
                                     <input name="<?php echo $validationRulesCount; ?>" id="<?php echo $validationRulesRuleCount; ?>" type="checkbox" value="<?php echo $validation_rule; ?>" <?php echo set_checkbox($validationRulesCount, $validation_rule); ?> />
                                     <?php echo lang("mb_form_{$validation_rule}"); ?>
                                 </label>
