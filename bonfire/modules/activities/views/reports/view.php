@@ -14,7 +14,7 @@ $hasPermissionDeleteUser   = isset($hasPermissionDeleteUser) ? $hasPermissionDel
                 array(
                     'name'  => "{$vars['which']}_select",
                     'id'    => "{$vars['which']}_select",
-                    'class' => 'span3',
+                    'class' => 'col-md-3',
                 ),
                 $select_options,
                 $filter,

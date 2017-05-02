@@ -27,7 +27,7 @@
             <tbody>
                 <tr>
                     <th>
-                        <select name="new_action" class="span4">
+                        <select name="new_action" class="col-md-4">
                             <?php
                             foreach ($current as $name => $detail) :
                                 if (! array_key_exists($name, $settings)) :

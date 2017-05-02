@@ -34,7 +34,7 @@
                         $defaultState,
                         $defaultCountry,
                         $field['name'],
-                        'span6 chzn-select'
+                        'col-md-6 chzn-select'
                     );
                     break;
                 case 'country_select':
@@ -48,7 +48,7 @@
                         set_value($field['name'], $countryValue),
                         $defaultCountry,
                         $field['name'],
-                        'span6 chzn-select'
+                        'col-md-6 chzn-select'
                     );
                     break;
                 default:

@@ -29,7 +29,7 @@
         endif;
         ++$cnt;
         ?>
-        <a class='span4' href='<?php echo "{$linkUrl}/{$file}"; ?>'><?php e($file); ?></a>
+        <a class='col-md-4' href='<?php echo "{$linkUrl}/{$file}"; ?>'><?php e($file); ?></a>
         <?php
         if ($cnt > $brk) :
         ?>
@@ -59,7 +59,7 @@
             endif;
             $cnt++;
         ?>
-        <a class='span4' href="<?php echo "{$linkUrl}/{$file}"; ?>"><?php e($file); ?></a>
+        <a class='col-md-4' href="<?php echo "{$linkUrl}/{$file}"; ?>"><?php e($file); ?></a>
         <?php if ($cnt > $brk) : ?>
     </div>
     <?php

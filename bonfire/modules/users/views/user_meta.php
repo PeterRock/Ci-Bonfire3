@@ -64,7 +64,7 @@ if (! empty($meta_fields)) :
             $defaultState,
             $defaultCountry,
             $field['name'],
-            'span6 chzn-select'
+            'col-md-6 chzn-select'
         );
         ?>
     </div>
@@ -84,7 +84,7 @@ if (! empty($meta_fields)) :
             set_value($field['name'], isset($user->{$field['name']}) ? $user->{$field['name']} : $defaultCountry),
             $defaultCountry,
             $field['name'],
-            'span6 chzn-select'
+            'col-md-6 chzn-select'
         );
         ?>
     </div>

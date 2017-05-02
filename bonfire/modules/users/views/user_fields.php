@@ -3,7 +3,7 @@
 $currentMethod = $this->router->method;
 
 $errorClass     = empty($errorClass) ? ' error' : $errorClass;
-$controlClass   = empty($controlClass) ? 'span4' : $controlClass;
+$controlClass   = empty($controlClass) ? 'col-md-4' : $controlClass;
 $registerClass  = $currentMethod == 'register' ? ' required' : '';
 $editSettings   = $currentMethod == 'edit';
 

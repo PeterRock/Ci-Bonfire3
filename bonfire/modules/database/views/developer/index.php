@@ -23,7 +23,7 @@
 				<tr>
 					<td colspan="7">
                         <label for='database-action'><?php echo lang('bf_with_selected'); ?>:</label>
-                        <select name="action" id='database-action' class="span2">
+                        <select name="action" id='database-action' class="col-md-2">
                             <option value="backup"><?php echo lang('database_backup'); ?></option>
                             <option value="repair"><?php echo lang('database_repair'); ?></option>
                             <option value="optimize"><?php echo lang('database_optimize'); ?></option>

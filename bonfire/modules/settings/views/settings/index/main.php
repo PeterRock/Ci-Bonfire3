@@ -3,14 +3,14 @@
     <div class="control-group<?php echo form_error('title') ? $errorClass : ''; ?>">
         <label class="control-label" for="title"><?php echo lang('bf_site_name'); ?></label>
         <div class="controls">
-            <input type="text" name="title" id="title" class="span6" value="<?php echo set_value('site.title', isset($settings['site.title']) ? $settings['site.title'] : ''); ?>" />
+            <input type="text" name="title" id="title" class="col-md-6" value="<?php echo set_value('site.title', isset($settings['site.title']) ? $settings['site.title'] : ''); ?>" />
             <span class='help-inline'><?php echo form_error('title'); ?></span>
         </div>
     </div>
     <div class="control-group<?php echo form_error('system_email') ? $errorClass : ''; ?>">
         <label class="control-label" for="system_email"><?php echo lang('bf_site_email'); ?></label>
         <div class="controls">
-            <input type="text" name="system_email" id="system_email" class="span4" value="<?php echo set_value('site.system_email', isset($settings['site.system_email']) ? $settings['site.system_email'] : ''); ?>" />
+            <input type="text" name="system_email" id="system_email" class="col-md-4" value="<?php echo set_value('site.system_email', isset($settings['site.system_email']) ? $settings['site.system_email'] : ''); ?>" />
             <span class="help-inline"><?php echo lang('bf_site_email_help'); ?></span>
         </div>
     </div>
