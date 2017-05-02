@@ -17,9 +17,9 @@ $(document).ready(function(){
 
     $('#status').on('change', function() {
         if (0 == $(this).val()) {
-            $('#offline_reason').parents('.control-group').css('display', 'block');
+            $('#offline_reason').parents('.form-group').css('display', 'block');
         } else {
-            $('#offline_reason').parents('.control-group').css('display', 'none');
+            $('#offline_reason').parents('.form-group').css('display', 'none');
         }
     });
 });

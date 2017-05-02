@@ -378,23 +378,23 @@ tfoot td {
 	line-height: 2.0;
 }
 /* Forms */
-.form-horizontal .control-group {
+.form-horizontal .form-group {
 	border-bottom: 1px solid #e5e5e5;
 	padding-bottom: 18px;
 	padding-top: 18px;
 	margin-bottom: 0;
 }
-.form-horizontal .control-group > label {
+.form-horizontal .form-group > label {
 	font-weight: bold;
 	width: 180px;
 }
-.form-horizontal .control-group .controls {
+.form-horizontal .form-group .controls {
 	margin-left: 200px;
 }
 .form-horizontal .form-actions {
 	padding-left: 200px;
 }
-.form-horizontal fieldset .control-group:last-child {
+.form-horizontal fieldset .form-group:last-child {
 	margin-bottom: 0;
 	border-bottom: 0;
 	padding-bottom: 36px;
@@ -489,12 +489,12 @@ input[type=radio] {
 		float: none;
 		margin-top: 36px;
 	}
-	.form-horizontal .control-group > label {
+	.form-horizontal .form-group > label {
 		display: block;
 		width: inherit;
 		margin-left: 20px;
 	}
-	.form-horizontal .control-group .controls {
+	.form-horizontal .form-group .controls {
 		margin-left: 20px;
 	}
 	.form-horizontal .form-actions {

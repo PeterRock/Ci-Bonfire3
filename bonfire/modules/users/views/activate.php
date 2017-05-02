@@ -26,14 +26,14 @@
 
 	<?php echo form_open($this->uri->uri_string(), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
-	<div class="control-group <?php echo iif( form_error('code') , 'error') ;?>">
+	<div class="form-group <?php echo iif( form_error('code') , 'error') ;?>">
 		<label class="control-label required" for="code"><?php echo lang('us_activate_code'); ?></label>
 		<div class="controls">
 			<input class="col-md-6" type="text" id="code" name="code" value="<?php echo set_value('code') ?>" />
 		</div>
 	</div>
 
-	<div class="control-group">
+	<div class="form-group">
 		<div class="controls">
 			<input class="btn btn-primary" type="submit" name="activate" value="<?php echo lang('us_confirm_activate_code') ?>"  />
 		</div>

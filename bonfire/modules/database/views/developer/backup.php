@@ -23,14 +23,14 @@
             <div class="alert alert-info">
                 <p><?php echo lang('database_backup_warning'); ?></p>
             </div>
-            <div class="control-group<?php echo form_error('file_name') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('file_name') ? ' has-error' : ''; ?>">
                 <label for="file_name" class="control-label"><?php echo lang('database_filename'); ?></label>
                 <div class="controls">
                     <input type="text" name="file_name" id="file_name" value="<?php echo set_value('file_name', empty($file) ? '' : $file); ?>" />
                     <span class="help-inline"><?php echo form_error('file_name'); ?></span>
                 </div>
             </div>
-            <div class="control-group<?php echo form_error('drop_tables') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('drop_tables') ? ' has-error' : ''; ?>">
                 <label for="drop_tables" class="control-label"><?php echo lang('database_drop_question'); ?></label>
                 <div class="controls">
                     <select name="drop_tables" id="drop_tables">
@@ -40,7 +40,7 @@
                     <span class="help-inline"><?php echo form_error('drop_tables'); ?></span>
                 </div>
             </div>
-            <div class="control-group<?php echo form_error('add_inserts') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('add_inserts') ? ' has-error' : ''; ?>">
                 <label for="add_inserts" class="control-label"><?php echo lang('database_insert_question'); ?></label>
                 <div class="controls">
                     <select name="add_inserts" id="add_inserts">
@@ -50,7 +50,7 @@
                     <span class="help-inline"><?php echo form_error('add_inserts'); ?></span>
                 </div>
             </div>
-            <div class="control-group<?php echo form_error('file_type') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('file_type') ? ' has-error' : ''; ?>">
                 <label for="file_type" class="control-label"><?php echo lang('database_compress_question'); ?></label>
                 <div class="controls">
                     <select name="file_type" id="file_type">
@@ -64,10 +64,10 @@
             <div class="alert alert-warning">
                 <?php echo lang('database_restore_note'); ?>
             </div>
-            <div class="small control-group<?php echo form_error('tables') ? ' error' : ''; ?>">
+            <div class="small form-group<?php echo form_error('tables') ? ' has-error' : ''; ?>">
                 <label class='control-label' for='table_names'><?php echo lang('database_backup_tables'); ?></label>
                 <div id='table_names' class='controls'>
-                    <span class='input-block-level uneditable-input'><?php e(implode(', ', $tables)); ?></span>
+                    <span class='form-control uneditable-input'><?php e(implode(', ', $tables)); ?></span>
                 </div>
             </div>
         </fieldset>

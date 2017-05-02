@@ -17,14 +17,14 @@
 
 <?php echo form_open($this->uri->uri_string(), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
-	<div class="control-group <?php echo iif( form_error('email') , 'error'); ?>">
+	<div class="form-group <?php echo iif( form_error('email') , 'error'); ?>">
 		<label class="control-label required" for="email"><?php echo lang('bf_email'); ?></label>
 		<div class="controls">
 			<input class="col-md-6" type="text" name="email" id="email" value="<?php echo set_value('email') ?>" />
 		</div>
 	</div>
 
-	<div class="control-group">
+	<div class="form-group">
 		<div class="controls">
 			<input class="btn btn-primary" type="submit" name="send" value="<?php e(lang('us_send_password')); ?>" />
 		</div>

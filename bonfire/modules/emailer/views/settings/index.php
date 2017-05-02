@@ -2,7 +2,7 @@
     <?php echo form_open(SITE_AREA . '/settings/emailer', 'class="form-horizontal"'); ?>
         <fieldset>
             <legend><?php echo lang('emailer_general_settings'); ?></legend>
-            <div class="control-group<?php echo form_error('sender_email') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('sender_email') ? ' has-error' : ''; ?>">
                 <label class="control-label" for="sender_email"><?php echo lang('emailer_system_email'); ?></label>
                 <div class="controls">
                     <input type="email" name="sender_email" id="sender_email" class="input-xlarge" value="<?php echo set_value('sender_email', $sender_email); ?>" />
@@ -10,7 +10,7 @@
                     <p class="help-block"><?php echo lang('emailer_system_email_note'); ?></p>
                 </div>
             </div>
-            <div class="control-group">
+            <div class="form-group">
                 <label class="control-label" for="mailtype"><?php echo lang('emailer_email_type'); ?></label>
                 <div class="controls">
                     <select name="mailtype" id="mailtype">
@@ -19,7 +19,7 @@
                     </select>
                 </div>
             </div>
-            <div class="control-group<?php echo form_error('protocol') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('protocol') ? ' has-error' : ''; ?>">
                 <label class="control-label" for="server_type"><?php echo lang('emailer_email_server'); ?></label>
                 <div class="controls">
                     <select name="protocol" id="server_type">
@@ -34,12 +34,12 @@
         <fieldset>
             <legend><?php echo lang('emailer_settings'); ?></legend>
             <?php /* PHP Mail */ ?>
-            <div id="mail" class="control-group">
+            <div id="mail" class="form-group">
                 <p class="intro"><?php echo lang('emailer_settings_note'); ?></p>
             </div>
             <?php /* Sendmail */ ?>
             <div id="sendmail" class='subsection'>
-                <div class="control-group<?php echo form_error('mailpath') ? ' error' : ''; ?>">
+                <div class="form-group<?php echo form_error('mailpath') ? ' has-error' : ''; ?>">
                     <label class="control-label" for="mailpath"><?php echo lang('emailer_sendmail_path'); ?></label>
                     <div class="controls">
                         <input type="text" name="mailpath" id="mailpath" class="input-xlarge" value="<?php echo set_value('mailpath', $mailpath) ?>" />
@@ -49,7 +49,7 @@
             </div>
             <?php /* SMTP */ ?>
             <div id="smtp" class='subsection'>
-                <div class="control-group<?php echo form_error('smtp_host') ? ' error' : ''; ?>">
+                <div class="form-group<?php echo form_error('smtp_host') ? ' has-error' : ''; ?>">
                     <label class="control-label" for="smtp_host"><?php echo lang('emailer_smtp_address'); ?></label>
                     <div class="controls">
                         <input type="text" name="smtp_host" id="smtp_host" class="input-xlarge" value="<?php echo set_value('smtp_host', $smtp_host) ?>" />
@@ -57,28 +57,28 @@
                     </div>
                 </div>
 
-                <div class="control-group">
+                <div class="form-group">
                     <label class="control-label" for="smtp_user"><?php echo lang('emailer_smtp_username'); ?></label>
                     <div class="controls">
                         <input type="text" name="smtp_user" id="smtp_user" class="input-xlarge" value="<?php echo set_value('smtp_user', $smtp_user) ?>" />
                     </div>
                 </div>
 
-                <div class="control-group">
+                <div class="form-group">
                     <label class="control-label" for="smtp_pass"><?php echo lang('emailer_smtp_password'); ?></label>
                     <div class="controls">
                         <input type="password" name="smtp_pass" id="smtp_pass" class="input-xlarge" value="<?php echo set_value('smtp_pass', $smtp_pass) ?>" />
                     </div>
                 </div>
 
-                <div class="control-group">
+                <div class="form-group">
                     <label class="control-label" for="smtp_port"><?php echo lang('emailer_smtp_port'); ?></label>
                     <div class="controls">
                         <input type="text" name="smtp_port" id="smtp_port" class="input-xlarge" value="<?php echo set_value('smtp_port', $smtp_port) ?>" />
                     </div>
                 </div>
 
-                <div class="control-group">
+                <div class="form-group">
                     <label class="control-label" for="smtp_timeout"><?php echo lang('emailer_smtp_timeout_secs'); ?></label>
                     <div class="controls">
                         <input type="text" name="smtp_timeout" id="smtp_timeout" class="input-xlarge" value="<?php echo set_value('smtp_timeout', $smtp_timeout) ?>" />
@@ -97,10 +97,10 @@
     <?php echo form_open(SITE_AREA . '/settings/emailer/test', array('class' => 'form-horizontal', 'id'=>'test-form')); ?>
         <fieldset>
             <legend><?php echo lang('emailer_test_settings') ?></legend>
-            <div class='control-group'>
+            <div class='form-group'>
                 <p class="intro"><?php echo lang('emailer_test_intro'); ?></p>
             </div>
-            <div class="control-group">
+            <div class="form-group">
                 <label class="control-label" for="test-email"><?php echo lang('bf_email'); ?></label>
                 <div class="controls">
                     <input type="email" name="email" id="test-email" value="<?php echo set_value('test_email', settings_item('site.system_email')); ?>" />

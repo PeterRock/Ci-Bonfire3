@@ -10,7 +10,7 @@
     <?php endif; ?>
 	<?php echo form_open(current_url(), 'class="form-horizontal"'); ?>
         <fieldset>
-            <div class="control-group<?php echo form_error('context_name') ? ' error' : ''; ?>">
+            <div class="form-group<?php echo form_error('context_name') ? ' has-error' : ''; ?>">
                 <label for="context_name" class="control-label"><?php echo lang('mb_context_name'); ?></label>
                 <div class="controls">
                     <input type="text" name="context_name" id="context_name" class="input-large" value="<?php echo settings_item('context_name'); ?>" />
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <?php if (! empty($roles) && is_array($roles)) : ?>
-            <div class="control-group">
+            <div class="form-group">
                 <label class="control-label" id="roles_label"><?php echo lang('mb_roles_label'); ?></label>
                 <div class="controls" aria-labelledby="roles_label" role="group">
                     <?php foreach ($roles as $role) : ?>
@@ -35,7 +35,7 @@
             <?php endif; ?>
             <?php
             /* TODO: Add this in later.
-            <div class="control-group">
+            <div class="form-group">
                 <div class="controls">
                     <label class="checkbox" for="migrate">
                         <input type="checkbox" name="migrate" id="migrate" value="1" <?php echo set_checkbox('migrate', '1'); ?> /> <?php echo lang('mb_context_migrate'); ?>

@@ -468,7 +468,7 @@ Now we need create the form itself. We're using a file called `post_form` becaus
         <h3>New Post</h3>
         <?php echo form_open(current_url(), 'class="form-horizontal"'); ?>
             <fieldset>
-                <div class="control-group<?php echo form_error('title') ? ' error' : ''; ?>">
+                <div class="form-group<?php echo form_error('title') ? ' has-error' : ''; ?>">
                     <label for="title">Title</label>
                     <div class="controls">
                         <input type="text" name="title" id="title" class="input-xxlarge" value="<?php echo isset($post) ? $post->title : set_value('title'); ?>" />
@@ -476,7 +476,7 @@ Now we need create the form itself. We're using a file called `post_form` becaus
                     </div>
                 </div>
 
-                <div class="control-group<?php echo form_error('slug') ? ' error' : ''; ?>">
+                <div class="form-group<?php echo form_error('slug') ? ' has-error' : ''; ?>">
                     <label for="slug">Slug</label>
                     <div class="controls">
                         <div class="input-prepend">
@@ -488,7 +488,7 @@ Now we need create the form itself. We're using a file called `post_form` becaus
                     </div>
                 </div>
 
-                <div class="control-group<?php echo form_error('body') ? ' error' : ''; ?>">
+                <div class="form-group<?php echo form_error('body') ? ' has-error' : ''; ?>">
                     <label for="body">Content</label>
                     <div class="controls">
                         <span class="help-inline"><?php echo form_error('body'); ?></span>

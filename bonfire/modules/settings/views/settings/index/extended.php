@@ -65,7 +65,7 @@
 
             if (! empty($field_control)) :
     ?>
-    <div class="control-group<?php echo form_error($field['name']) ? $errorClass : ''; ?>">
+    <div class="form-group<?php echo form_error($field['name']) ? $errorClass : ''; ?>">
         <label class="control-label" for="<?php echo $field['name']; ?>"><?php echo $field['label']; ?></label>
         <div class="controls">
             <?php echo $field_control; ?>

@@ -45,7 +45,7 @@ $fieldData = array(
                     <!-- End of User Meta -->
                 </fieldset>
                 <fieldset>
-                    <div class="control-group">
+                    <div class="form-group">
                         <div class="controls">
                             <input class="btn btn-primary" type="submit" name="register" id="submit" value="<?php echo lang('us_register'); ?>" />
                         </div>

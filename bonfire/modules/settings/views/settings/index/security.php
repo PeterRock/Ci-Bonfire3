@@ -1,6 +1,6 @@
 <fieldset>
     <legend><?php echo lang('bf_security'); ?></legend>
-    <div class="control-group<?php echo form_error('allow_register') ? $errorClass : ''; ?>">
+    <div class="form-group<?php echo form_error('allow_register') ? $errorClass : ''; ?>">
         <div class="controls">
             <label class='checkbox' for="allow_register">
                 <input type="checkbox" name="allow_register" id="allow_register" value="1" <?php echo set_checkbox('auth.allow_register', 1, isset($settings['auth.allow_register']) && $settings['auth.allow_register'] == 1); ?> />
@@ -9,7 +9,7 @@
             <span class='help-inline'><?php echo form_error('allow_register'); ?></span>
         </div>
     </div>
-    <div class="control-group<?php echo form_error('user_activation_method') ? $errorClass : ''; ?>">
+    <div class="form-group<?php echo form_error('user_activation_method') ? $errorClass : ''; ?>">
         <label class="control-label" for="user_activation_method"><?php echo lang('bf_activate_method'); ?></label>
         <div class="controls">
             <select name="user_activation_method" id="user_activation_method">
@@ -20,7 +20,7 @@
             <span class='help-inline'><?php echo form_error('user_activation_method'); ?></span>
         </div>
     </div>
-    <div class="control-group<?php echo form_error('login_type') ? $errorClass : ''; ?>">
+    <div class="form-group<?php echo form_error('login_type') ? $errorClass : ''; ?>">
         <label class="control-label" for="login_type"><?php echo lang('bf_login_type') ?></label>
         <div class="controls">
             <select name="login_type" id="login_type">
@@ -31,7 +31,7 @@
             <span class='help-inline'><?php echo form_error('login_type'); ?></span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label" id="use_usernames_label"><?php echo lang('bf_use_usernames'); ?></label>
         <div class="controls" aria-labelledby="use_usernames_label" role="group">
             <label class="radio" for="use_username">
@@ -44,7 +44,7 @@
             </label>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label" id='allow_name_change_label'><?php echo lang('bf_display_name'); ?></label>
         <div class="controls" aria-labelledby='allow_name_change_label' role='group'>
             <label class="checkbox" for="allow_name_change">
@@ -59,7 +59,7 @@
             </div>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <div class="controls">
             <label class="checkbox" for="allow_remember">
                 <input type="checkbox" name="allow_remember" id="allow_remember" value="1" <?php echo set_checkbox('auth.allow_remember', 1, isset($settings['auth.allow_remember']) && $settings['auth.allow_remember'] == 1); ?> />
@@ -67,7 +67,7 @@
             </label>
         </div>
     </div>
-    <div class="control-group<?php echo form_error('remember_length') ? $errorClass : ''; ?>" id="remember-length"<?php echo $settings['auth.allow_remember'] ? '' : ' style="display:none"'; ?>>
+    <div class="form-group<?php echo form_error('remember_length') ? $errorClass : ''; ?>" id="remember-length"<?php echo $settings['auth.allow_remember'] ? '' : ' style="display:none"'; ?>>
         <label class="control-label" for="remember_length"><?php echo lang('bf_remember_time'); ?></label>
         <div class="controls">
             <select name="remember_length" id="remember_length">
@@ -79,14 +79,14 @@
             <span class='help-inline'><?php echo form_error('remember_length'); ?></span>
         </div>
     </div>
-    <div class="control-group<?php echo form_error('password_min_length') ? $errorClass : ''; ?>" id="password-strength">
+    <div class="form-group<?php echo form_error('password_min_length') ? $errorClass : ''; ?>" id="password-strength">
         <label class="control-label" for="password_min_length"><?php echo lang('bf_password_strength'); ?></label>
         <div class="controls">
             <input type="text" name="password_min_length" id="password_min_length" value="<?php echo set_value('password_min_length', isset($settings['auth.password_min_length']) ? $settings['auth.password_min_length'] : ''); ?>" class="col-md-1" />
             <span class="help-inline"><?php echo (form_error('password_min_length') ? form_error('password_min_length') . '<br />' : '') . lang('bf_password_length_help'); ?></span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label" id='password_options_label'><?php echo lang('set_option_password'); ?></label>
         <div class="controls" aria-labelledby='password_options_label' role='group'>
             <label class="checkbox" for="password_force_numbers">
@@ -107,7 +107,7 @@
             </label>
         </div>
     </div>
-    <div class="control-group<?php echo form_error('password_iterations') ? $errorClass : ''; ?>">
+    <div class="form-group<?php echo form_error('password_iterations') ? $errorClass : ''; ?>">
         <label for="password_iterations" class="control-label"><?php echo lang('set_password_iterations'); ?></label>
         <div class="controls">
             <select name="password_iterations" id='password_iterations'>
@@ -120,7 +120,7 @@
             <span class="help-inline"><?php echo (form_error('password_iterations') ? form_error('password_iterations') . '<br />' : '') . lang('bf_password_iterations_note'); ?></span>
         </div>
     </div>
-    <div class="control-group">
+    <div class="form-group">
         <label class="control-label" for="force_pass_reset"><?php echo lang('set_force_reset'); ?></label>
         <div class="controls">
             <a href="<?php echo site_url(SITE_AREA . '/settings/users/force_password_reset_all'); ?>" class="btn btn-danger" onclick="return confirm('<?php echo lang('set_password_reset_confirm'); ?>');"><?php echo lang('set_reset'); ?></a>

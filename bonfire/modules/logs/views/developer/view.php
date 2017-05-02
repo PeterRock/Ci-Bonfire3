@@ -7,7 +7,7 @@
     </div>
     <?php else : ?>
     <span class='form-horizontal'>
-        <div class='control-group'>
+        <div class='form-group'>
             <label for='filter' class='control-label'><?php echo lang('logs_filter_label'); ?></label>
             <div class='controls'>
                 <select id="filter">

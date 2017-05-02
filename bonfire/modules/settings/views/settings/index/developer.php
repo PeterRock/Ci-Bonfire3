@@ -1,6 +1,6 @@
 <fieldset>
     <legend><?php echo lang('set_option_developer'); ?></legend>
-    <div class="control-group">
+    <div class="form-group">
         <div class="controls">
             <label class="checkbox" for="show_profiler">
                 <input type="checkbox" name="show_profiler" id="show_profiler" value="1" <?php echo set_checkbox('auth.use_extended_profile', 1, isset($settings['site.show_profiler']) && $settings['site.show_profiler'] == 1); ?> />
