@@ -15,7 +15,7 @@
     Assets::add_css('bootstrap.css');
     Assets::add_css('bootstrap-theme.css');
     Assets::add_css('highlight/github.css');
-    echo Assets::css();
+    echo Assets::css(null, 'screen', TRUE);
     ?>
 </head>
 <body style="padding-top: 70px;">
