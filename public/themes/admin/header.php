@@ -39,10 +39,10 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
 <div class="navbar navbar-static-top navbar-inverse" id="topbar">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+            <a class="btn navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="glyphicon-bar"></span>
+                <span class="glyphicon-bar"></span>
+                <span class="glyphicon-bar"></span>
             </a>
             <?php
             echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');

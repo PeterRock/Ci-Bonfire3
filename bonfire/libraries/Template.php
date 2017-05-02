@@ -979,7 +979,7 @@ function breadcrumb($my_segments = null, $wrap = false, $echo = true)
         $separator = "<span class='divider'>{$separator}</span>" . PHP_EOL;
 
         $output  = "<ul class='breadcrumb'>" . PHP_EOL;
-        $output .= "<li><a href='{$home_link}'><span class='icon-home'></span></a> {$separator}</li>" . PHP_EOL;
+        $output .= "<li><a href='{$home_link}'><span class='glyphicon glyphicon-home'></span></a> {$separator}</li>" . PHP_EOL;
     } else {
         /** @todo Use a lang() value in place of home. */
         $output  = "<a href='{$home_link}'>home</a> {$separator}";

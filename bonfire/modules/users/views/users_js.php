@@ -38,7 +38,7 @@ $.strength("#username", "#password", {
 
 		if ($(password).val() != '') {
 			if (!span.length) {
-				$(password).after('<span class="help-inline" id="strength" style="display: inline-block;"><span class="label"><i class="strength-icon icon-white"></i> <span class="txt"></span></span></span>');
+				$(password).after('<span class="help-inline" id="strength" style="display: inline-block;"><span class="label"><i class="strength-icon glyphicon-white"></i> <span class="txt"></span></span></span>');
 			}
 			$('#strength .label')
 				.removeClass('label-important')
@@ -48,10 +48,10 @@ $.strength("#username", "#password", {
 
 			$('#strength .label .txt').html(textStrings[strength.status]);
 			$('#strength .label .strength-icon')
-				.removeClass('icon-exclamation-sign')
-				.removeClass('icon-ok-sign')
-				.removeClass('icon-warning-sign')
-				.addClass('icon-'+icons[strength.status]+'-sign');
+				.removeClass('glyphicon-exclamation-sign')
+				.removeClass('glyphicon-ok-sign')
+				.removeClass('glyphicon-warning-sign')
+				.addClass('glyphicon-'+icons[strength.status]+'-sign');
 		}
 	}, "#email");
 
@@ -63,7 +63,7 @@ $('#pass_confirm').blur(function() {
 	{
         var span = $("#match");
         if (!span.length) {
-            $('#pass_confirm').after('<span class="help-inline" id="match" style="display: inline-block;"><span class="label"><i class="match-icon icon-white"></i> <span class="txt"></span></span></span>');
+            $('#pass_confirm').after('<span class="help-inline" id="match" style="display: inline-block;"><span class="label"><i class="match-icon glyphicon-white"></i> <span class="txt"></span></span></span>');
         }
         var thisClass ='', txt = '', icon = '';
 		if ($('#pass_confirm').val() != $('#password').val())
@@ -81,9 +81,9 @@ $('#pass_confirm').blur(function() {
 				.addClass('label-'+thisClass);
 		$("#match .label .txt").html(txt);
 		$("#match .label .match-icon")
-				.removeClass('icon-exclamation-sign')
-				.removeClass('icon-ok-sign')
-				.addClass('icon-'+icon+'-sign');
+				.removeClass('glyphicon-exclamation-sign')
+				.removeClass('glyphicon-ok-sign')
+				.addClass('glyphicon-'+icon+'-sign');
 		$("#match").css('display','inline-block');
 	}
 });

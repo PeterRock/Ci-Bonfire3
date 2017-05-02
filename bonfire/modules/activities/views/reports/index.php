@@ -156,7 +156,7 @@ if ($hasPermissionDeleteOwn
                     </td>
                     <td class='button-column'>
                         <button type="button" class="btn btn-danger" id="delete-activity_own"><span
-                                    class="icon-trash icon-white"></span>&nbsp;<?php echo lang('activities_own_delete'); ?>
+                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_own_delete'); ?>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
@@ -181,7 +181,7 @@ if ($hasPermissionDeleteOwn
                     </td>
                     <td class='button-column'>
                         <button type="button" class="btn btn-danger" id="delete-activity_user"><span
-                                    class="icon-trash icon-white"></span>&nbsp;<?php echo lang('activities_user_delete'); ?>
+                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_user_delete'); ?>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
@@ -208,7 +208,7 @@ if ($hasPermissionDeleteOwn
                     </td>
                     <td class='button-column'>
                         <button type="button" class="btn btn-danger" id="delete-activity_module"><span
-                                    class="icon-trash icon-white"></span>&nbsp;<?php echo lang('activities_module_delete'); ?>
+                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_module_delete'); ?>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
@@ -234,7 +234,7 @@ if ($hasPermissionDeleteOwn
                     </td>
                     <td class='button-column'>
                         <button type="button" class="btn btn-danger" id="delete-activity_date"><span
-                                    class="icon-trash icon-white"></span>&nbsp;<?php echo lang('activities_date_delete'); ?>
+                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_date_delete'); ?>
                         </button>
                     </td>
                     <?php echo form_close(); ?>

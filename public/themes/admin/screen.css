@@ -451,7 +451,7 @@ input[type=radio] {
 		padding-top: 20px;
 		margin-top: -5px;
 	}
-	.navbar .btn-navbar {
+	.navbar .navbar-btn {
 		display: inline;
 	}
 	#shortcuts {

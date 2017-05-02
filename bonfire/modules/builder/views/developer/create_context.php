@@ -50,7 +50,7 @@
             <?php
             echo anchor(
                 site_url(SITE_AREA . '/developer/builder'),
-                '<span class="icon-white icon-ban-circle"></span>&nbsp;' . htmlspecialchars(lang('bf_action_cancel')),
+                '<span class="glyphicon-white glyphicon glyphicon-ban-circle"></span>&nbsp;' . htmlspecialchars(lang('bf_action_cancel')),
                 array('class' => 'btn btn-warning')
             );
             ?>
