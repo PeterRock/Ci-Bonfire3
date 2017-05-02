@@ -82,7 +82,7 @@
     <div class="control-group<?php echo form_error('password_min_length') ? $errorClass : ''; ?>" id="password-strength">
         <label class="control-label" for="password_min_length"><?php echo lang('bf_password_strength'); ?></label>
         <div class="controls">
-            <input type="text" name="password_min_length" id="password_min_length" value="<?php echo set_value('password_min_length', isset($settings['auth.password_min_length']) ? $settings['auth.password_min_length'] : ''); ?>" class="span1" />
+            <input type="text" name="password_min_length" id="password_min_length" value="<?php echo set_value('password_min_length', isset($settings['auth.password_min_length']) ? $settings['auth.password_min_length'] : ''); ?>" class="col-md-1" />
             <span class="help-inline"><?php echo (form_error('password_min_length') ? form_error('password_min_length') . '<br />' : '') . lang('bf_password_length_help'); ?></span>
         </div>
     </div>

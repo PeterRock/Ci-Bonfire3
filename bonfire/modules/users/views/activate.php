@@ -3,7 +3,7 @@
 </div>
 
 <?php if (validation_errors()) { ?>
-<div class="row-fluid">
+<div class="row">
 	<div class="span8 offset2">
 		<div class="alert alert-error fade in">
 		  <a data-dismiss="alert" class="close">&times;</a>
@@ -12,7 +12,7 @@
 	</div>
 </div>
 <?php } else { ?>
-<div class="row-fluid">
+<div class="row">
 	<div class="span8 offset2">
 		<div class="well shallow-well">
 			<?php echo lang('us_user_activate_note'); ?>
@@ -21,7 +21,7 @@
 </div>
 <?php } ?>
 
-<div class="row-fluid">
+<div class="row">
 	<div class="span8 offset2">
 
 	<?php echo form_open($this->uri->uri_string(), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>

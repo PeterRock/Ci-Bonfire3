@@ -12,7 +12,7 @@
 		<?php echo lang('us_activate_resend_note'); ?>
 	</div>
 <?php } ?>
-<div class="row-fluid">
+<div class="row">
 	<div class="span8 offset2">
 
 <?php echo form_open($this->uri->uri_string(), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>

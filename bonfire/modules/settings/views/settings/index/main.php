@@ -34,7 +34,7 @@
     <div class="control-group<?php echo form_error('list_limit') ? $errorClass : ''; ?>">
         <label class="control-label" for="list_limit"><?php echo lang('bf_top_number'); ?></label>
         <div class="controls">
-            <input type="text" name="list_limit" id="list_limit" value="<?php echo set_value('list_limit', isset($settings['site.list_limit']) ? $settings['site.list_limit'] : ''); ?>" class="span1" />
+            <input type="text" name="list_limit" id="list_limit" value="<?php echo set_value('list_limit', isset($settings['site.list_limit']) ? $settings['site.list_limit'] : ''); ?>" class="col-md-1" />
             <span class="help-inline"><?php echo (form_error('list_limit') ? form_error('list_limit') . '<br />' : '') . lang('bf_top_number_help'); ?></span>
         </div>
     </div>

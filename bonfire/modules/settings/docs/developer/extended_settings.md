@@ -58,7 +58,7 @@ Each field is defined in its own array within the <tt>extended_settings_fields</
                     'name'		=> 'state',
                     'id'		=> 'state',
                     'maxlength'	=> '2',
-                    'class'		=> 'span1'
+                    'class'		=> 'col-md-1'
                 ),
             ),
             'permission' => 'Site.Content.View',

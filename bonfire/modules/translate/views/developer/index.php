@@ -24,7 +24,7 @@
     foreach ($lang_files as $file) :
         if ($cnt == 1) :
     ?>
-    <div class="row-fluid">
+    <div class="row">
         <?php
         endif;
         ++$cnt;
@@ -54,7 +54,7 @@
         foreach ($modules as $file) :
             if ($cnt == 1) :
     ?>
-    <div class="row-fluid">
+    <div class="row">
         <?php
             endif;
             $cnt++;
