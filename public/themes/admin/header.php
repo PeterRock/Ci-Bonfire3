@@ -39,7 +39,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
 <div class="navbar navbar-static-top navbar-inverse" id="topbar">
     <div class="navbar-inner">
         <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -75,7 +75,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                     </div>
                 </div>
             <?php endif; ?>
-            <div class="nav-collapse in collapse">
+            <div class="navbar-collapse in collapse">
                 <!-- User Menu -->
                 <div class="navbar-nav pull-right" id="user-menu">
                     <div class="btn-group">
@@ -110,7 +110,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                     </div>
                 </div>
                 <?php echo Contexts::render_menu('text', 'normal'); ?>
-            </div><!-- /.nav-collapse -->
+            </div><!-- /.navbar-collapse -->
         </div><!-- /container -->
         <div class="clearfix"></div>
     </div><!-- /.navbar-inner -->
