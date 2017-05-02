@@ -77,7 +77,7 @@ $lang['database_restore_attention']         = '<p>Restoring a database from a ba
 $lang['database_restore_file']              = "Restore database from file: <span class='filename'>%s</span>?";
 $lang['database_restore_note']              = 'The Restore option is only capable of reading un-compressed files. Gzip and Zip compression is good if you just want a backup to download and store on your computer.';
 $lang['database_restore_out_successful']    = '<strong class="text-success">Successful Query</strong>: <span class="small">%s</span>';
-$lang['database_restore_out_unsuccessful']  = '<strong class="text-error">Unsuccessful Query</strong>: <span class="small">%s</span>';
+$lang['database_restore_out_unsuccessful']  = '<strong class="text-danger">Unsuccessful Query</strong>: <span class="small">%s</span>';
 $lang['database_restore_read_error']        = 'Could not read the file: %s.';
 $lang['database_restore_results']           = 'Restore Results';
 
