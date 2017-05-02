@@ -77,7 +77,7 @@ if (validation_errors()) :
                 <?php endif; ?>
             </div>
         </div>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('bf_action_save') . ' ' . lang('bf_context_settings'); ?>" />
         </fieldset>
     <?php echo form_close(); ?>

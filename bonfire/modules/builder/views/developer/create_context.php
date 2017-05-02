@@ -45,7 +45,7 @@
             */
             ?>
         </fieldset>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="build" class="btn btn-primary" value="<?php echo lang('mb_context_submit'); ?>" />
             <?php
             echo anchor(

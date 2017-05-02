@@ -86,7 +86,7 @@
                 </div>
             </div>
         </fieldset>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="save" class="btn btn-primary" value="<?php e(lang('emailer_save_settings')); ?>" />
         </fieldset>
     <?php echo form_close(); ?>

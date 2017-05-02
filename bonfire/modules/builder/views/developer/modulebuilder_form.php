@@ -439,7 +439,7 @@ $validationErrors = validation_errors();
                 </fieldset>
                 <?php endfor; ?>
             </div><!-- /#all_fields -->
-            <fieldset class="form-actions">
+            <fieldset class="form-group">
                 <?php
                 if ($writable):
                     echo form_submit('build', lang('mb_form_build'), 'class="btn btn-primary"');

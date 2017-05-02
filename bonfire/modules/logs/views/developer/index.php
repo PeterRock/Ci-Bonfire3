@@ -67,7 +67,7 @@ if (empty($logs) || ! is_array($logs)) :
             <a class="close" data-dismiss="alert">&times;</a>
             <?php echo lang('logs_delete_note'); ?>
         </div>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <button type="submit" name="delete_all" class="btn btn-danger" onclick="return confirm('<?php e(js_escape(lang('logs_delete_all_confirm'))); ?>')">
                 <span class="glyphicon-white glyphicon glyphicon-trash"></span>&nbsp;<?php echo lang('logs_delete_button'); ?>
             </button>

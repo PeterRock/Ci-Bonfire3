@@ -28,7 +28,7 @@ $hasPermissionDeleteUser   = isset($hasPermissionDeleteUser) ? $hasPermissionDel
             );
             ?>
         </fieldset>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <?php
             echo form_submit('filter', lang('activities_filter'), 'class="btn btn-primary"');
             if ($vars['which'] == 'activity_own' && $hasPermissionDeleteOwn) :

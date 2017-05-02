@@ -25,7 +25,7 @@
             <a class="close" data-dismiss="alert">&times;</a>
             <?php echo lang('logs_big_file_note'); ?>
         </div>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('logs_save_button'); ?>" />
         </fieldset>
     <?php echo form_close(); ?>

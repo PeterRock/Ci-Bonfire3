@@ -19,7 +19,7 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td colspan='3' class='form-actions'>
+                    <td colspan='3' class='form-group'>
                         <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('ui_update_shortcuts'); ?>" />
                     </td>
                 </tr>

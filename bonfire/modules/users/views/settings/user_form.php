@@ -140,7 +140,7 @@ echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal', 'au
         <?php endif; ?>
     </fieldset>
     <?php endif; ?>
-    <fieldset class="form-actions">
+    <fieldset class="form-group">
         <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('bf_action_save') . ' ' . lang('bf_user'); ?>" />
         <?php echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/users', lang('bf_action_cancel')); ?>
     </fieldset>

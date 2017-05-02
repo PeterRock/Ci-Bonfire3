@@ -6,7 +6,7 @@
 	</div>
 	<?php echo form_open($this->uri->uri_string()); ?>
         <input type="hidden" name="filename" value="<?php echo $filename; ?>" />
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="restore" class="btn btn-primary" value="<?php echo lang('database_restore'); ?>" />
             <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/database/backups', lang('bf_action_cancel')); ?>
         </fieldset>

@@ -71,7 +71,7 @@
                 </div>
             </div>
         </fieldset>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <button type="submit" name="backup" class="btn btn-primary"><?php echo lang('database_backup'); ?></button>
             <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/database', lang('bf_action_cancel')); ?>
         </fieldset>

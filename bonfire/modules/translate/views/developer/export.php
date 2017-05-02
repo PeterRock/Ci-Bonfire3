@@ -27,7 +27,7 @@
                 </div>
             </div>
         </fieldset>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="export" class="btn btn-primary" value="<?php e(lang('translate_export_short')); ?>" />
         </fieldset>
     <?php echo form_close(); ?>

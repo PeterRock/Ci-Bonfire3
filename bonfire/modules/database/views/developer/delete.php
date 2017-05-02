@@ -15,7 +15,7 @@ echo form_open($this->uri->uri_string());
 		<?php endforeach; ?>
 		</ul>
 	<?php endif; ?>
-    <fieldset class="form-actions">
+    <fieldset class="form-group">
 		<input type="submit" name="delete" class="btn btn-danger" value="<?php echo lang('bf_action_delete'); ?> <?php echo lang('bf_files'); ?>" />
 		<?php echo ' ' . lang('bf_or') . ' '; ?>
         <a href="<?php echo site_url(SITE_AREA . '/developer/database/backups'); ?>"><?php echo lang('bf_action_cancel'); ?></a>

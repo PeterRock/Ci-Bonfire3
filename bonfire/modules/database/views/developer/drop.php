@@ -19,7 +19,7 @@
         <div class="alert alert-warning">
             <?php echo lang('database_drop_attention'); ?>
         </div>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <button type="submit" name="drop" class="btn btn-danger"><?php e(lang('database_drop_button')); ?></button>
             <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/database', lang('bf_action_cancel')); ?>
         </fieldset>

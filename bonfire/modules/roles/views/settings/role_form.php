@@ -88,7 +88,7 @@ if (validation_errors()) :
             <?php echo Modules::run('roles/settings/matrix'); ?>
         </fieldset>
         <?php endif; ?>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('role_save_role'); ?>" />
             <?php
             echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/roles', lang('bf_action_cancel'));

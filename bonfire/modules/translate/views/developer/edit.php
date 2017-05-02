@@ -53,7 +53,7 @@
                 </tbody>
             </table>
         </fieldset>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="submit" name="save" class="btn btn-primary" value="<?php e(lang('bf_action_save')); ?>" /> <?php e(lang('bf_or')); ?>
             <a href="<?php
                 echo site_url(SITE_AREA . '/developer/translate/index') . '/';

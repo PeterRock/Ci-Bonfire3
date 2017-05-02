@@ -25,7 +25,7 @@
 						<?php endforeach; ?>
                     </select>
     			</fieldset>
-				<fieldset class="form-actions">
+				<fieldset class="form-group">
 					<input type="submit" name="migrate" value="<?php echo lang('migrations_migrate_button'); ?>" />
                     <?php
                         echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/migrations', lang('bf_action_cancel'));
@@ -116,7 +116,7 @@
 						</div>
 					</div>
                 </fieldset>
-                <fieldset class='form-actions'>
+                <fieldset class='form-group'>
                     <input type="submit" name="migrate" class="btn btn-primary" value="<?php echo lang('migrations_migrate_button'); ?>" />
                     <?php
                         echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/migrations', lang('bf_action_cancel'));

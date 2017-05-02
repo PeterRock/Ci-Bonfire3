@@ -51,7 +51,7 @@
             <a class="close" data-dismiss="alert">&times;</a>
             <?php echo lang('logs_delete1_note'); ?>
         </div>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <input type="hidden" name="checked[]" value="<?php e($log_file); ?>" />
             <button type="submit" name="delete" class="btn btn-danger" onclick="return confirm('<?php e(js_escape(lang('logs_delete_confirm'))) ?>')"><span class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('logs_delete1_button'); ?></button>
         </fieldset>

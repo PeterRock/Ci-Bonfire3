@@ -81,7 +81,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <fieldset class="form-actions">
+        <fieldset class="form-group">
             <?php echo lang('bf_with_selected') . '&nbsp;'; ?>
             <input type="submit" name="create" class="btn btn-primary" value="<?php echo lang('emailer_create_email'); ?>" />
             <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/emailer/queue', lang('bf_action_cancel'), 'class="btn btn-warning"'); ?>

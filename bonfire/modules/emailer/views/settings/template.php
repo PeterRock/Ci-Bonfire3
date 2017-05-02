@@ -22,7 +22,7 @@
 				</div>
 			</div>
 		</fieldset>
-		<fieldset class="form-actions">
+		<fieldset class="form-group">
 			<input type="submit" name="save" id="submit" class="btn btn-primary" value="<?php e(lang('emailer_save_template')); ?>" />
             <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/emailer', lang('bf_action_cancel')); ?>
 		</fieldset>
