@@ -11,7 +11,7 @@ if ($showExtendedSettings) {
 
 if (validation_errors()) :
 ?>
-<div class="alert alert-block alert-error fade in">
+<div class="alert alert-block alert-danger fade in">
     <a class="close" data-dismiss="alert">&times;</a>
     <?php echo validation_errors(); ?>
 </div>

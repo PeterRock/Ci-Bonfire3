@@ -34,7 +34,7 @@
 
             $class = 'log-entry';
             if (strpos($row, 'ERROR') !== false) {
-                $class .= ' alert-error';
+                $class .= ' alert-danger';
             } elseif (strpos($row, 'DEBUG') !== false) {
                 $class .= ' alert-warning';
             }

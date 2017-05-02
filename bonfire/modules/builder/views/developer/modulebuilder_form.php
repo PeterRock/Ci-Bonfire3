@@ -18,7 +18,7 @@ $validationErrors = validation_errors();
     //--------------------------------------------------------------------------
     if (! $writable) :
     ?>
-    <div class="alert alert-error fade in">
+    <div class="alert alert-danger fade in">
         <a class="close" data-dismiss="alert">&times;</a>
         <p><?php echo lang('mb_not_writable_note'); ?></p>
     </div>
@@ -27,7 +27,7 @@ $validationErrors = validation_errors();
 
     if ($validationErrors) :
     ?>
-    <div class="alert alert-error fade in">
+    <div class="alert alert-danger fade in">
         <a data-dismiss="alert" class="close">&times;</a>
         <h4 class="alert-heading"><?php echo lang('mb_form_errors'); ?></h4>
         <?php echo $validationErrors; ?>
@@ -37,7 +37,7 @@ $validationErrors = validation_errors();
 
     if ($sessionError):
     ?>
-    <div class="alert alert-error fade in">
+    <div class="alert alert-danger fade in">
         <a data-dismiss="alert" class="close">&times;</a>
         <?php echo $sessionError; ?>
     </div>
@@ -46,7 +46,7 @@ $validationErrors = validation_errors();
 
     if (isset($error_message)) :
     ?>
-    <div class="alert alert-error fade in">
+    <div class="alert alert-danger fade in">
         <a data-dismiss="alert" class="close">&times;</a>
         <?php echo $error_message; ?>
     </div>

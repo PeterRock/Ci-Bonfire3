@@ -19,14 +19,14 @@ if (empty($error)) :
 </div>
 <?php
 else : ?>
-<div class="alert alert-error">
+<div class="alert alert-danger">
 	<button type='button' class='close' data-dismiss='alert'>&times;</button>
 	<p><?php echo $error; ?></p>
 </div>
 <?php
 endif;
 ?>
-<div class="alert">
+<div class="alert alert-warning">
 	<button type='button' class='close' data-dismiss='alert'>&times;</button>
 	<?php printf(lang($mb_migration_result), anchor(SITE_AREA .'/developer/migrations#mod-tab', 'Migrations')) ;?>
 </div>

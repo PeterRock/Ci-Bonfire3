@@ -1,5 +1,5 @@
 <?php if (empty($content)) : ?>
-<div class="alert">
+<div class="alert alert-warning">
     <span class="glyphicon glyphicon-book"></span>
     <?php echo lang('docs_not_found'); ?>
 </div>

@@ -52,7 +52,7 @@ $hasPermissionDeleteUser   = isset($hasPermissionDeleteUser) ? $hasPermissionDel
     );
     ?></h2>
 <?php if (empty($activity_content)) : ?>
-<div class="alert alert-error fade in">
+<div class="alert alert-danger fade in">
     <a class="close" data-dismiss="alert">&times;</a>
     <h4 class="alert-heading"><?php echo lang('activities_not_found'); ?></h4>
 </div>

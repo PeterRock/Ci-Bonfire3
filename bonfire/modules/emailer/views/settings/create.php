@@ -5,7 +5,7 @@
 .status_column { width: 10em; }
 </style>
 <?php if (validation_errors()) : ?>
-<div class="alert alert-block alert-error fade in">
+<div class="alert alert-block alert-danger fade in">
     <a class="close" data-dismiss="alert">&times;</a>
     <h4 class="alert-heading"><?php echo lang('emailer_validation_errors_heading'); ?></h4>
     <?php echo validation_errors(); ?>

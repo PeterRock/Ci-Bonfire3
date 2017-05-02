@@ -1,7 +1,7 @@
 <div class='admin-box drop-table'>
     <h3><?php echo lang('database_drop_title'); ?></h3>
     <?php if (empty($tables) || ! is_array($tables)) : ?>
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <?php echo lang('database_drop_none'); ?>
     </div>
     <?php

@@ -1,6 +1,6 @@
 <div class="admin-box backup">
     <?php if (validation_errors()) : ?>
-    <div class="alert alert-block alert-error fade in">
+    <div class="alert alert-block alert-danger fade in">
         <a class="close" data-dismiss="alert">&times;</a>
         <h4 class='alert-heading'><?php echo lang('database_validation_errors_heading'); ?></h4>
         <p><?php echo validation_errors(); ?></p>
@@ -9,7 +9,7 @@
     endif;
     if (empty($tables) || ! is_array($tables)) :
     ?>
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <p><?php echo lang('database_backup_no_tables'); ?></p>
     </div>
     <?php

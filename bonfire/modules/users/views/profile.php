@@ -32,14 +32,14 @@ if (empty($renderPayload) && isset($this->auth)) {
 <section id="profile">
     <h1 class="page-header"><?php echo lang('us_edit_profile'); ?></h1>
     <?php if (validation_errors()) : ?>
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <?php echo validation_errors(); ?>
     </div>
     <?php
     endif;
     if (isset($user) && $user->role_name == 'Banned') :
     ?>
-    <div data-dismiss="alert" class="alert alert-error">
+    <div data-dismiss="alert" class="alert alert-danger">
         <?php echo lang('us_banned_admin_note'); ?>
     </div>
     <?php endif; ?>

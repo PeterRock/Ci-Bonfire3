@@ -2,7 +2,7 @@
 
 if (validation_errors()) :
 ?>
-<div class="alert alert-error fade in">
+<div class="alert alert-danger fade in">
     <a class="close" data-dismiss="alert">&times;</a>
     <?php echo validation_errors(); ?>
 </div>

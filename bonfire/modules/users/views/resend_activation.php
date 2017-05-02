@@ -3,7 +3,7 @@
 </div>
 
 <?php if (validation_errors()) { ?>
-	<div class="alert alert-error fade in">
+	<div class="alert alert-danger fade in">
 		<?php echo validation_errors(); ?>
 	</div>
 <?php } else { ?>

@@ -2,7 +2,7 @@
 <p class='intro'><?php echo lang('mb_context_create_intro_note'); ?></p>
 <div class="admin-box">
     <?php if (validation_errors()) : ?>
-	<div class="alert alert-error">
+	<div class="alert alert-danger">
         <a data-dismiss="alert" class="close">&times;</a>
         <h4 class="alert-heading"><?php echo lang('mb_form_errors'); ?></h4>
 		<?php echo validation_errors(); ?>

@@ -13,7 +13,7 @@
 	?>
 	<div class="row">
 		<div class="col-md-12">
-			<div class="alert alert-error fade in">
+			<div class="alert alert-danger fade in">
 			  <a data-dismiss="alert" class="close">&times;</a>
 				<?php echo validation_errors(); ?>
 			</div>
@@ -48,7 +48,7 @@
 
 		<div class="control-group">
 			<div class="controls">
-				<input class="btn btn-primary btn-lg" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />
+				<input class="btn btn-primary" type="submit" name="log-me-in" id="submit" value="<?php e(lang('us_let_me_in')); ?>" tabindex="5" />
 			</div>
 		</div>
 	<?php echo form_close(); ?>
