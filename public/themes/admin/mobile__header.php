@@ -45,7 +45,7 @@ Assets::add_js('mobile');
 	<div class="topbar" id="topbar" data-dropdown="dropdown">
 		<div class="topbar-inner">
 			<div class="container">
-				<div class="nav secondary-nav">
+				<div class="navbar-nav secondary-nav">
 					<a href="<?php echo site_url('logout'); ?>" style="float: right">Logout</a>
 					<h1><?php e(settings_item('site.title')); ?></h1>
 					<div class="clearfix"></div>

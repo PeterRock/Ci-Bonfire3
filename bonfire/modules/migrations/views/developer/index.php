@@ -1,6 +1,6 @@
 <p class="intro"><?php echo lang('migrations_intro'); ?></p>
 <div class="admin-box">
-	<ul class="nav nav-tabs">
+	<ul class="navbar-nav nav-tabs">
 		<li class="active"><a href="#app-tab" data-toggle="tab"><?php echo lang('migrations_tab_app'); ?></a></li>
 		<li><a href="#mod-tab" data-toggle="tab"><?php echo lang('migrations_tab_mod'); ?></a></li>
 		<li><a href="#core-tab" data-toggle="tab"><?php echo lang('migrations_tab_core'); ?></a></li>

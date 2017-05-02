@@ -45,13 +45,13 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                 <span class="icon-bar"></span>
             </a>
             <?php
-            echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="brand"');
+            echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');
             if (isset($shortcut_data) && is_array($shortcut_data['shortcuts'])
                 && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])
             ) :
                 ?>
                 <!-- Shortcut Menu -->
-                <div class="nav pull-right" id="shortcuts">
+                <div class="navbar-nav pull-right" id="shortcuts">
                     <div class="btn-group">
                         <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#">
                             <i class="fa fa-keyboard-o"></i>
@@ -77,7 +77,7 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
             <?php endif; ?>
             <div class="nav-collapse in collapse">
                 <!-- User Menu -->
-                <div class="nav pull-right" id="user-menu">
+                <div class="navbar-nav pull-right" id="user-menu">
                     <div class="btn-group">
                         <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn"
                            title="<?php echo lang('bf_user_settings'); ?>">
