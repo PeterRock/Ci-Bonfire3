@@ -13,7 +13,7 @@
 	</div>
 <?php } ?>
 <div class="row">
-	<div class="col-md-8 offset2">
+	<div class="col-md-8 col-md-offset-2">
 
 <?php echo form_open($this->uri->uri_string(), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
