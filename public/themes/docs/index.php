@@ -13,7 +13,7 @@
     Assets::add_js($highlightScript, 'inline');
 
     Assets::add_css('bootstrap.css');
-    Assets::add_css('bootstrap-theme.css');
+    Assets::add_css('docs.css');
     Assets::add_css('highlight/github.css');
     echo Assets::css(null, 'screen', TRUE);
     ?>
@@ -35,7 +35,7 @@
 
 
             <div class="collapse navbar-collapse" id="main-nav-collapse">
-                <ul class="navbar-nav navbar-left">
+                <ul class="nav navbar-left">
                     <?php if (config_item('docs.show_app_docs')) :?>
                     <li <?php echo check_segment(2, 'application') ?>>
                         <a href="<?php echo site_url('docs/application'); ?>"><?php echo lang('docs_title_application') ?></a>
