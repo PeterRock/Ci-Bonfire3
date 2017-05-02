@@ -326,7 +326,7 @@ Edit the index.php view file to reflect the following:
                     <tr>
                         <td colspan="<?php echo $numColumns; ?>">
                             <?php echo lang('bf_with_selected') . ' '; ?>
-                            <input type="submit" name="delete" class="btn" value="<?php echo lang('bf_action_delete'); ?>" onclick="return confirm('Are you sure you want to delete these posts?')" />
+                            <input type="submit" name="delete" class="btn btn-default" value="<?php echo lang('bf_action_delete'); ?>" onclick="return confirm('Are you sure you want to delete these posts?')" />
                         </td>
                     </tr>
                 </tfoot>

@@ -42,7 +42,7 @@
                         </select>
                     </th>
                     <td><input type="text" name="new_shortcut" class="medium" value="<?php echo set_value('new_shortcut'); ?>" /></td>
-                    <td><input type="submit" name="add_shortcut" class="btn" value="<?php echo lang('ui_add_shortcut'); ?>" /></td>
+                    <td><input type="submit" name="add_shortcut" class="btn btn-default" value="<?php echo lang('ui_add_shortcut'); ?>" /></td>
                 </tr>
                 <?php foreach ($settings as $action => $shortcut) : ?>
                 <tr>

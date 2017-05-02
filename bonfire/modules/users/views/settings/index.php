@@ -9,7 +9,7 @@
 		<?php
         // If there's a current filter, add a clear button.
         if ($filter_type == 'first_letter') {
-			echo anchor($index_url, lang('bf_clear'), array('class' => 'btn btn-small btn-primary'));
+			echo anchor($index_url, lang('bf_clear'), array('class' => 'btn btn-sm btn-primary'));
         }
 			e(lang('us_filter_first_letter'));
 
@@ -74,12 +74,12 @@ else :
 
 					if ($filter_type == 'deleted') :
 					?>
-					<input type="submit" name="restore" class="btn" value="<?php echo lang('bf_action_restore'); ?>" />
+					<input type="submit" name="restore" class="btn btn-default" value="<?php echo lang('bf_action_restore'); ?>" />
 					<input type="submit" name="purge" class="btn btn-danger" value="<?php echo lang('bf_action_purge'); ?>" onclick="return confirm('<?php e(js_escape(lang('us_purge_del_confirm'))); ?>')" />
 					<?php else : ?>
-					<input type="submit" name="activate" class="btn" value="<?php echo lang('bf_action_activate'); ?>" />
-					<input type="submit" name="deactivate" class="btn" value="<?php echo lang('bf_action_deactivate'); ?>" />
-					<input type="submit" name="ban" class="btn" value="<?php echo lang('bf_action_ban'); ?>" />
+					<input type="submit" name="activate" class="btn btn-default" value="<?php echo lang('bf_action_activate'); ?>" />
+					<input type="submit" name="deactivate" class="btn btn-default" value="<?php echo lang('bf_action_deactivate'); ?>" />
+					<input type="submit" name="ban" class="btn btn-default" value="<?php echo lang('bf_action_ban'); ?>" />
 					<input type="submit" name="delete" class="btn btn-danger" id="delete-me" value="<?php echo lang('bf_action_delete'); ?>" onclick="return confirm('<?php e(js_escape(lang('us_delete_account_confirm'))); ?>')" />
 					<?php endif;?>
 				</td>

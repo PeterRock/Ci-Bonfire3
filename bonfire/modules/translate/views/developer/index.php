@@ -11,7 +11,7 @@
             <label for='new_lang'><?php e(lang('translate_new_lang')); ?></label>
             <input type="text" name="new_lang" id="new_lang" value="<?php echo set_value('new_lang'); ?>" />
         </div>
-        <input type="submit" name="select_lang" class="btn btn-small btn-primary" value="<?php e(lang('translate_select')); ?>" />
+        <input type="submit" name="select_lang" class="btn btn-sm btn-primary" value="<?php e(lang('translate_select')); ?>" />
     <?php echo form_close(); ?>
 </div>
 <!-- Core -->
