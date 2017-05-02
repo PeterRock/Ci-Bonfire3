@@ -37,83 +37,81 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
     <p>Javascript is required to use Bonfire's admin.</p>
 </noscript>
 <div class="navbar navbar-static-top navbar-inverse" id="topbar">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="btn navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="glyphicon-bar"></span>
-                <span class="glyphicon-bar"></span>
-                <span class="glyphicon-bar"></span>
-            </a>
-            <?php
-            echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');
-            if (isset($shortcut_data) && is_array($shortcut_data['shortcuts'])
-                && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])
-            ) :
-                ?>
-                <!-- Shortcut Menu -->
-                <div class="navbar-nav pull-right" id="shortcuts">
-                    <div class="btn-group">
-                        <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#">
-                            <i class="fa fa-keyboard-o"></i>
-                        </a>
-                        <ul class="dropdown-menu pull-right toolbar-keys">
-                            <li>
-                                <div class="inner keys">
-                                    <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
-                                    <ul>
-                                        <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
-                                            <li><span><?php e($data); ?></span>
-                                                : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?></li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                    <?php if (has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage')): ?>
-                                        <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
-                                    <?php endif; ?>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+    <div class="container-fluid">
+        <a class="btn navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="glyphicon-bar"></span>
+            <span class="glyphicon-bar"></span>
+            <span class="glyphicon-bar"></span>
+        </a>
+        <?php
+        echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');
+        if (isset($shortcut_data) && is_array($shortcut_data['shortcuts'])
+            && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])
+        ) :
+            ?>
+            <!-- Shortcut Menu -->
+            <div class="navbar-nav pull-right" id="shortcuts">
+                <div class="btn-group">
+                    <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#">
+                        <i class="fa fa-keyboard-o"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right toolbar-keys">
+                        <li>
+                            <div class="inner keys">
+                                <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
+                                <ul>
+                                    <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
+                                        <li><span><?php e($data); ?></span>
+                                            : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                                <?php if (has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage')): ?>
+                                    <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-            <?php endif; ?>
-            <div class="navbar-collapse in collapse">
-                <!-- User Menu -->
-                <div class="navbar-nav pull-right" id="user-menu">
-                    <div class="btn-group">
-                        <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn btn-default"
-                           title="<?php echo lang('bf_user_settings'); ?>">
-                            <?php
-                            $userDisplayName = isset($current_user->display_name) && !empty($current_user->display_name) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email);
-                            echo $userDisplayName;
-                            ?>
-                        </a>
-                        <button class="btn dropdown-toggle" data-toggle="dropdown">
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu pull-right toolbar-profile">
-                            <li>
-                                <div class="inner">
-                                    <div class="toolbar-profile-img">
-                                        <?php echo gravatar_link($current_user->email, 96, null, $userDisplayName); ?>
-                                    </div>
+            </div>
+        <?php endif; ?>
+        <div class="navbar-collapse in collapse">
+            <!-- User Menu -->
+            <div class="navbar-nav pull-right" id="user-menu">
+                <div class="btn-group">
+                    <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn btn-default"
+                       title="<?php echo lang('bf_user_settings'); ?>">
+                        <?php
+                        $userDisplayName = isset($current_user->display_name) && !empty($current_user->display_name) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email);
+                        echo $userDisplayName;
+                        ?>
+                    </a>
+                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right toolbar-profile">
+                        <li>
+                            <div class="inner">
+                                <div class="toolbar-profile-img">
+                                    <?php echo gravatar_link($current_user->email, 96, null, $userDisplayName); ?>
+                                </div>
 
-                                    <div class="toolbar-profile-info">
-                                        <p><strong><?php echo $userDisplayName; ?></strong><br/>
-                                            <?php e($current_user->email); ?>
-                                            <br/>
-                                        </p>
-                                        <a href="<?php echo site_url(SITE_AREA . '/settings/users/edit'); ?>"><?php echo lang('bf_user_settings'); ?></a>
-                                        <a href="<?php echo site_url('logout'); ?>"><?php echo lang('bf_action_logout'); ?></a>
-                                    </div>
+                                <div class="toolbar-profile-info">
+                                    <p><strong><?php echo $userDisplayName; ?></strong><br/>
+                                        <?php e($current_user->email); ?>
+                                        <br/>
+                                    </p>
+                                    <a href="<?php echo site_url(SITE_AREA . '/settings/users/edit'); ?>"><?php echo lang('bf_user_settings'); ?></a>
+                                    <a href="<?php echo site_url('logout'); ?>"><?php echo lang('bf_action_logout'); ?></a>
                                 </div>
-                            </li>
-                        </ul>
-                    </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <?php echo Contexts::render_menu('text', 'normal'); ?>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /container -->
-        <div class="clearfix"></div>
-    </div><!-- /.navbar-inner -->
+            </div>
+            <?php echo Contexts::render_menu('text', 'normal'); ?>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /container -->
+    <div class="clearfix"></div>
 </div><!-- /.navbar -->
 <div class="subnav">
     <div class="container-fluid">
