@@ -15,7 +15,7 @@
                 if (is_array($name)) :
                     ?>
                     <?php
-                        $link_id = str_replace(" ", "_", $file);
+                    $link_id = str_replace(" ", "_", $file);
                     ?>
                     <li <?php echo(array_key_exists($current_uri, $name) ? 'class="active"' : ''); ?>>
                         <?php echo anchor('#' . $link_id, $file, 'data-toggle="collapse" class="subtitle"'); ?>
@@ -50,7 +50,8 @@
                         $m_link_id = str_replace(" ", "_", $module);
                         $m_link_id = str_replace($docsExt, '', $m_link_id);
                     ?>
-                    <li <?php echo((array_key_exists($current_uri, $mod_files) OR array_key_exists($current_uri.$docsExt, $mod_files)) ? 'class="active"' : ''); ?>>
+                    <?php if (count($mod_files)>1) : ?>
+                    <li <?php echo((array_key_exists($current_uri, $mod_files) OR array_key_exists($current_uri . $docsExt, $mod_files)) ? 'class="active"' : ''); ?>>
                         <?php echo anchor('#' . $m_link_id, $module, 'data-toggle="collapse" class="text-uppercase"'); ?>
                         <ul class='nav collapse' id="<?php echo $m_link_id; ?>">
                             <?php foreach ($mod_files as $fileName => $title) : ?>
@@ -60,6 +61,13 @@
                             <?php endforeach; ?>
                         </ul>
                     </li>
+                <?php else: ?>
+                    <?php foreach ($mod_files as $fileName => $title) : ?>
+                        <li <?php echo(($current_uri === str_replace($docsExt, '', $fileName)) ? 'class="active"' : ''); ?>>
+                            <?php echo anchor(site_url($docsDir . '/' . str_replace($docsExt, '', $fileName)), ucwords($title)); ?>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                     <?php
                 endif;
             endforeach;
