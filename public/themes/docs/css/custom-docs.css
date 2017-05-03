@@ -427,3 +427,7 @@ pre {
 
 .page h3 { font-weight: lighter }
 .page h2 { font-weight: 400 }
+
+.result-item {
+  margin-top: 20px;
+}

@@ -17,11 +17,11 @@
         <?php echo sprintf(lang('docs_no_results'), $search_terms); ?>
     </div>
 <?php else : ?>
-    <ol class="">
+    <ol class="container-fluid">
     <?php
     foreach ($results as $result) :
         ?>
-        <li class="">
+        <li class="result-item">
             <h4 class="text-primary">
                 <?php echo anchor(site_url($result['url']), $result['title'], 'class="text-info"'); ?>
             </h4>
