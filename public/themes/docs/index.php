@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" name="search_terms" placeholder="<?php echo lang('docs_search_for') ?>"/>
                     </div>
-                    <input type="submit" name="submit" class="btn btn-default" value="<?php echo lang('docs_search') ?>">
+                    <input type="submit" name="submit" class="btn btn-outline-inverse" value="<?php echo lang('docs_search') ?>">
                     </form>
                 </ul>
             </div><!-- /.navbar-collapse -->
