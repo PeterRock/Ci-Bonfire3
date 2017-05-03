@@ -51,10 +51,12 @@
                         $m_link_id = str_replace($docsExt, '', $m_link_id);
                     ?>
                     <li <?php echo((array_key_exists($current_uri, $mod_files) OR array_key_exists($current_uri.$docsExt, $mod_files)) ? 'class="active"' : ''); ?>>
-                        <?php echo anchor('#' . $m_link_id, $module, 'data-toggle="collapse" class="subtitle"'); ?>
+                        <?php echo anchor('#' . $m_link_id, $module, 'data-toggle="collapse" class="text-uppercase"'); ?>
                         <ul class='nav collapse' id="<?php echo $m_link_id; ?>">
                             <?php foreach ($mod_files as $fileName => $title) : ?>
-                                <li><?php echo anchor(site_url($docsDir . '/' . str_replace($docsExt, '', $fileName)), ucwords($title)); ?></li>
+                                <li <?php echo(($current_uri === str_replace($docsExt, '', $fileName)) ? 'class="active"' : ''); ?>>
+                                    <?php echo anchor(site_url($docsDir . '/' . str_replace($docsExt, '', $fileName)), ucwords($title)); ?>
+                                </li>
                             <?php endforeach; ?>
                         </ul>
                     </li>
