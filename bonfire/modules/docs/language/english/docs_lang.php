@@ -3,6 +3,7 @@
 $lang['docs_search']            = 'Search';
 $lang['docs_search_for']        = 'Search for...';
 $lang['docs_title_application'] = 'Application';
+$lang['docs_title_system']      = 'System';
 $lang['docs_title_bonfire']     = 'Developer';
 $lang['docs_title_modules']     = 'Modules';
 
