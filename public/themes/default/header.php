@@ -1,7 +1,5 @@
 <?php
 
-Assets::add_css(array('bootstrap.min.css'));
-
 Assets::add_js('bootstrap.min.js');
 
 $inline  = '$(".dropdown-toggle").dropdown();';
@@ -22,7 +20,7 @@ Assets::add_js($inline, 'inline');
     <meta name="description" content="<?php e(isset($meta_description) ? $meta_description : ''); ?>">
     <meta name="author" content="<?php e(isset($meta_author) ? $meta_author : ''); ?>">
     <script src="<?php echo js_path(); ?>modernizr-2.8.3.js"></script>
-    <?php echo Assets::css(null, 'screen', TRUE); ?>
+    <?php echo Assets::css(array('bootstrap.min.css'), 'screen', TRUE); ?>
     <link rel="shortcut icon" href="<?php echo base_url(); ?>favicon.ico">
 </head>
 <body>
