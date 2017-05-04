@@ -13,7 +13,8 @@
     Assets::add_js('highlight.min.js');
     Assets::add_js($highlightScript, 'inline');
 
-    echo Assets::css(array('bootstrap.css', 'highlight/github.css', 'custom-docs.css'), 'screen', TRUE);
+    echo Assets::css(array('bootstrap.css', 'highlight/github.css', 'custom-docs.css'),
+        'screen', TRUE);
     ?>
 </head>
 <body>
