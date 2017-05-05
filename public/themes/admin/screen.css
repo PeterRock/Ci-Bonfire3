@@ -99,6 +99,22 @@ a.brand {
     color: #666;
 }
 
+/* Tabs */
+
+.subnav-menu .nav-tabs a {
+    color: #878787;
+}
+.subnav-menu .nav-tabs .active a {
+    color: #222;
+}
+.subnav-menu .nav-tabs li a:hover,.subnav-menu .nav-tabs .active a {
+    background-color: #fff;
+}
+.subnav-menu .nav-tabs-left .tab-content {
+    margin-left: 175px;
+}
+
+
 footer.footer {
 	padding-top: 10px;
 	color: #858585;
@@ -226,45 +242,6 @@ tfoot td {
 .login-container {
 	margin: 0 auto;
 	width: 600px;
-}
-/* Tabs */
-
-.nav-tabs a {
-	color: #878787;
-}
-.nav-tabs .active a {
-	color: #222;
-}
-.nav-tabs li a:hover,.nav-tabs .active a {
-	background-color: #fff;
-}
-.nav-tabs-left .tab-content {
-	margin-left: 175px;
-}
-.admin-box .nav-tabs {
-	background: whitesmoke;
-	padding-left: 10px;
-	padding-top: 7px;
-	border-bottom: 1px solid #d5d5d5;
-}
-.admin-box .nav-tabs a {
-	background-color: none;
-	color: #333;
-}
-.admin-box .nav-tabs > li > a {
-	border-color: none;
-}
-.admin-box .nav-tabs .active a {
-	font-weight: bold;
-	background: #fff;
-	color: #000;
-	border-color: #d5d5d5;
-	border-bottom-color: #fff;
-}
-.admin-box .nav-tabs li a:hover {
-	background-color: #f2f2f2;
-	color: #000;
-	border-color: #d5d5d5;
 }
 /* Link Lists */
 .filter-link-list a {
