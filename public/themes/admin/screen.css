@@ -214,13 +214,7 @@ footer.footer {
 	padding: 0 10px 0 0;
 	margin: 0;
 }
-.admin-box .table {
-	margin-bottom: 0;
-	max-width: 100%;
-}
-.admin-box .table th {
-	border-bottom: 1px solid #b6b6c6;
-}
+
 .admin-box .form-actions,.admin-box form {
 	margin-bottom: 0;
 }
