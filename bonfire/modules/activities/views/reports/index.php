@@ -28,7 +28,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
     </style>
     <div class="row icons">
         <?php if ($hasPermissionViewOwn) : ?>
-            <div class="column size1of4 media-box">
+            <div class="col-md-3 media-box">
                 <a href='<?php echo "{$activitiesReportsUrl}/{$pages['own']}"; ?>' class="margin5 pull-left">
                     <i class="fa fa-user fa-2x"></i>
                 </a>
@@ -40,7 +40,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
         endif;
         if ($hasPermissionViewUser) :
             ?>
-            <div class="column size1of4 media-box">
+            <div class="col-md-3 media-box">
                 <a href='<?php echo "{$activitiesReportsUrl}/{$pages['user']}"; ?>' class="margin5 pull-left">
                     <i class="fa fa-users fa-2x"></i>
                 </a>
@@ -53,7 +53,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
         endif;
         if ($hasPermissionViewModule) :
             ?>
-            <div class="column size1of4 media-box">
+            <div class="col-md-3 media-box">
                 <a href='<?php echo "{$activitiesReportsUrl}/{$pages['module']}"; ?>' class="margin5 pull-left">
                     <i class="fa fa-puzzle-piece fa-2x"></i>
                 </a>
@@ -66,7 +66,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
         endif;
         if ($hasPermissionViewDate) :
             ?>
-            <div class="column size1of4 media-box">
+            <div class="col-md-3 media-box">
                 <a href='<?php echo "{$activitiesReportsUrl}/{$pages['date']}"; ?>' class="margin5 pull-left">
                     <i class="fa fa-calendar fa-2x"></i>
                 </a>
@@ -77,7 +77,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
         <?php endif; ?>
     </div>
     <div class="row">
-        <div class="column size1of2">
+        <div class="col-md-6">
             <!-- Active Modules -->
             <div class="admin-box">
                 <h3><?php echo lang('activities_top_modules'); ?></h3>
@@ -103,7 +103,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
                 <?php endif; ?>
             </div>
         </div>
-        <div class="column size1of2 last-column">
+        <div class="col-md-6">
             <div class="admin-box">
                 <!-- Active Users -->
                 <h3><?php echo lang('activities_top_users'); ?></h3>
