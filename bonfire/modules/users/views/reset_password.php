@@ -14,7 +14,7 @@
 <?php endif; ?>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-8 col-md-offset-2">
 
 <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
 
@@ -22,23 +22,17 @@
 
 	<div class="form-group <?php echo iif( form_error('password') , 'error') ;?>">
 		<label class="control-label" for="password"><?php echo lang('bf_password'); ?></label>
-		<div class="controls">
-			<input class="col-md-6" type="password" name="password" id="password" value="" placeholder="Password...." />
-			<p class="help-block"><?php echo lang('us_password_mins'); ?></p>
-		</div>
+        <input class="form-control" type="password" name="password" id="password" value="" placeholder="Password...." />
+        <span class="help-block"><?php echo lang('us_password_mins'); ?></span>
 	</div>
 
 	<div class="form-group <?php echo iif( form_error('pass_confirm') , 'error') ;?>">
 		<label class="control-label" for="pass_confirm"><?php echo lang('bf_password_confirm'); ?></label>
-		<div class="controls">
-			<input class="col-md-6" type="password" name="pass_confirm" id="pass_confirm" value="" placeholder="<?php echo lang('bf_password_confirm'); ?>" />
-		</div>
+        <input class="form-control" type="password" name="pass_confirm" id="pass_confirm" value="" placeholder="<?php echo lang('bf_password_confirm'); ?>" />
 	</div>
 
 	<div class="form-group">
-		<div class="controls">
-			<input class="btn btn-primary" type="submit" name="set_password" id="submit" value="<?php e(lang('us_set_password')); ?>"  />
-		</div>
+        <input class="btn btn-primary" type="submit" name="set_password" id="submit" value="<?php e(lang('us_set_password')); ?>"  />
 	</div>
 
 <?php echo form_close(); ?>

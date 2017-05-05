@@ -1,7 +1,7 @@
 <?php
 
-$errorClass   = empty($errorClass) ? ' error' : $errorClass;
-$controlClass = empty($controlClass) ? 'col-md-6' : $controlClass;
+$errorClass   = empty($errorClass) ? ' has-error' : $errorClass;
+$controlClass = empty($controlClass) ? 'form-control' : $controlClass;
 $fieldData = array(
     'errorClass'    => $errorClass,
     'controlClass'  => $controlClass,
@@ -11,6 +11,7 @@ $fieldData = array(
 <style scoped='scoped'>
 #register p.already-registered {
     text-align: center;
+    margin-top: 20px;
 }
 </style>
 <section id="register">
@@ -29,7 +30,7 @@ $fieldData = array(
         ?>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
             <?php echo form_open(site_url(REGISTER_URL), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
                 <fieldset>
                     <?php Template::block('user_fields', 'user_fields', $fieldData); ?>
@@ -46,9 +47,7 @@ $fieldData = array(
                 </fieldset>
                 <fieldset>
                     <div class="form-group">
-                        <div class="controls">
-                            <input class="btn btn-primary" type="submit" name="register" id="submit" value="<?php echo lang('us_register'); ?>" />
-                        </div>
+                        <input class="btn btn-primary" type="submit" name="register" id="submit" value="<?php echo lang('us_register'); ?>" />
                     </div>
                 </fieldset>
             <?php echo form_close(); ?>

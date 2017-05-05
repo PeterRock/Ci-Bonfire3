@@ -1,7 +1,7 @@
 <?php
 
-$errorClass = ' error';
-$controlClass = 'col-md-6';
+$errorClass = ' has-error';
+$controlClass = 'form-control';
 $fieldData = array(
     'errorClass'    => $errorClass,
     'controlClass'  => $controlClass,
@@ -112,7 +112,7 @@ echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal', 'au
     <fieldset>
         <legend><?php echo lang('us_account_status'); ?></legend>
         <div class="form-group">
-            <div class="controls">
+            <div class="checkbox">
                 <label for="<?php echo $field; ?>">
                     <input type="checkbox" name="<?php echo $field; ?>" id="<?php echo $field; ?>" value="1" />
                     <?php echo lang("us_{$field}_note"); ?>
@@ -121,7 +121,7 @@ echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal', 'au
         </div>
         <?php if ($user->deleted) : ?>
         <div class="form-group">
-            <div class="controls">
+            <div class="checkbox">
                 <label for="restore">
                     <input type="checkbox" name="restore" id="restore" value="1" />
                     <?php echo lang('us_restore_note'); ?>
@@ -130,7 +130,7 @@ echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal', 'au
         </div>
         <?php elseif ($user->banned) : ?>
         <div class="form-group">
-            <div class="controls">
+            <div class="checkbox">
                 <label for="unban">
                     <input type="checkbox" name="unban" id="unban" value="1" />
                     <?php echo lang('us_unban_note'); ?>
