@@ -422,7 +422,7 @@ Now we just need a way to create new posts. Let's start by creating a new sub-me
 
 First, we create a view file holds the menu itself. Create a new file at `blog/views/content/sub_nav.php`.
 
-    <ul class="nav nav-pills">
+    <ul class="nav nav-tabs">
         <li <?php echo $this->uri->segment(4) == '' ? 'class="active"' : '' ?>>
             <a href="<?php echo site_url(SITE_AREA .'/content/blog') ?>">Posts</a>
         </li>

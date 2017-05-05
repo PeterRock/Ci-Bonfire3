@@ -125,11 +125,18 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
 
 <div class="subnav">
     <div class="container-fluid">
-        <?php if (isset($toolbar_title)) : ?>
-            <h1><?php echo $toolbar_title; ?></h1>
-        <?php endif; ?>
-        <div class="pull-right" id="sub-menu">
-            <?php Template::block('sub_nav', ''); ?>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="navbar-header">
+
+                    <?php if (isset($toolbar_title)) : ?>
+                        <h4><?php echo $toolbar_title; ?></h4>
+                    <?php endif; ?>
+                </div>
+                <div class="pull-right subnav-menu">
+                    <?php Template::block('sub_nav', ''); ?>
+                </div>
+            </div>
         </div>
     </div>
 </div>
