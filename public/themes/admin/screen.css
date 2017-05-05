@@ -98,9 +98,6 @@ a.brand {
 .subnav-menu .nav-tabs a {
     color: #666;
 }
-
-/* Tabs */
-
 .subnav-menu .nav-tabs a {
     color: #878787;
 }
@@ -155,8 +152,7 @@ footer.footer {
 }
 /* Toolbar Keys */
 .toolbar-keys {
-	padding: 12px;
-	padding-bottom: 0;
+	padding: 10px;
 	max-width: 500px !important;
 }
 .toolbar-keys .inner {

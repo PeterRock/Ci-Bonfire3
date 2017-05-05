@@ -66,8 +66,9 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                         echo $userDisplayName;
                         ?>
                     </a>
-                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
                     </button>
                     <ul class="dropdown-menu pull-right toolbar-profile">
                         <li>
