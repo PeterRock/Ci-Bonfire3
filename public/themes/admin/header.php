@@ -41,25 +41,24 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    data-target="#main-top-navbar" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                <?php
+
+            <?php
                 echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');
-                ?>
-            </a>
+            ?>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="navbar-collapse collapse" id="main-top-navbar">
             <?php echo Contexts::render_menu('text', 'normal'); ?>
-            <ul class="nav navbar-nav navbar-right" style="padding: 8px 0;">
+            <ul class="nav navbar-nav navbar-right" style="padding: 8px 0;" id="tb_email">
                 <div class="btn-group">
-                    <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn btn-default"
+                    <a href="<?php echo site_url('users/profile'); ?>" class="btn btn-default"
                        title="<?php echo lang('bf_user_settings'); ?>">
                         <?php
                         $userDisplayName = isset($current_user->display_name) && !empty($current_user->display_name) ? $current_user->display_name : ($this->settings_lib->item('auth.use_usernames') ? $current_user->username : $current_user->email);
@@ -101,11 +100,11 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                         </a>
                         <ul class="dropdown-menu pull-right toolbar-keys">
                             <li>
-                                <div class="inner keys">
+                                <div class="container-fluid inner">
                                     <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
-                                    <ul>
+                                    <ul class="list-group">
                                         <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
-                                            <li><span><?php e($data); ?></span>
+                                            <li class="list-group-item"><span><?php e($data); ?></span>
                                                 : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?>
                                             </li>
                                         <?php endforeach; ?>
@@ -121,20 +120,19 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
-    <div class="clearfix"></div>
 </nav>
 
 <div class="subnav">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="navbar-header">
+                <div class="navbar-header title">
 
                     <?php if (isset($toolbar_title)) : ?>
                         <h4><?php echo $toolbar_title; ?></h4>
                     <?php endif; ?>
                 </div>
-                <div class="pull-right subnav-menu">
+                <div class="subnav-menu list">
                     <?php Template::block('sub_nav', ''); ?>
                 </div>
             </div>

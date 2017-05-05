@@ -13,7 +13,7 @@
                     <th><?php echo lang('ui_action'); ?></th>
                     <th colspan="2">
                         <?php echo lang('ui_shortcut'); ?>
-                        <span class="help-block"><?php echo lang('ui_shortcut_help'); ?></span>
+                        <small class="help-block" style="font-weight: 300"><?php echo lang('ui_shortcut_help'); ?></small>
                     </th>
                 </tr>
             </thead>
@@ -27,7 +27,7 @@
             <tbody>
                 <tr>
                     <th>
-                        <select name="new_action" class="col-md-4">
+                        <select name="new_action" class="form-control">
                             <?php
                             foreach ($current as $name => $detail) :
                                 if (! array_key_exists($name, $settings)) :
@@ -41,13 +41,13 @@
                             ?>
                         </select>
                     </th>
-                    <td><input type="text" name="new_shortcut" class="medium" value="<?php echo set_value('new_shortcut'); ?>" /></td>
+                    <td><input type="text" name="new_shortcut" class="form-control" value="<?php echo set_value('new_shortcut'); ?>" /></td>
                     <td><input type="submit" name="add_shortcut" class="btn btn-default" value="<?php echo lang('ui_add_shortcut'); ?>" /></td>
                 </tr>
                 <?php foreach ($settings as $action => $shortcut) : ?>
                 <tr>
                     <th><?php echo $current[$action]['description']; ?></th>
-                    <td><input type="text" name="shortcut_<?php echo $action;?>" value="<?php echo set_value("shortcut_$action", $shortcut); ?>" /></td>
+                    <td><input type="text" class="form-control" name="shortcut_<?php echo $action;?>" value="<?php echo set_value("shortcut_$action", $shortcut); ?>" /></td>
                     <td><input type="submit" name="remove_shortcut[<?php echo $action; ?>]" value="<?php echo lang('ui_remove_shortcut'); ?>" class="btn btn-danger" /></td>
                 </tr>
                 <?php endforeach; ?>

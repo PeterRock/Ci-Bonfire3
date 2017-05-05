@@ -53,7 +53,7 @@ else :
     $numColumns = 8;
     echo form_open();
 ?>
-    <table class="table table-striped user-table">
+    <table class="table table-striped table-responsive">
 		<thead>
 			<tr>
 				<th class="column-check"><input class="check-all" type="checkbox" /></th>

@@ -21,13 +21,3 @@ $('.dropdown-toggle').dropdown();
 	Set focus on the first form field
 */
 $(":input:visible:first").focus();
-
-/*
-	Responsive Navigation
-*/
-$('.collapse').collapse();
-
-/*
- Prevent elements classed with "no-link" from linking
-*/
-//$(".no-link").click(function(e){ e.preventDefault();	});

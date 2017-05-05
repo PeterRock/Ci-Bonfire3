@@ -27,7 +27,7 @@ p.intro {
 	-webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
 	-moz-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
 	box-shadow: 0 1px 10px rgba(0,0,0,0.1);
-	padding: 20px 20px 20px 20px;
+	padding-top: 20px;
 	z-index: 1;
 	min-height: 300px;
 	font-weight: lighter;
@@ -104,13 +104,7 @@ a.brand {
 	-moz-box-shadow: 0 3px 5px rgba(0,0,0,.08);
 	box-shadow: 0 3px 5px rgba(0,0,0,.08);
 	z-index: 5;
-}
-.subnav-menu {
-    margin-top: 5px;
-}
-.subnav-menu .nav>li>a {
-    padding-top: 7px;
-    padding-bottom: 8px;
+    padding-top: 5px;
 }
 .subnav-menu .nav-tabs a {
     color: #666;
@@ -126,6 +120,13 @@ a.brand {
 }
 .subnav-menu .nav-tabs-left .tab-content {
     margin-left: 175px;
+}
+
+.subnav .title {
+    float: left;
+}
+.subnav .list {
+    float: right;
 }
 
 footer.footer {
@@ -174,23 +175,8 @@ footer.footer {
 .toolbar-keys .inner {
 	width: 300px;
 }
-.toolbar-keys a {
-	padding: 5px 0;
-	color: #aaa;
-}
-.toolbar-keys ul {
-	list-style: none;
-	margin: 0;
-}
-.toolbar-keys ul li span {
-	font-weight: bold;
-	width: 80px;
-}
+
 /* Grids */
-.row,
-.row {
-	margin-left: 0;
-}
 .column {
 	float: left;
 }
@@ -322,10 +308,6 @@ input[type=radio] {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-	.body {
-		padding-top: 20px;
-		margin-top: -5px;
-	}
 	.toolbar-profile-img {
 		width: auto;
 	}
@@ -360,4 +342,10 @@ input[type=radio] {
 	.form-horizontal .form-actions {
 		padding-left: 20px;
 	}
+    .subnav .title {
+        clear: both;
+    }
+    .subnav .list {
+        float: left;
+    }
 }
