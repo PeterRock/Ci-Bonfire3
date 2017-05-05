@@ -36,47 +36,28 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
 <noscript>
     <p>Javascript is required to use Bonfire's admin.</p>
 </noscript>
-<div class="navbar navbar-static-top navbar-inverse" id="topbar">
+<nav class="navbar navbar-default navbar-inverse admin-top-navbar">
     <div class="container-fluid">
-        <a class="btn navbar-btn" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="glyphicon-bar"></span>
-            <span class="glyphicon-bar"></span>
-            <span class="glyphicon-bar"></span>
-        </a>
-        <?php
-        echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');
-        if (isset($shortcut_data) && is_array($shortcut_data['shortcuts'])
-            && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])
-        ) :
-            ?>
-            <!-- Shortcut Menu -->
-            <div class="nav pull-right" id="shortcuts">
-                <div class="btn-group">
-                    <a class="dropdown-toggle light btn" data-toggle="dropdown" href="#">
-                        <i class="fa fa-keyboard-o"></i>
-                    </a>
-                    <ul class="dropdown-menu pull-right toolbar-keys">
-                        <li>
-                            <div class="inner keys">
-                                <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
-                                <ul>
-                                    <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
-                                        <li><span><?php e($data); ?></span>
-                                            : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?></li>
-                                    <?php endforeach; ?>
-                                </ul>
-                                <?php if (has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage')): ?>
-                                    <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
-                                <?php endif; ?>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        <?php endif; ?>
-        <div class="navbar-collapse in collapse">
-            <!-- User Menu -->
-            <div class="nav pull-right" id="user-menu">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <?php
+                echo anchor('/', html_escape($this->settings_lib->item('site.title')), 'class="navbar-brand"');
+                ?>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <?php echo Contexts::render_menu('text', 'normal'); ?>
+            <ul class="nav navbar-nav navbar-right" style="padding: 8px 0;">
                 <div class="btn-group">
                     <a href="<?php echo site_url('users/profile'); ?>" id="tb_email" class="btn btn-default"
                        title="<?php echo lang('bf_user_settings'); ?>">
@@ -107,12 +88,41 @@ if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
                         </li>
                     </ul>
                 </div>
-            </div>
-            <?php echo Contexts::render_menu('text', 'normal'); ?>
+                <?php
+                if (isset($shortcut_data) && is_array($shortcut_data['shortcuts'])
+                    && is_array($shortcut_data['shortcut_keys']) && count($shortcut_data['shortcut_keys'])
+                ) :
+                    ?>
+                    <!-- Shortcut Menu -->
+                    <div class="btn-group">
+                        <a class="dropdown-toggle btn btn-link" data-toggle="dropdown" href="#">
+                            <i class="fa fa-keyboard-o"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-right toolbar-keys">
+                            <li>
+                                <div class="inner keys">
+                                    <h4><?php echo lang('bf_keyboard_shortcuts'); ?></h4>
+                                    <ul>
+                                        <?php foreach ($shortcut_data['shortcut_keys'] as $key => $data) : ?>
+                                            <li><span><?php e($data); ?></span>
+                                                : <?php echo $shortcut_data['shortcuts'][$key]['description']; ?>
+                                            </li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <?php if (has_permission('Bonfire.UI.View') && has_permission('Bonfire.UI.Manage')): ?>
+                                        <a href="<?php echo site_url(SITE_AREA . '/settings/ui'); ?>"><?php echo lang('bf_keyboard_shortcuts_edit'); ?></a>
+                                    <?php endif; ?>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </ul>
         </div><!-- /.navbar-collapse -->
-    </div><!-- /container -->
+    </div><!-- /.container-fluid -->
     <div class="clearfix"></div>
-</div><!-- /.navbar -->
+</nav>
+
 <div class="subnav">
     <div class="container-fluid">
         <?php if (isset($toolbar_title)) : ?>

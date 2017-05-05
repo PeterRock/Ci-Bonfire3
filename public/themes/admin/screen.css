@@ -1,6 +1,6 @@
 /* Basic Typography */
 body {
-	background-color: #d9dde8;
+	background-color: #FFFFFF;
 	font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 h1,h2,h3 {
@@ -18,41 +18,13 @@ p.intro {
 	color: #777;
 	text-align: center;
 }
-.text-left {
-	text-align: left !important;
-}
-.text-center {
-	text-align: center !important;
-}
-.text-right {
-	text-align: right !important;
-}
-.text-justify {
-	text-align: justify !important;
-}
-.small {
-	font-size: 90%;
-	font-weight: lighter;
-	line-height: 1.2em;
-	color: #999;
-}
 .big-text {
 	font-size: 2.4em;
 }
-pre {
-	margin-top: 18px;
-}
-.pagination {
-	margin-right: 20px;
-	margin-top: 0;
-}
+
 /* Page Structure */
-.container-fluid,.fluid-container {
-	margin: 0 auto;
-	max-width: 1200px;
-}
 .body {
-	background-color: #fdfdfd;
+	background-color: #fefefe;
 	border: 1px solid #adadad;
 	border-top: none;
 	-webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.1);
@@ -62,6 +34,12 @@ pre {
 	z-index: 1;
 	min-height: 300px;
 	font-weight: lighter;
+}
+
+.admin-top-navbar {
+    margin: 0;
+    border: none;
+    border-radius: 0;
 }
 .navbar {
 	font-size: 10pt;
@@ -444,22 +422,9 @@ input[type=radio] {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
-	#topbar {
-		margin-bottom: 0;
-	}
 	.body {
 		padding-top: 20px;
 		margin-top: -5px;
-	}
-	.navbar .navbar-btn {
-		display: inline;
-	}
-	#shortcuts {
-		display: none;
-	}
-	#user-menu a {
-		display: inline-block;
-		width: auto;
 	}
 	.toolbar-profile-img {
 		width: auto;
@@ -468,13 +433,8 @@ input[type=radio] {
 		width: 24px;
 		height: 24px;
 	}
-	#tb_email,
-	#user-menu .dropdown-toggle,
-	#user-menu p {
+	#tb_email {
 		display: none !important;
-	}
-	.dropdown-menu > li:hover > ul {
-		display: none;
 	}
 }
 @media (max-width: 767px) {
