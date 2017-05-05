@@ -6,7 +6,7 @@
 				</div>
 				<div class="col-md-6">
 					<p>{elapsed_time} seconds. {memory_usage}<br/>
-                        Built with <a href="http://cibonfire.com" target="_blank"><span class="glyphicon-fire"></span>&nbsp;Bonfire</a>
+                        Built with <a href="http://cibonfire.com" target="_blank"><span class="glyphicon glyphicon-fire"></span>&nbsp;Bonfire</a>
 					</p>
 				</div>
 			</div>
