@@ -10,6 +10,8 @@
 
         #login {
             max-width: 400px;
+            background: #FFFFFF;
+            padding:10px 20px;
         }
 
     </style>
