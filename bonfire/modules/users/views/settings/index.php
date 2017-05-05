@@ -9,7 +9,7 @@
 		<?php
         // If there's a current filter, add a clear button.
         if ($filter_type == 'first_letter') {
-			echo anchor($index_url, lang('bf_clear'), array('class' => 'btn btn-sm btn-primary'));
+			echo anchor($index_url, '<i class="fa fa-close"></i> '.lang('bf_clear'), array('class' => 'btn btn-sm btn-primary'));
         }
 			e(lang('us_filter_first_letter'));
 
