@@ -32,7 +32,7 @@ $config['user_meta_fields'] =  array(
 				'name'		=> 'state',
 				'id'		=> 'state',
                 'maxlength' => '3',
-				'class'		=> 'col-md-1'
+				'class'		=> 'form-control'
 			),
 		),
 	),
@@ -47,7 +47,7 @@ $config['user_meta_fields'] =  array(
 				'name'		=> 'country',
 				'id'		=> 'country',
 				'maxlength'	=> '100',
-				'class'		=> 'col-md-6'
+				'class'		=> 'form-control'
 			),
 		),
 	),

@@ -69,7 +69,7 @@ $config['extended_settings_fields'] = array(
                 'name' => 'country',
                 'id' => 'country',
                 'maxlength' => '100',
-                'class' => 'col-md-6'
+                'class' => 'form-control'
             ),
         ),
     ),
@@ -83,7 +83,7 @@ $config['extended_settings_fields'] = array(
                 'name' => 'state',
                 'id' => 'state',
                 'maxlength' => '2',
-                'class' => 'col-md-1'
+                'class' => 'form-control'
             ),
         ),
         'permission' => 'Site.Content.View',
@@ -97,7 +97,7 @@ $config['extended_settings_fields'] = array(
             'settings' => array(
                 'name' => 'type',
                 'id' => 'type',
-                'class' => 'col-md-6',
+                'class' => 'form-control',
             ),
             'options' => array(
                 'small' => 'Small Shirt',
