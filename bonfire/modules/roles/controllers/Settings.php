@@ -85,13 +85,13 @@ class Settings extends Admin_Controller
             if ($this->saveRole()) {
                 Template::set_message(lang('role_create_success'), 'success');
                 if (! empty($this->error)) {
-                    Template::set_message(lang('role_create_error') . $this->error, 'error');
+                    Template::set_message(lang('role_create_error') . $this->error, 'danger');
                 }
                 redirect(SITE_AREA . '/settings/roles');
             }
 
             if (! empty($this->role_model->error)) {
-                Template::set_message(lang('role_create_error') . $this->role_model->error, 'error');
+                Template::set_message(lang('role_create_error') . $this->role_model->error, 'danger');
             }
         }
 
@@ -117,7 +117,7 @@ class Settings extends Admin_Controller
 
         $id = (int) $this->uri->segment(5);
         if (empty($id)) {
-            Template::set_message(lang('role_invalid_id'), 'error');
+            Template::set_message(lang('role_invalid_id'), 'danger');
             redirect(SITE_AREA . '/settings/roles');
         }
 
@@ -127,7 +127,7 @@ class Settings extends Admin_Controller
                 redirect(SITE_AREA . '/settings/roles');
             }
             if (! empty($this->role_model->error)) {
-                Template::set_message(lang('role_edit_error') . $this->role_model->error, 'error');
+                Template::set_message(lang('role_edit_error') . $this->role_model->error, 'danger');
             }
         } elseif (isset($_POST['delete'])) {
             if ($this->role_model->delete($id)) {
@@ -135,7 +135,7 @@ class Settings extends Admin_Controller
                 redirect(SITE_AREA . '/settings/roles');
             }
             if (! empty($this->role_model->error)) {
-                Template::set_message(lang('role_delete_error') . $this->role_model->error, 'error');
+                Template::set_message(lang('role_delete_error') . $this->role_model->error, 'danger');
             }
         }
 

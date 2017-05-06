@@ -25,13 +25,13 @@ $site_open = $this->settings_lib->item('auth.allow_register');
 
     <?php echo form_open(LOGIN_URL, array('autocomplete' => 'off')); ?>
 
-    <div class="form-group <?php echo iif(form_error('login'), 'error'); ?>">
+    <div class="form-group <?php echo iif(form_error('login'), ' has-error'); ?>">
         <input class="form-control" type="text" name="login" id="login_value" value="<?php echo set_value('login'); ?>"
                tabindex="1"
                placeholder="<?php echo $this->settings_lib->item('auth.login_type') == 'both' ? lang('bf_username') . '/' . lang('bf_email') : ucwords($this->settings_lib->item('auth.login_type')) ?>"/>
     </div>
 
-    <div class="form-group <?php echo iif(form_error('password'), 'error'); ?>">
+    <div class="form-group <?php echo iif(form_error('password'), ' has-error'); ?>">
         <div class="controls">
             <input class="form-control" type="password" name="password" id="password" value="" tabindex="2"
                    placeholder="<?php echo lang('bf_password'); ?>"/>

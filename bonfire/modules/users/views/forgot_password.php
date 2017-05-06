@@ -17,7 +17,7 @@
 
         <?php echo form_open($this->uri->uri_string(), array('class' => "form-horizontal", 'autocomplete' => 'off')); ?>
 
-        <div class="form-group <?php echo iif(form_error('email'), 'error'); ?>">
+        <div class="form-group <?php echo iif(form_error('email'), ' has-error'); ?>">
             <label class="control-label required" for="email"><?php echo lang('bf_email'); ?></label>
             <input class="form-control" type="email" required name="email" id="email" value="<?php echo set_value('email') ?>"/>
         </div>
