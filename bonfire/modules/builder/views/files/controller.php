@@ -275,8 +275,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             }
 
             $constructorExtras .= "
-            Assets::add_css('jquery-ui-timepicker.css');
-            Assets::add_js('jquery-ui-timepicker-addon.js');";
+            Assets::add_js('bootstrap-datetimepicker/bootstrap-datetimepicker.min.js');";
             $datetime_included = true;
         } elseif (in_array($db_field_type, $textTypes)
             && $textarea_included === false
