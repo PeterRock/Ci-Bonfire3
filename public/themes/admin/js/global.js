@@ -15,7 +15,7 @@ $(".check-all").click(function(){
 /*
 	Dropdowns
 */
-$('.dropdown-toggle').dropdown();
+// $('.dropdown-toggle').dropdown();
 
 /*
 	Set focus on the first form field

@@ -240,9 +240,7 @@ tfoot td {
 }
 /* Link Lists */
 .filter-link-list a {
-	display: inline-block;
 	margin-right: 5px;
-	line-height: 2.0;
 }
 /* Forms */
 .form-horizontal .form-group {
