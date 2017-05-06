@@ -221,6 +221,7 @@ footer.footer {
     float: left;
 }
 
+/* Admin Box
 .row .admin-box {
     margin: 0 10px 20px 10px;
 }
@@ -228,8 +229,7 @@ footer.footer {
 .row .admin-box:first-child {
     margin-left: 0;
 }
-
-/* Admin Box */
+*/
 
 .admin-box {
     margin-bottom: 18px;
@@ -238,6 +238,7 @@ footer.footer {
     min-height: 250px;
 }
 
+/*
 .admin-box h3 {
     color: #333;
     font-family: Arial, sans-serif;
@@ -285,6 +286,7 @@ tfoot td {
 .table-striped tbody tr:nth-child(odd) th {
     background-color: #f5f5f5;
 }
+*/
 
 /* Login Page */
 
