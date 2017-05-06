@@ -2,6 +2,7 @@
 
 Assets::add_css('bootstrap.min.css');
 Assets::add_css('font-awesome.min.css');
+Assets::add_css('jquery.datatables/datatables.min.css');
 
 if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
     Assets::add_js($this->load->view('ui/shortcut_keys', $shortcut_data, true), 'inline');

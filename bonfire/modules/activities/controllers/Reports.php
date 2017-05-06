@@ -61,21 +61,7 @@ class Reports extends Admin_Controller
 
         $this->load->helper('date_helper');
 
-        Assets::add_js(
-            array(
-                'bootstrap',
-                'jquery.dataTables',
-                'bootstrap-dataTables',
-            )
-        );
         Assets::add_js($this->load->view('reports/activities_js', null, true), 'inline');
-
-        Assets::add_css(
-            array(
-                'datatable',
-                'bootstrap-dataTables',
-            )
-        );
 
         // Check the permissions, store the results.
         $this->hasPermissionDeleteOwn  = $this->auth->has_permission($this->permissionDeleteOwn);

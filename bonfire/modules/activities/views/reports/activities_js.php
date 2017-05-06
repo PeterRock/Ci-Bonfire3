@@ -32,37 +32,29 @@ $('.btn').filter('[id^="delete-"][type="submit"]').click(confirm_delete);
 $('.btn').filter('[id^="delete-"][type="button"]').click(submit_delete);
 
 $("#flex_table").dataTable({
-    "sDom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
-    "iDisplayLength": <?php echo ($this->settings_lib->item('site.list_limit')) ? $this->settings_lib->item('site.list_limit') : 15; ?>,
-    "bInfo": false,
-    "bPaginate": false,
-//  "sPaginationType": "bootstrap",
-    "bProcessing": true,
-    "bServerSide": false,
-    "bLengthChange": false,
-    "aaSorting": [[3,'desc']],
-    "bAutoWidth": false,
-    "aoColumns": [
-        { "sWidth": "10%" },
-        null,
-        { "sWidth": "8em" },
-        { "sWidth": "12em" }
-    ],
-    "oLanguage": {
-        "sProcessing":   "<?php echo lang('sProcessing'); ?>",
-        "sLengthMenu":   "<?php echo lang('sLengthMenu'); ?>",
-        "sZeroRecords":  "<?php echo lang('sZeroRecords'); ?>",
-        "sInfo":         "<?php echo lang('sInfo'); ?>",
-        "sInfoEmpty":    "<?php echo lang('sInfoEmpty'); ?>",
-        "sInfoFiltered": "<?php echo lang('sInfoFiltered'); ?>",
-        "sInfoPostFix":  "<?php echo lang('sInfoPostFix'); ?>",
-        "sSearch":       "<?php echo lang('sSearch'); ?>",
-        "sUrl":          "<?php echo lang('sUrl'); ?>",
-        "oPaginate": {
-            "sFirst":    "<?php echo lang('sFirst'); ?>",
-            "sPrevious": "<?php echo lang('sPrevious'); ?>",
-            "sNext":     "<?php echo lang('sNext'); ?>",
-            "sLast":     "<?php echo lang('sLast'); ?>"
+    "dom": "<'row'<'col-md-6'l><'col-md-6'f>r>t<'row'<'col-md-6'i><'col-md-6'p>>",
+    "displayLength": <?php echo ($this->settings_lib->item('site.list_limit')) ? $this->settings_lib->item('site.list_limit') : 15; ?>,
+    "info": false,
+    "paging": false,
+    "processing": true,
+    "serverSide": false,
+    "lengthChange": false,
+    "order": [[3,'desc']],
+    "autoWidth": true,
+    "language": {
+        "processing":   "<?php echo lang('sProcessing'); ?>",
+        "lengthMenu":   "<?php echo lang('sLengthMenu'); ?>",
+        "emptyTable":       "<?php echo lang('sZeroRecords'); ?>",
+        "info":         "<?php echo lang('sInfo'); ?>",
+        "infoEmpty":    "<?php echo lang('sInfoEmpty'); ?>",
+        "infoFiltered": "<?php echo lang('sInfoFiltered'); ?>",
+        "infoPostFix":  "<?php echo lang('sInfoPostFix'); ?>",
+        "search":       "<?php echo lang('sSearch'); ?>",
+        "paginate": {
+            "first":    "<?php echo lang('sFirst'); ?>",
+            "previous": "<?php echo lang('sPrevious'); ?>",
+            "next":     "<?php echo lang('sNext'); ?>",
+            "last":     "<?php echo lang('sLast'); ?>"
         }
     }
 });
