@@ -255,22 +255,16 @@ $date_included     = false;
 $datetime_included = false;
 $textarea_included = false;
 
-$jQueryUI = "
-            Assets::add_css('flick/jquery-ui-1.8.13.custom.css');
-            Assets::add_js('jquery-ui-1.8.13.min.js');";
-
 for ($counter = 1; $field_total >= $counter; $counter++) {
     $db_field_type = set_value("db_field_type$counter");
     $view_datepicker = '';
 
     if ($db_field_type != null) {
         if ($db_field_type == 'DATE' && $date_included === false) {
-            $constructorExtras .= $jQueryUI;
             $date_included = true;
         } elseif ($db_field_type == 'DATETIME' && $datetime_included === false) {
             // If a date field hasn't been included already then add in the jquery ui files
             if ($date_included === false) {
-                $constructorExtras .= $jQueryUI;
                 $date_included = true;
             }
 
