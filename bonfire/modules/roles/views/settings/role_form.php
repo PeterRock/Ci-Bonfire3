@@ -84,7 +84,7 @@ if (validation_errors()) :
         <?php if (has_permission('Bonfire.Permissions.Manage')) : ?>
         <fieldset>
             <legend><?php echo lang('role_permissions'); ?></legend>
-            <p class="intro"><?php echo lang('role_permissions_check_note'); ?></p>
+            <p class="well text-primary"><?php echo lang('role_permissions_check_note'); ?></p>
             <?php echo Modules::run('roles/settings/matrix'); ?>
         </fieldset>
         <?php endif; ?>

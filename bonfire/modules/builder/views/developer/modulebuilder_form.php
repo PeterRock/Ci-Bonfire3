@@ -7,7 +7,7 @@ $validationErrors = validation_errors();
 // up other pages
 ?>
 <div class='module-builder'>
-    <p class="intro"><?php e(lang('mb_create_note')); ?></p>
+    <p class="well text-primary"><?php e(lang('mb_create_note')); ?></p>
     <div class="alert alert-info fade in">
         <a class="close" data-dismiss="alert">&times;</a>
         <?php echo lang('mb_form_note'); ?>

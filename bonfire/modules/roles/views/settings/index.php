@@ -15,7 +15,7 @@ th.users {
 }
 </style>
 <div class="admin-box">
-	<p class="intro"><?php e(lang('role_intro')); ?></p>
+	<p class="well text-primary"><?php e(lang('role_intro')); ?></p>
     <?php if (isset($role_counts) && is_array($role_counts) && count($role_counts)) : ?>
 	<table class="table table-striped">
 		<thead>

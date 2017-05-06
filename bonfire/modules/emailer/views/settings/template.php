@@ -1,4 +1,4 @@
-<p class="intro"><?php echo lang('emailer_template_note'); ?></p>
+<p class="well text-primary"><?php echo lang('emailer_template_note'); ?></p>
 <div class="admin-box">
     <style scoped='scoped'>
     .admin-box .template {

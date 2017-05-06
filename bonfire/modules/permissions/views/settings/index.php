@@ -4,7 +4,7 @@ $num_columns = 5;
 
 ?>
 <div class="admin-box">
-	<p class="intro"><?php e(lang('permissions_intro')); ?></p>
+	<p class="well text-primary"><?php e(lang('permissions_intro')); ?></p>
     <?php
     if (isset($results) && is_array($results) && count($results)) :
         echo form_open($this->uri->uri_string());

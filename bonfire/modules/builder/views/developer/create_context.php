@@ -1,5 +1,5 @@
-<p class='intro'><?php echo lang('mb_context_create_intro'); ?></p>
-<p class='intro'><?php echo lang('mb_context_create_intro_note'); ?></p>
+<p class="well text-primary"><?php echo lang('mb_context_create_intro'); ?></p>
+<p class="well text-primary"><?php echo lang('mb_context_create_intro_note'); ?></p>
 <div class="admin-box">
     <?php if (validation_errors()) : ?>
 	<div class="alert alert-danger">

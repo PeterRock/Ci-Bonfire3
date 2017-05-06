@@ -1,4 +1,4 @@
-<p class="intro"><?php echo lang('translate_export_note'); ?></p>
+<p class="well text-primary"><?php echo lang('translate_export_note'); ?></p>
 <div class='admin-box'>
     <?php echo form_open(current_url(), 'class="form-horizontal"'); ?>
         <fieldset>

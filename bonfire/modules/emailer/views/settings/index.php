@@ -35,7 +35,7 @@
             <legend><?php echo lang('emailer_settings'); ?></legend>
             <?php /* PHP Mail */ ?>
             <div id="mail" class="form-group">
-                <p class="intro"><?php echo lang('emailer_settings_note'); ?></p>
+                <p class="well text-primary"><?php echo lang('emailer_settings_note'); ?></p>
             </div>
             <?php /* Sendmail */ ?>
             <div id="sendmail" class='subsection'>
@@ -98,7 +98,7 @@
         <fieldset>
             <legend><?php echo lang('emailer_test_settings') ?></legend>
             <div class='form-group'>
-                <p class="intro"><?php echo lang('emailer_test_intro'); ?></p>
+                <p class="well text-primary"><?php echo lang('emailer_test_intro'); ?></p>
             </div>
             <div class="form-group">
                 <label class="control-label" for="test-email"><?php echo lang('bf_email'); ?></label>
