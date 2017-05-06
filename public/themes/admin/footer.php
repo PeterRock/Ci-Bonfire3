@@ -9,6 +9,7 @@
     <?php echo Assets::external_js("bootstrap.min.js", false, false, true, true); ?>
     <?php echo Assets::external_js("jwerty.js", false, false, true, true); ?>
     <?php echo Assets::external_js("jquery.datatables/datatables.min.js", false, false, true, true); ?>
+    <?php echo Assets::external_js("bootstrap-datetimepicker/bootstrap-datetimepicker.min.js", false, false, true, true); ?>
 
 	<?php echo Assets::js(); ?>
 </body>
