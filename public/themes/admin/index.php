@@ -1,7 +1,5 @@
 <?php
 
-Assets::add_js(array('bootstrap.min.js', 'jwerty.js'), 'external', true);
-
 echo theme_view('header');
 
 ?>
