@@ -553,7 +553,7 @@ class Template
      * file ('template.message_template').
      *
      * @param string $message A string to be the message. (Optional) If included, will override any other messages in the system.
-     * @param string $type    The class to attached to the div. (i.e. 'information', 'attention', 'error', 'success')
+     * @param string $type    The class to attached to the div. (i.e. 'information', 'danger', 'error', 'success')
      *
      * @return string A string with the results of inserting the message into the message template.
      */

@@ -284,7 +284,7 @@ class Reports extends Admin_Controller
             Template::set_message(sprintf(lang('activities_deleted'), $affected), 'success');
             $this->activity_model->log_activity($this->auth->user_id(), sprintf(lang('activities_act_deleted'), $affected), 'activities');
         } elseif (isset($affected)) {
-            Template::set_message(lang('activities_nothing'), 'attention');
+            Template::set_message(lang('activities_nothing'), 'danger');
         } else {
             Template::set_message(sprintf(lang('activities_delete_error'), $this->activity_model->error), 'danger');
         }
