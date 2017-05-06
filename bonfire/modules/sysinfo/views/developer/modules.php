@@ -1,4 +1,4 @@
-<div class="admin-box">
+<div class="admin-box container">
     <h3><?php echo lang('sysinfo_installed_mods'); ?></h3>
     <table class="table table-striped table-bordered">
         <thead>
