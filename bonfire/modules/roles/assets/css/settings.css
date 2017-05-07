@@ -1,8 +1,5 @@
 /* For the permissions matrix */
-#permission_table {
-	width: auto;
-	margin-left: 20px;
-}
+
 #permission_table td {
 	text-align: center;
 }
@@ -24,4 +21,7 @@ th.domain {
 .description.form-group,
 .description.form-group .help-inline {
     vertical-align: top;
+}
+.tableFloatingHeaderOriginal {
+	background-color: #fff;
 }
