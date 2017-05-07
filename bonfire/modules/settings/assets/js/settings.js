@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#allow_name_change').on('change', function(){
-		if ('checked' == $(this).attr('checked')) {
+		if ($('#allow_name_change').is(':checked')) {
 			$('#name-change-settings').css('display', 'block');
 		} else {
 			$('#name-change-settings').css('display', 'none');

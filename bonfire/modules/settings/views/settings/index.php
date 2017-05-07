@@ -24,7 +24,7 @@ if (validation_errors()) :
     }
 
     #name-change-settings input {
-        width: 2em;
+        text-align: center;
     }
 
     #password_iterations {
@@ -83,7 +83,7 @@ if (validation_errors()) :
         </div>
     </div>
     <fieldset class="form-group">
-        <div class="col-sm-offset-2">
+        <div class="col-sm-offset-2 col-sm-10">
             <input type="submit" name="save" class="btn btn-primary"
                    value="<?php echo lang('bf_action_save') . ' ' . lang('bf_context_settings'); ?>"/>
         </div>
