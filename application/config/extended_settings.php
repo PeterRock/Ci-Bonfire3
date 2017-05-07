@@ -54,7 +54,7 @@ $config['extended_settings_fields'] = array(
                 'name' => 'street_name',
                 'id' => 'street_name',
                 'maxlength' => '100',
-                'class' => 'col-md-6',
+                'class' => 'form-control',
             ),
         ),
         'permission' => 'Site.Settings.View',
