@@ -27,7 +27,7 @@
     <div class="form-group<?php echo form_error('offline_reason') ? $errorClass : ''; ?>"<?php echo isset($settings['site.status']) && $settings['site.status'] == 1 ? ' style="display:none"' : ''; ?>>
         <label class="col-sm-2 control-label" for="offline_reason"><?php echo lang('settings_offline_reason'); ?></label>
         <div class="col-sm-10">
-            <textarea id="offline_reason" name="offline_reason" cols="60" rows="5"><?php echo isset($settings['site.offline_reason']) ? $settings['site.offline_reason'] : ''; ?></textarea>
+            <textarea id="offline_reason" class="form-control" name="offline_reason" cols="60" rows="5"><?php echo isset($settings['site.offline_reason']) ? $settings['site.offline_reason'] : ''; ?></textarea>
             <span class='help-block'><?php echo form_error('offline_reason'); ?></span>
         </div>
     </div>
