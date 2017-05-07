@@ -1,6 +1,6 @@
 <?php if ($log_threshold == 0) : ?>
 <div class="alert alert-warning fade in">
-    <a class="close" data-dismiss="alert">&times;</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <?php e(lang('logs_not_enabled')); ?>
 </div>
 <?php
@@ -8,11 +8,11 @@ endif;
 if (empty($logs) || ! is_array($logs)) :
 ?>
 <div class="alert alert-info fade in notification">
-    <a class="close" data-dismiss="alert">&times;</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <p><?php echo lang('logs_no_logs'); ?></p>
 </div>
 <?php else : ?>
-<div class="admin-box">
+<div class="admin-box container">
     <?php echo form_open(); ?>
         <table class="table table-striped logs">
             <thead>
@@ -26,7 +26,7 @@ if (empty($logs) || ! is_array($logs)) :
                 <tr>
                     <td colspan="3">
                         <?php echo lang('bf_with_selected'); ?>:
-                        <input type="submit" name="delete" id="delete-me" class="btn btn-danger" value="<?php echo lang('bf_action_delete'); ?>" onclick="return confirm('<?php e(js_escape(lang('logs_delete_confirm'))); ?>')" />
+                        <input type="submit" name="delete" id="delete-me" class="btn btn-danger btn-sm" value="<?php echo lang('bf_action_delete'); ?>" onclick="return confirm('<?php e(js_escape(lang('logs_delete_confirm'))); ?>')" />
                     </td>
                 </tr>
             </tfoot>
@@ -60,7 +60,7 @@ if (empty($logs) || ! is_array($logs)) :
     ?>
 </div>
 <!-- Purge? -->
-<div class="admin-box">
+<div class="admin-box container">
     <h3><?php echo lang('logs_delete_button'); ?></h3>
     <?php echo form_open(); ?>
         <div class="alert alert-warning fade in">

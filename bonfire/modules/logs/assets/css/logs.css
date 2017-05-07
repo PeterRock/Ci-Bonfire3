@@ -1,3 +1,6 @@
+.logs th.column-check {
+	width: 2em;
+}
 .logs th.date {
 	width: 15em;
 }

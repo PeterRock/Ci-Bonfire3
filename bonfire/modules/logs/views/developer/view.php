@@ -1,22 +1,22 @@
-<div class="admin-box">
+<div class="admin-box container">
     <h3><span><?php echo lang('logs_viewing'); ?></span> <?php echo $log_file_pretty; ?></h3>
     <?php if (empty($log_content)) : ?>
-    <div class="alert alert-warning fade in">
-        <a class="close" data-dismiss="alert">&times;</a>
-        <?php echo lang('logs_not_found'); ?>
-    </div>
+        <div class="alert alert-warning fade in">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            <?php echo lang('logs_not_found'); ?>
+        </div>
     <?php else : ?>
-    <span class='form-horizontal'>
+    <div class='form-inline'>
         <div class='form-group'>
             <label for='filter' class='control-label'><?php echo lang('logs_filter_label'); ?></label>
-            <div class='controls'>
-                <select id="filter">
-                    <option value="all"><?php echo lang('logs_show_all_entries'); ?></option>
-                    <option value="error"><?php echo lang('logs_show_errors'); ?></option>
-                </select>
-            </div>
+            <select id="filter" class="form-control">
+                <option value="all"><?php echo lang('logs_show_all_entries'); ?></option>
+                <option value="error"><?php echo lang('logs_show_errors'); ?></option>
+            </select>
         </div>
-    </span>
+    </div>
+    <p>
     <div id="log">
         <?php
         foreach ($log_content as $row) :
@@ -38,26 +38,32 @@
             } elseif (strpos($row, 'DEBUG') !== false) {
                 $class .= ' alert-warning';
             }
-        ?>
-        <div class="<?php echo $class; ?>"><?php e($row); ?></div>
+            ?>
+            <div class="<?php echo $class; ?>"><?php e($row); ?></div>
         <?php endforeach; ?>
     </div>
-<?php if ($canDelete) : ?>
+    <?php if ($canDelete) : ?>
 </div>
-<div class="admin-box">
+<div class="admin-box container">
     <h3><?php echo lang('logs_delete1_button') ?></h3>
     <?php echo form_open(site_url(SITE_AREA . '/developer/logs'), array('class' => 'form-horizontal')); ?>
-        <div class="alert alert-warning fade in">
-            <a class="close" data-dismiss="alert">&times;</a>
-            <?php echo lang('logs_delete1_note'); ?>
+    <div class="alert alert-warning fade in">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+        <?php echo lang('logs_delete1_note'); ?>
+    </div>
+    <fieldset class="form-group">
+        <input type="hidden" name="checked[]" value="<?php e($log_file); ?>"/>
+        <div class="col-sm-12">
+            <button type="submit" name="delete" class="btn btn-danger"
+                    onclick="return confirm('<?php e(js_escape(lang('logs_delete_confirm'))) ?>')"><span
+                        class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('logs_delete1_button'); ?>
+            </button>
         </div>
-        <fieldset class="form-group">
-            <input type="hidden" name="checked[]" value="<?php e($log_file); ?>" />
-            <button type="submit" name="delete" class="btn btn-danger" onclick="return confirm('<?php e(js_escape(lang('logs_delete_confirm'))) ?>')"><span class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('logs_delete1_button'); ?></button>
-        </fieldset>
+    </fieldset>
     <?php
-        echo form_close();
+    echo form_close();
     endif;
-endif;
-?>
+    endif;
+    ?>
 </div>
