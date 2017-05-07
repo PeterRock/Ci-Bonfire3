@@ -61,7 +61,7 @@
                                 <td><?php echo $migrations['installed_version']; ?></td>
                                 <td><?php echo $migrations['latest_version']; ?></td>
                                 <td class='migrate'>
-                                    <?php echo form_open(site_url(SITE_AREA . "/developer/migrations/migrate_module/{$module}"), 'class="form-horizontal"'); ?>
+                                    <?php echo form_open(site_url(SITE_AREA . "/developer/migrations/migrate_module/{$module}"), 'class="form-inline"'); ?>
                                     <input type="hidden" name="is_module" value="1"/>
                                     <select name="version" class="form-control">
                                         <option value=""><?php echo lang('migrations_choose_migration'); ?></option>
