@@ -303,31 +303,36 @@ tfoot td {
 
 /* Forms */
 
-.form-horizontal .form-group {
-    border-bottom: 1px solid #e5e5e5;
-    padding-bottom: 18px;
-    padding-top: 18px;
-    margin-bottom: 0;
+.admin-box legend {
+    padding: 15px 0 10px;
+    margin-bottom: 10px;
 }
 
-.form-horizontal .form-group > label {
-    font-weight: bold;
-    width: 180px;
-}
+/*.form-horizontal .form-group {*/
+    /*border-bottom: 1px solid #e5e5e5;*/
+    /*padding-bottom: 18px;*/
+    /*padding-top: 18px;*/
+    /*margin-bottom: 0;*/
+/*}*/
 
-.form-horizontal .form-group .controls {
-    margin-left: 200px;
-}
+/*.form-horizontal .form-group > label {*/
+    /*font-weight: bold;*/
+    /*width: 180px;*/
+/*}*/
 
-.form-horizontal .form-actions {
-    padding-left: 200px;
-}
+/*.form-horizontal .form-group .controls {*/
+    /*margin-left: 200px;*/
+/*}*/
 
-.form-horizontal fieldset .form-group:last-child {
-    margin-bottom: 0;
-    border-bottom: 0;
-    padding-bottom: 36px;
-}
+/*.form-horizontal .form-actions {*/
+    /*padding-left: 200px;*/
+/*}*/
+
+/*.form-horizontal fieldset .form-group:last-child {*/
+    /*margin-bottom: 0;*/
+    /*border-bottom: 0;*/
+    /*padding-bottom: 36px;*/
+/*}*/
 
 label.checkbox {
     font-weight: normal;
@@ -343,13 +348,13 @@ input[type=radio] {
     color: #999;
 }
 
-.admin-box legend {
-    display: block;
-    padding-top: 12pt;
-    font-size: 14pt;
-    font-weight: normal;
-    margin-bottom: auto;
-}
+/*.admin-box legend {*/
+    /*display: block;*/
+    /*padding-top: 12pt;*/
+    /*font-size: 14pt;*/
+    /*font-weight: normal;*/
+    /*margin-bottom: auto;*/
+/*}*/
 
 @-moz-document url-prefix() {
     .admin-box legend {
