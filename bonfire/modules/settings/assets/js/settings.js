@@ -8,7 +8,7 @@ $(document).ready(function(){
 	});
 
 	$('#allow_remember').on('change', function(){
-		if ('checked' == $(this).attr('checked')) {
+		if ($('#allow_remember').is(':checked')) {
 			$('#remember-length').css('display', 'block');
 		} else {
 			$('#remember-length').css('display', 'none');
@@ -16,7 +16,7 @@ $(document).ready(function(){
 	});
 
     $('#status').on('change', function() {
-        if (0 == $(this).val()) {
+        if (0 == $('#status').val()) {
             $('#offline_reason').parents('.form-group').css('display', 'block');
         } else {
             $('#offline_reason').parents('.form-group').css('display', 'none');
