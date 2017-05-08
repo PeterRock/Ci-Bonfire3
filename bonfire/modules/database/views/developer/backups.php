@@ -4,7 +4,7 @@ $databaseUrl = site_url(SITE_AREA . '/developer/database');
 $numColumns = 4;
 
 ?>
-<div class="admin-box container backups">
+<div class="admin-box backups">
     <?php if (empty($backups) || !is_array($backups)) : ?>
         <div class="alert alert-info">
             <p><?php echo lang('database_no_backups'); ?></p>

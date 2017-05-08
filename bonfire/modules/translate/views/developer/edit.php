@@ -1,4 +1,4 @@
-<div class="admin-box container">
+<div class="admin-box">
     <?php
     if (!empty($orig) && is_array($orig)) :
         echo form_open(current_url(), 'class="form-horizontal" id="translate_form"');

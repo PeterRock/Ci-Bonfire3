@@ -12,7 +12,7 @@
         width: 10em;
     }
 </style>
-<div class="admin-box container">
+<div class="admin-box">
     <?php if (validation_errors()) : ?>
         <div class="row">
             <div class="alert alert-block alert-danger fade in">

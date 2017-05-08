@@ -1,4 +1,4 @@
-<div class="admin-box container">
+<div class="admin-box">
     <p class="well"><?php echo lang('migrations_intro'); ?></p>
     <ul class="nav nav-tabs">
         <li class="active"><a href="#app-tab" data-toggle="tab"><?php echo lang('migrations_tab_app'); ?></a></li>

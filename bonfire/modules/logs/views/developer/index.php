@@ -12,7 +12,7 @@ if (empty($logs) || ! is_array($logs)) :
     <p><?php echo lang('logs_no_logs'); ?></p>
 </div>
 <?php else : ?>
-<div class="admin-box container">
+<div class="admin-box">
     <?php echo form_open(); ?>
         <table class="table table-striped logs">
             <thead>
@@ -60,7 +60,7 @@ if (empty($logs) || ! is_array($logs)) :
     ?>
 </div>
 <!-- Purge? -->
-<div class="admin-box container">
+<div class="admin-box">
     <h3><?php echo lang('logs_delete_button'); ?></h3>
     <?php echo form_open(); ?>
         <div class="alert alert-warning fade in">

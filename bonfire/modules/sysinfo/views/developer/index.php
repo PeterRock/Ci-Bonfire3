@@ -1,4 +1,4 @@
-<div class="admin-box container">
+<div class="admin-box">
     <table class="table table-striped table-bordered">
         <tbody>
             <?php foreach ($info as $key => $val) : ?>

@@ -3,7 +3,7 @@
 $num_columns = 5;
 
 ?>
-<div class="admin-box container">
+<div class="admin-box">
 	<p class="well"><?php e(lang('permissions_intro')); ?></p>
     <?php
     if (isset($results) && is_array($results) && count($results)) :

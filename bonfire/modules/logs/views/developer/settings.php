@@ -4,7 +4,7 @@
         <?php echo lang('logs_not_enabled'); ?>
     </div>
 <?php endif; ?>
-<div class="admin-box container">
+<div class="admin-box">
     <?php echo form_open(site_url(SITE_AREA . '/developer/logs/enable'), 'class="form-horizontal"'); ?>
     <fieldset>
         <div class="form-group">

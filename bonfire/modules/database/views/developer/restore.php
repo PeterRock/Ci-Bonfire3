@@ -1,4 +1,4 @@
-<div class='admin-box container restore'>
+<div class='admin-box restore'>
     <?php if (empty($results)) : ?>
         <h3><?php echo sprintf(lang('database_restore_file'), $filename); ?></h3>
         <div class="alert alert-warning">

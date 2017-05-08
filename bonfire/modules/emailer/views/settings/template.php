@@ -1,4 +1,4 @@
-<div class="admin-box container">
+<div class="admin-box">
     <p class="well"><?php echo lang('emailer_template_note'); ?></p>
     <?php echo form_open(SITE_AREA . '/settings/emailer/template'); ?>
     <fieldset>

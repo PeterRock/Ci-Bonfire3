@@ -1,4 +1,4 @@
-<div class='admin-box container'>
+<div class='admin-box'>
     <fieldset>
         <legend><?php echo lang('emailer_test_result_header'); ?></legend>
     </fieldset>

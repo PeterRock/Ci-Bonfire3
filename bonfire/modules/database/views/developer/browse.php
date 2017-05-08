@@ -1,4 +1,4 @@
-<div class="admin-box container">
+<div class="admin-box">
     <div class="alert alert-info">
         <h4 class='alert-heading'><?php e(lang('database_sql_query')); ?>:</h4>
         <p><?php e($query); ?></p>

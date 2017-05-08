@@ -14,7 +14,7 @@ $cols = array();
 	window.g_role       = '<?php e(lang('matrix_role')); ?>';
 	window.g_url		= '<?php echo site_url(SITE_AREA . '/settings/roles/matrix_update'); ?>';
 </script>
-<div class="admin-box container">
+<div class="admin-box">
     <div id="permission_table_result" class="alert alert-info fade in">
         <a class="close" data-dismiss="alert">&times;</a>
         <?php echo lang('matrix_note'); ?>

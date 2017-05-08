@@ -7,7 +7,7 @@ if (validation_errors()) :
         <?php echo validation_errors(); ?>
     </div>
 <?php endif; ?>
-<div class="admin-box container">
+<div class="admin-box">
     <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
     <fieldset>
         <legend><?php echo lang('role_details'); ?></legend>

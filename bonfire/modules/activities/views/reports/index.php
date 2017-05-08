@@ -17,7 +17,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
             text-align: right;
         }
     </style>
-    <div class="admin-box container">
+    <div class="admin-box">
         <div class="row icons">
             <?php if ($hasPermissionViewOwn) : ?>
                 <div class="col-md-3 col-sm-6">
@@ -147,7 +147,7 @@ if ($hasPermissionDeleteOwn
     || $hasPermissionDeleteDate
 ) :
     ?>
-    <div class="admin-box container">
+    <div class="admin-box">
         <h3><?php echo lang('activities_cleanup'); ?></h3>
         <table class="table table-striped">
             <tbody>

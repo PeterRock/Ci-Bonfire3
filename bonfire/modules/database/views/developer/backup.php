@@ -1,4 +1,4 @@
-<div class="admin-box container backup">
+<div class="admin-box backup">
     <?php if (validation_errors()) : ?>
         <div class="alert alert-block alert-danger fade in">
             <a class="close" data-dismiss="alert">&times;</a>

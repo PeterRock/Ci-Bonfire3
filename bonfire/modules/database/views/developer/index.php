@@ -1,4 +1,4 @@
-<div class="admin-box container database">
+<div class="admin-box database">
     <?php if (empty($tables) || !is_array($tables)) : ?>
         <div class="notification info">
             <p><?php echo lang('database_no_tables'); ?></p>

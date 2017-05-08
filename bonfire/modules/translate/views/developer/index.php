@@ -21,7 +21,7 @@
     <?php echo form_close(); ?>
 </div>
 <!-- Core -->
-<div class="admin-box container">
+<div class="admin-box">
     <h3><?php echo lang('translate_core'); ?> <span
                 class="subhead"><?php echo count($lang_files) . ' ' . lang('bf_files'); ?></span></h3>
     <?php
@@ -51,7 +51,7 @@
 <?php endif; ?>
 </div>
 <!-- Modules -->
-<div class="admin-box container">
+<div class="admin-box">
     <h3><?php echo lang('translate_modules') . ((!empty($modules) && is_array($modules)) ? ' <span class="subhead">' . count($modules) . ' ' . lang('bf_files') . '</span>' : ''); ?></h3>
     <?php
     if (!empty($modules) && is_array($modules)) :

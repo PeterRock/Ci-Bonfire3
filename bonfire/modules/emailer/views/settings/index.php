@@ -1,4 +1,4 @@
-<div class="admin-box container">
+<div class="admin-box">
     <?php echo form_open(SITE_AREA . '/settings/emailer', 'class="form-horizontal"'); ?>
     <fieldset>
         <legend><?php echo lang('emailer_general_settings'); ?></legend>
@@ -109,7 +109,7 @@
     <?php echo form_close(); ?>
 </div>
 <?php /* Test Settings */ ?>
-<div class="admin-box container">
+<div class="admin-box">
     <h3><?php echo lang('emailer_test_header'); ?></h3>
     <?php echo form_open(SITE_AREA . '/settings/emailer/test', array('class' => 'form-horizontal', 'id' => 'test-form')); ?>
     <fieldset>

@@ -31,7 +31,7 @@ if (validation_errors()) :
         width: auto;
     }
 </style>
-<div class="admin-box container">
+<div class="admin-box">
     <?php echo form_open($this->uri->uri_string(), 'class="form-horizontal"'); ?>
     <div class="table">
         <ul class="nav nav-tabs">

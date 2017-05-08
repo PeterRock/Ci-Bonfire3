@@ -31,7 +31,7 @@
         text-align: center !important;
     }
 </style>
-<div class="admin-box container">
+<div class="admin-box">
     <div class="row">
         <div class="col-md-4">
             <p>
