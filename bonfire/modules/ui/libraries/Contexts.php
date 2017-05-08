@@ -40,7 +40,7 @@ class Contexts
     protected static $templateContextNavMobileClass  = 'mobile_nav';
 
     /** @var string The class name to attach to the outer ul tag. */
-    protected static $outer_class = 'nav';
+    protected static $outer_class = 'nav navbar-nav';
 
     /** @var string The class to attach to li tags with children. */
     protected static $parent_class = 'dropdown';

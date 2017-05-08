@@ -1,11 +1,9 @@
-#mod-tab th.version {
-    width: 6em;
-}
-#mod-tab th.module-name {
-    vertical-align: bottom;
+
+#mod-tab td {
+    vertical-align: middle;
 }
 #mod-tab th.migrate {
-    text-align: center;
+    text-align: right;
 }
 #mod-tab td.migrate {
     width: 35em;

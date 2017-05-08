@@ -1,14 +1,3 @@
-.backups.admin-box > form,
-.database.admin-box > form {
-	padding: 0;
-}
-.database tfoot label {
-	float: left;
-	width: 160px;
-	padding: 5px 5px 0 0;
-	text-align: right;
-	margin-bottom: 0;
-}
 #database-action {
 	margin-bottom: 0;
 }

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('#allow_name_change').on('change', function(){
-		if ('checked' == $(this).attr('checked')) {
+		if ($('#allow_name_change').is(':checked')) {
 			$('#name-change-settings').css('display', 'block');
 		} else {
 			$('#name-change-settings').css('display', 'none');
@@ -8,7 +8,7 @@ $(document).ready(function(){
 	});
 
 	$('#allow_remember').on('change', function(){
-		if ('checked' == $(this).attr('checked')) {
+		if ($('#allow_remember').is(':checked')) {
 			$('#remember-length').css('display', 'block');
 		} else {
 			$('#remember-length').css('display', 'none');
@@ -16,10 +16,10 @@ $(document).ready(function(){
 	});
 
     $('#status').on('change', function() {
-        if (0 == $(this).val()) {
-            $('#offline_reason').parents('.control-group').css('display', 'block');
+        if (0 == $('#status').val()) {
+            $('#offline_reason').parents('.form-group').css('display', 'block');
         } else {
-            $('#offline_reason').parents('.control-group').css('display', 'none');
+            $('#offline_reason').parents('.form-group').css('display', 'none');
         }
     });
 });

@@ -1,8 +1,5 @@
 /* For the permissions matrix */
-#permission_table {
-	width: auto;
-	margin-left: 20px;
-}
+
 #permission_table td {
 	text-align: center;
 }
@@ -21,7 +18,10 @@ th.domain {
 	color: #222;
 }
 /* For the role_form */
-.description.control-group,
-.description.control-group .help-inline {
+.description.form-group,
+.description.form-group .help-inline {
     vertical-align: top;
+}
+.tableFloatingHeaderOriginal {
+	background-color: #fff;
 }

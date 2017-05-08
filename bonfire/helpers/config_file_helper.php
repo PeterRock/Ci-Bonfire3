@@ -260,6 +260,23 @@ if (! function_exists('write_config')) {
                 $configFile = implode('', $fileDetails);
                 $found = true;
             }
+        } else {
+            $checkLocations = array();
+
+            if (defined('ENVIRONMENT')) {
+                $checkLocations[] = APPPATH . 'config/' . ENVIRONMENT . "/{$file}";
+            }
+
+            $checkLocations[] = APPPATH . "config/{$file}";
+
+            foreach ($checkLocations as $location) {
+                if (file_exists($location . '.php')) {
+                    $configFile = $location;
+                    $found = true;
+                    break;
+                }
+            }
+
         }
 
         // Fall back to application directory.

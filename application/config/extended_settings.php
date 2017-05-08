@@ -28,83 +28,83 @@
  */
 $config['extended_settings_fields'] = array(
     array(
-        'name'        => 'extended_settings_test',
-        'label'       => 'Test Label',
-        'rules'       => 'trim',
+        'name' => 'extended_settings_test',
+        'label' => 'Test Label',
+        'rules' => 'trim',
         'form_detail' => array(
-            'type'     => 'dropdown',
+            'type' => 'dropdown',
             'settings' => array(
-                'name'  => 'extended_settings_test',
-                'id'    => 'extended_settings_test',
+                'name' => 'extended_settings_test',
+                'id' => 'extended_settings_test',
             ),
-            'options'  => array(
+            'options' => array(
                 '0' => 'Passed',
                 '1' => 'Failed',
             ),
         ),
-        'permission'  => 'This.Shouldnt.ShowUp',
+        'permission' => 'This.Shouldnt.ShowUp',
     ),
     array(
-        'name'        => 'street_name',
-        'label'       => lang('user_meta_street_name'),
-        'rules'       => 'trim|max_length[100]',
+        'name' => 'street_name',
+        'label' => lang('user_meta_street_name'),
+        'rules' => 'trim|max_length[100]',
         'form_detail' => array(
-            'type'     => 'input',
+            'type' => 'input',
             'settings' => array(
-                'name'      => 'street_name',
-                'id'        => 'street_name',
+                'name' => 'street_name',
+                'id' => 'street_name',
                 'maxlength' => '100',
-                'class'     => 'span6',
+                'class' => 'form-control',
             ),
         ),
-        'permission'  => 'Site.Settings.View',
+        'permission' => 'Site.Settings.View',
     ),
     array(
-        'name'        => 'country',
-        'label'       => lang('user_meta_country'),
-        'rules'       => 'required|trim|max_length[100]',
+        'name' => 'country',
+        'label' => lang('user_meta_country'),
+        'rules' => 'required|trim|max_length[100]',
         'form_detail' => array(
-            'type'     => 'country_select',
+            'type' => 'country_select',
             'settings' => array(
-                'name'      => 'country',
-                'id'        => 'country',
+                'name' => 'country',
+                'id' => 'country',
                 'maxlength' => '100',
-                'class'     => 'span6'
+                'class' => 'form-control'
             ),
         ),
     ),
     array(
-        'name'        => 'state',
-        'label'       => lang('user_meta_state'),
-        'rules'       => 'trim|max_length[2]',
+        'name' => 'state',
+        'label' => lang('user_meta_state'),
+        'rules' => 'trim|max_length[2]',
         'form_detail' => array(
-            'type'     => 'state_select',
+            'type' => 'state_select',
             'settings' => array(
-                'name'      => 'state',
-                'id'        => 'state',
+                'name' => 'state',
+                'id' => 'state',
                 'maxlength' => '2',
-                'class'     => 'span1'
+                'class' => 'form-control'
             ),
         ),
-        'permission'  => 'Site.Content.View',
+        'permission' => 'Site.Content.View',
     ),
     array(
-        'name'        => 'type',
-        'label'       => lang('user_meta_type'),
-        'rules'       => 'required',
+        'name' => 'type',
+        'label' => lang('user_meta_type'),
+        'rules' => 'required',
         'form_detail' => array(
-            'type'     => 'dropdown',
+            'type' => 'dropdown',
             'settings' => array(
-                'name'   => 'type',
-                'id'     => 'type',
-                'class'  => 'span6',
+                'name' => 'type',
+                'id' => 'type',
+                'class' => 'form-control',
             ),
-            'options'  =>  array(
-                'small'  => 'Small Shirt',
-                'med'    => 'Medium Shirt',
-                'large'  => 'Large Shirt',
+            'options' => array(
+                'small' => 'Small Shirt',
+                'med' => 'Medium Shirt',
+                'large' => 'Large Shirt',
                 'xlarge' => 'Extra Large Shirt',
-              ),
+            ),
         ),
     ),
 );

@@ -14,12 +14,12 @@ $cols = array();
 	window.g_role       = '<?php e(lang('matrix_role')); ?>';
 	window.g_url		= '<?php echo site_url(SITE_AREA . '/settings/roles/matrix_update'); ?>';
 </script>
-<div id="permission_table_result" class="alert alert-info fade in">
-	<a class="close" data-dismiss="alert">&times;</a>
-	<?php echo lang('matrix_note'); ?>
-</div>
 <div class="admin-box">
-	<table class="table table-striped" id="permission_table">
+    <div id="permission_table_result" class="alert alert-info fade in">
+        <a class="close" data-dismiss="alert">&times;</a>
+        <?php echo lang('matrix_note'); ?>
+    </div>
+	<table class="table table-striped table-sticky" id="permission_table">
 		<thead>
 			<tr>
 				<th><?php echo lang('matrix_permission');?></th>

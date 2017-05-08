@@ -88,13 +88,13 @@ if (! function_exists('_form_common')) {
         $error = '';
         if (function_exists('form_error') && form_error($defaults['name'])) {
             $error   = ' error';
-            $tooltip = '<span class="help-inline">' . form_error($defaults['name']) . '</span>';
+            $tooltip = '<span class="help-block">' . form_error($defaults['name']) . '</span>';
         }
 
         $output = _parse_form_attributes($data, $defaults);
 
         return "
-<div class='control-group{$error}'>
+<div class='form-group{$error}'>
     <label class='control-label' for='{$defaults['id']}'>{$label}</label>
     <div class='controls'>
          <input {$output} {$extra} />
@@ -401,11 +401,11 @@ if (! function_exists('form_dropdown')) {
         $error = '';
         if (function_exists('form_error') && form_error($data['name'])) {
             $error   = ' error';
-            $tooltip = '<span class="help-inline">' . form_error($data['name']) . '</span>';
+            $tooltip = '<span class="help-block">' . form_error($data['name']) . '</span>';
         }
 
         return "
-<div class='control-group{$error}'>
+<div class='form-group{$error}'>
     <label class='control-label' for='{$data['id']}'>{$label}</label>
     <div class='controls'>
         <select {$output} {$extra}>

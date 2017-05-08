@@ -70,10 +70,10 @@ class Settings extends Admin_Controller
                 if ($result) {
                     Template::set_message(count($checked) .' '. lang('permissions_deleted') .'.', 'success');
                 } else {
-                    Template::set_message(lang('permissions_del_failure') . $this->permission_model->error, 'error');
+                    Template::set_message(lang('permissions_del_failure') . $this->permission_model->error, 'danger');
                 }
             } else {
-                Template::set_message(lang('permissions_del_error') . $this->permission_model->error, 'error');
+                Template::set_message(lang('permissions_del_error') . $this->permission_model->error, 'danger');
             }
         }
 
@@ -125,7 +125,7 @@ class Settings extends Admin_Controller
     {
         $id = (int) $this->uri->segment(5);
         if (empty($id)) {
-            Template::set_message(lang("permissions_invalid_id"), 'error');
+            Template::set_message(lang("permissions_invalid_id"), 'danger');
             redirect(SITE_AREA . '/settings/permissions');
         }
 

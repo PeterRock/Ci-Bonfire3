@@ -52,7 +52,7 @@ if ($db_required != '') {
                 if (\$result) {
                     Template::set_message(count(\$checked) . ' ' . lang('{$module_name_lower}_delete_success'), 'success');
                 } else {
-                    Template::set_message(lang('{$module_name_lower}_delete_failure') . \$this->{$module_name_lower}_model->error, 'error');
+                    Template::set_message(lang('{$module_name_lower}_delete_failure') . \$this->{$module_name_lower}_model->error, 'danger');
                 }
             }
         }";
@@ -117,7 +117,7 @@ if ($db_required != '') {
 
             // Not validation error
             if ( ! empty(\$this->{$module_name_lower}_model->error)) {
-                Template::set_message(lang('{$module_name_lower}_create_failure') . \$this->{$module_name_lower}_model->error, 'error');
+                Template::set_message(lang('{$module_name_lower}_create_failure') . \$this->{$module_name_lower}_model->error, 'danger');
             }
         }";
 
@@ -136,7 +136,7 @@ if ($db_required != '') {
 
             // Not validation error
             if ( ! empty(\$this->{$module_name_lower}_model->error)) {
-                Template::set_message(lang('{$module_name_lower}_edit_failure') . \$this->{$module_name_lower}_model->error, 'error');
+                Template::set_message(lang('{$module_name_lower}_edit_failure') . \$this->{$module_name_lower}_model->error, 'danger');
             }
         }";
 
@@ -152,7 +152,7 @@ if ($db_required != '') {
                 redirect(SITE_AREA . '/{$controller_name_lower}/{$module_name_lower}');
             }
 
-            Template::set_message(lang('{$module_name_lower}_delete_failure') . \$this->{$module_name_lower}_model->error, 'error');
+            Template::set_message(lang('{$module_name_lower}_delete_failure') . \$this->{$module_name_lower}_model->error, 'danger');
         }";
     }
 }
@@ -187,7 +187,7 @@ $mb_edit = "
     {
         \$id = \$this->uri->segment(5);
         if (empty(\$id)) {
-            Template::set_message(lang('{$module_name_lower}_invalid_id'), 'error');
+            Template::set_message(lang('{$module_name_lower}_invalid_id'), 'danger');
 
             redirect(SITE_AREA . '/{$controller_name_lower}/{$module_name_lower}');
         }
@@ -255,28 +255,21 @@ $date_included     = false;
 $datetime_included = false;
 $textarea_included = false;
 
-$jQueryUI = "
-            Assets::add_css('flick/jquery-ui-1.8.13.custom.css');
-            Assets::add_js('jquery-ui-1.8.13.min.js');";
-
 for ($counter = 1; $field_total >= $counter; $counter++) {
     $db_field_type = set_value("db_field_type$counter");
     $view_datepicker = '';
 
     if ($db_field_type != null) {
         if ($db_field_type == 'DATE' && $date_included === false) {
-            $constructorExtras .= $jQueryUI;
             $date_included = true;
         } elseif ($db_field_type == 'DATETIME' && $datetime_included === false) {
             // If a date field hasn't been included already then add in the jquery ui files
             if ($date_included === false) {
-                $constructorExtras .= $jQueryUI;
                 $date_included = true;
             }
 
             $constructorExtras .= "
-            Assets::add_css('jquery-ui-timepicker.css');
-            Assets::add_js('jquery-ui-timepicker-addon.js');";
+            Assets::add_js('bootstrap-datetimepicker/bootstrap-datetimepicker.min.js');";
             $datetime_included = true;
         } elseif (in_array($db_field_type, $textTypes)
             && $textarea_included === false
