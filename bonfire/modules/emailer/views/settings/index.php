@@ -122,8 +122,12 @@
         <div class="form-group">
             <label class="col-sm-2 control-label" for="test-email"><?php echo lang('bf_email'); ?></label>
             <div class="col-sm-10">
-                <input type="email" name="email" id="test-email"
+                <input type="email" name="email" id="test-email" class="form-control"
                        value="<?php echo set_value('test_email', settings_item('site.system_email')); ?>"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
                 <input type="submit" name="test" class="btn btn-primary"
                        value="<?php echo lang('emailer_test_button'); ?>"/>
             </div>
