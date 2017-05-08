@@ -43,8 +43,6 @@ class Migration_User_language extends Migration
 	 */
 	private $languages = array(
 		'english',
-		'portuguese',
-		'persian',
 	);
 
 	/****************************************************************
