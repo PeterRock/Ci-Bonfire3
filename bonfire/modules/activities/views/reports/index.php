@@ -9,24 +9,18 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
 
 ?>
     <style>
-        .row.icons {
-            margin-bottom: 20px;
+        .row.icons .media {
+            margin-bottom: 10px;
         }
 
         td.button-column {
             text-align: right;
         }
-
-        td.button-column,
-        td.label-column,
-        td.button-column button {
-            width: 20em;
-        }
     </style>
     <div class="admin-box container">
         <div class="row icons">
             <?php if ($hasPermissionViewOwn) : ?>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="media">
                         <div class="media-left">
                             <a href='<?php echo "{$activitiesReportsUrl}/{$pages['own']}"; ?>'>
@@ -43,7 +37,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
             endif;
             if ($hasPermissionViewUser) :
                 ?>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="media">
                         <div class="media-left">
                             <a href='<?php echo "{$activitiesReportsUrl}/{$pages['user']}"; ?>'>
@@ -60,7 +54,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
             endif;
             if ($hasPermissionViewModule) :
                 ?>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="media">
                         <div class="media-left">
                             <a href='<?php echo "{$activitiesReportsUrl}/{$pages['module']}"; ?>'>
@@ -77,7 +71,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
             endif;
             if ($hasPermissionViewDate) :
                 ?>
-                <div class="col-md-3">
+                <div class="col-md-3 col-sm-6">
                     <div class="media">
                         <div class="media-left">
                             <a href='<?php echo "{$activitiesReportsUrl}/{$pages['date']}"; ?>'>
@@ -93,7 +87,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
             <?php endif; ?>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <!-- Active Modules -->
                 <h3><?php echo lang('activities_top_modules'); ?></h3>
                 <?php if (empty($top_modules) || !is_array($top_modules)) : ?>
@@ -117,7 +111,7 @@ $activitiesReportsUrl = site_url($activitiesReportsPage);
                     </table>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
                 <!-- Active Users -->
                 <h3><?php echo lang('activities_top_users'); ?></h3>
                 <?php if (empty($top_users) || !is_array($top_users)) : ?>
@@ -164,13 +158,13 @@ if ($hasPermissionDeleteOwn
                                 for="activity_own_select"><?php echo lang('activities_delete_own_note'); ?></label></td>
                     <td>
                         <input type="hidden" name="action" value="activity_own"/>
-                        <select name="which" id="activity_own_select">
+                        <select name="which" id="activity_own_select" class="form-control col-sm-2">
                             <option value="<?php echo $current_user->id; ?>"><?php e($current_user->username); ?></option>
                         </select>
                     </td>
                     <td class='button-column'>
-                        <button type="button" class="btn btn-danger" id="delete-activity_own"><span
-                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_own_delete'); ?>
+                        <button type="button" class="btn btn-danger" id="delete-activity_own">
+                            <i class="fa fa-trash"></i>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
@@ -181,12 +175,12 @@ if ($hasPermissionDeleteOwn
                 ?>
                 <tr>
                     <?php echo form_open("{$activitiesReportsPage}/delete", array('id' => 'activity_user_form', 'class' => 'form-inline')); ?>
-                    <td class='label-column'><label
-                                for="activity_user_select"><?php echo lang('activities_delete_user_note'); ?></label>
+                    <td class='label-column'>
+                        <label for="activity_user_select"><?php echo lang('activities_delete_user_note'); ?></label>
                     </td>
                     <td>
                         <input type="hidden" name="action" value="activity_user"/>
-                        <select name="which" id="activity_user_select">
+                        <select name="which" id="activity_user_select" class="form-control">
                             <option value="all"><?php echo lang('activities_all_users'); ?></option>
                             <?php foreach ($users as $au) : ?>
                                 <option value="<?php echo $au->id; ?>"><?php e($au->username); ?></option>
@@ -194,8 +188,8 @@ if ($hasPermissionDeleteOwn
                         </select>
                     </td>
                     <td class='button-column'>
-                        <button type="button" class="btn btn-danger" id="delete-activity_user"><span
-                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_user_delete'); ?>
+                        <button type="button" class="btn btn-danger" id="delete-activity_user">
+                            <i class="fa fa-trash"></i>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
@@ -207,12 +201,12 @@ if ($hasPermissionDeleteOwn
                 ?>
                 <tr>
                     <?php echo form_open("{$activitiesReportsPage}/delete", array('id' => 'activity_module_form', 'class' => 'form-inline')); ?>
-                    <td class='label-column'><label
-                                for="activity_module_select"><?php echo lang('activities_delete_module_note'); ?></label>
+                    <td class='label-column'>
+                        <label for="activity_module_select"><?php echo lang('activities_delete_module_note'); ?></label>
                     </td>
                     <td>
                         <input type="hidden" name="action" value="activity_module"/>
-                        <select name="which" id="activity_module_select">
+                        <select name="which" id="activity_module_select" class="form-control">
                             <option value="all"><?php echo lang('activities_all_modules'); ?></option>
                             <option value="core"><?php echo lang('activities_core'); ?></option>
                             <?php foreach ($modules as $mod) : ?>
@@ -221,8 +215,8 @@ if ($hasPermissionDeleteOwn
                         </select>
                     </td>
                     <td class='button-column'>
-                        <button type="button" class="btn btn-danger" id="delete-activity_module"><span
-                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_module_delete'); ?>
+                        <button type="button" class="btn btn-danger" id="delete-activity_module">
+                            <i class="fa fa-trash"></i>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
@@ -234,12 +228,12 @@ if ($hasPermissionDeleteOwn
                 ?>
                 <tr>
                     <?php echo form_open("{$activitiesReportsPage}/delete", array('id' => 'activity_date_form', 'class' => 'form-inline')); ?>
-                    <td class='label-column'><label
-                                for="activity_date_select"><?php echo lang('activities_delete_date_note'); ?></label>
+                    <td class='label-column'>
+                        <label for="activity_date_select"><?php echo lang('activities_delete_date_note'); ?></label>
                     </td>
                     <td>
                         <input type="hidden" name="action" value="activity_date"/>
-                        <select name="which" id="activity_date_select">
+                        <select name="which" id="activity_date_select" class="form-control">
                             <option value="all"><?php echo lang('activities_all_dates'); ?></option>
                             <?php foreach ($activities as $activity) : ?>
                                 <option value="<?php echo $activity->activity_id; ?>"><?php echo $activity->created_on; ?></option>
@@ -247,8 +241,8 @@ if ($hasPermissionDeleteOwn
                         </select>
                     </td>
                     <td class='button-column'>
-                        <button type="button" class="btn btn-danger" id="delete-activity_date"><span
-                                    class="glyphicon glyphicon-trash glyphicon-white"></span>&nbsp;<?php echo lang('activities_date_delete'); ?>
+                        <button type="button" class="btn btn-danger" id="delete-activity_date">
+                            <i class="fa fa-trash"></i>
                         </button>
                     </td>
                     <?php echo form_close(); ?>
