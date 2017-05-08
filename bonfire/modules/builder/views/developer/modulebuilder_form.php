@@ -137,18 +137,20 @@ $validationErrors = validation_errors();
                     // Build the checkboxes for the Controller Actions
                     foreach ($form_action_options as $action => $label) :
                         ?>
-                        <label class="checkbox" for="form_action_<?php echo $action; ?>">
-                            <?php
-                            $data = array(
-                                'name' => 'form_action[]',
-                                'id' => "form_action_{$action}",
-                                'value' => $action,
-                                'checked' => 'checked',
-                            );
-                            echo form_checkbox($data);
-                            echo $label;
-                            ?>
-                        </label>
+                        <div class="checkbox">
+                            <label for="form_action_<?php echo $action; ?>">
+                                <?php
+                                $data = array(
+                                    'name' => 'form_action[]',
+                                    'id' => "form_action_{$action}",
+                                    'value' => $action,
+                                    'checked' => 'checked',
+                                );
+                                echo form_checkbox($data);
+                                echo $label;
+                                ?>
+                            </label>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -510,12 +512,12 @@ $validationErrors = validation_errors();
                                 $validationRulesCount = "validation_rules{$count}[]";
                                 ?>
                                 <div class="radio faded">
-                                <label for="<?php echo $validationRulesLimitCount; ?>">
-                                    <input name="<?php echo $validationRulesCount; ?>"
-                                           id="<?php echo $validationRulesLimitCount; ?>" type="radio"
-                                           value="<?php echo $validation_limit; ?>" <?php echo set_radio($validationRulesCount, $validation_limit); ?> />
-                                    <?php echo lang("mb_form_{$validation_limit}"); ?>
-                                </label>
+                                    <label for="<?php echo $validationRulesLimitCount; ?>">
+                                        <input name="<?php echo $validationRulesCount; ?>"
+                                               id="<?php echo $validationRulesLimitCount; ?>" type="radio"
+                                               value="<?php echo $validation_limit; ?>" <?php echo set_radio($validationRulesCount, $validation_limit); ?> />
+                                        <?php echo lang("mb_form_{$validation_limit}"); ?>
+                                    </label>
                                 </div>
                             <?php endforeach; ?>
                         </div>
