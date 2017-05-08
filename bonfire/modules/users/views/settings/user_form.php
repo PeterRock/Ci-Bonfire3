@@ -49,7 +49,7 @@ if (isset($password_hints)) :
     <?php
 endif;
 
-echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal', 'autocomplete' => 'off'));
+echo form_open($this->uri->uri_string(), array('class' => '', 'autocomplete' => 'off'));
 ?>
     <fieldset>
         <legend><?php echo lang('us_account_details'); ?></legend>

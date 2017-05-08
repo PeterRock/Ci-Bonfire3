@@ -16,7 +16,7 @@
         <label class="col-sm-2 control-label"
                for="user_activation_method"><?php echo lang('bf_activate_method'); ?></label>
         <div class="col-sm-10">
-            <select name="user_activation_method" id="user_activation_method">
+            <select name="user_activation_method" id="user_activation_method" class="form-control">
                 <option value="0" <?php echo set_select('auth.user_activation_method', 0, isset($settings['auth.user_activation_method']) && $settings['auth.user_activation_method'] == 0); ?>><?php echo lang('bf_activate_none'); ?></option>
                 <option value="1" <?php echo set_select('auth.user_activation_method', 1, isset($settings['auth.user_activation_method']) && $settings['auth.user_activation_method'] == 1); ?>><?php echo lang('bf_activate_email'); ?></option>
                 <option value="2" <?php echo set_select('auth.user_activation_method', 2, isset($settings['auth.user_activation_method']) && $settings['auth.user_activation_method'] == 2); ?>><?php echo lang('bf_activate_admin'); ?></option>
@@ -27,7 +27,7 @@
     <div class="form-group<?php echo form_error('login_type') ? $errorClass : ''; ?>">
         <label class="col-sm-2 control-label" for="login_type"><?php echo lang('bf_login_type') ?></label>
         <div class="col-sm-10">
-            <select name="login_type" id="login_type">
+            <select name="login_type" id="login_type" class="form-control">
                 <option value="email" <?php echo set_select('auth.login_type', 'email', isset($settings['auth.login_type']) && $settings['auth.login_type'] == 'email'); ?>><?php echo lang('bf_login_type_email'); ?></option>
                 <option value="username" <?php echo set_select('auth.login_type', 'username', isset($settings['auth.login_type']) && $settings['auth.login_type'] == 'username'); ?>><?php echo lang('bf_login_type_username'); ?></option>
                 <option value="both" <?php echo set_select('auth.login_type', 'both', isset($settings['auth.login_type']) && $settings['auth.login_type'] == 'both'); ?>><?php echo lang('bf_login_type_both'); ?></option>
@@ -100,7 +100,7 @@
          id="remember-length"<?php echo $settings['auth.allow_remember'] ? '' : ' style="display:none"'; ?>>
         <label class="col-sm-2 control-label" for="remember_length"><?php echo lang('bf_remember_time'); ?></label>
         <div class="col-sm-10">
-            <select name="remember_length" id="remember_length">
+            <select name="remember_length" id="remember_length" class="form-control">
                 <option value="604800" <?php echo set_select('auth.remember_length', '604800', isset($settings['auth.remember_length']) && $settings['auth.remember_length'] == '604800'); ?>>
                     1 <?php echo lang('bf_week'); ?></option>
                 <option value="1209600" <?php echo set_select('auth.remember_length', '1209600', isset($settings['auth.remember_length']) && $settings['auth.remember_length'] == '1209600'); ?>>

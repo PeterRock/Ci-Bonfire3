@@ -100,7 +100,7 @@ if (validation_errors()) :
     <?php if (has_permission('Bonfire.Permissions.Manage')) : ?>
         <fieldset>
             <legend><?php echo lang('role_permissions'); ?></legend>
-            <div class="col-sm-offset-2 col-sm-10">
+            <div class="col-sm-offset-2">
                 <?php echo Modules::run('roles/settings/matrix'); ?>
             </div>
         </fieldset>

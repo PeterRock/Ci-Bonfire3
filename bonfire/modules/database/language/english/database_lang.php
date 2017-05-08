@@ -51,7 +51,7 @@ $lang['database_data_size_unsupported']     = 'N/A';
 $lang['database_engine']                    = 'Engine';
 $lang['database_index_size']                = 'Index Size';
 $lang['database_index_field_unsupported']   = 'N/A';
-$lang['database_num_records']               = '# Records';
+$lang['database_num_records']               = 'Records';
 
 $lang['database_drop']                      = 'Drop';
 $lang['database_drop_attention']            = '<p>Deleting tables from the database will result in loss of data.</p><p><strong>This may make your application non-functional.</strong></p>';

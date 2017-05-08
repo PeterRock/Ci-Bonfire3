@@ -59,7 +59,10 @@
     </li>
 </ul>
 <?php if (empty($users) || !is_array($users)) : ?>
-    <p><?php echo lang('us_no_users'); ?></p>
+    <p></p>
+    <div class="alert alert-info" role="alert">
+        <p><?php echo lang('us_no_users'); ?></p>
+    </div>
     <?php
 else :
     $numColumns = 8;
