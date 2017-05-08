@@ -1,9 +1,9 @@
 <?php
 
-$errorClass   = empty($errorClass) ? ' has-error' : $errorClass;
+$errorClass = empty($errorClass) ? ' has-error' : $errorClass;
 $controlClass = empty($controlClass) ? 'form-control' : $controlClass;
 $fieldData = array(
-    'errorClass'   => $errorClass,
+    'errorClass' => $errorClass,
     'controlClass' => $controlClass,
 );
 
@@ -32,16 +32,16 @@ if (empty($renderPayload) && isset($this->auth)) {
 <section id="profile">
     <h1 class="page-header"><?php echo lang('us_edit_profile'); ?></h1>
     <?php if (validation_errors()) : ?>
-    <div class="alert alert-danger">
-        <?php echo validation_errors(); ?>
-    </div>
-    <?php
+        <div class="alert alert-danger">
+            <?php echo validation_errors(); ?>
+        </div>
+        <?php
     endif;
     if (isset($user) && $user->role_name == 'Banned') :
-    ?>
-    <div data-dismiss="alert" class="alert alert-danger">
-        <?php echo lang('us_banned_admin_note'); ?>
-    </div>
+        ?>
+        <div data-dismiss="alert" class="alert alert-danger">
+            <?php echo lang('us_banned_admin_note'); ?>
+        </div>
     <?php endif; ?>
     <div class="alert alert-info">
         <h4 class="alert-heading"><?php echo lang('bf_required_note'); ?></h4>
@@ -54,22 +54,23 @@ if (empty($renderPayload) && isset($this->auth)) {
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <?php echo form_open($this->uri->uri_string(), array('class' => 'form-horizontal', 'autocomplete' => 'off')); ?>
-                <fieldset>
-                    <?php Template::block('user_fields', 'user_fields', $fieldData); ?>
-                </fieldset>
-                <fieldset>
-                    <?php
-                    // Allow modules to render custom fields
-                    Events::trigger('render_user_form', $renderPayload);
-                    ?>
-                    <!-- Start User Meta -->
-                    <?php $this->load->view('users/user_meta', array('frontend_only' => true)); ?>
-                    <!-- End of User Meta -->
-                </fieldset>
-                <fieldset class="form-group">
-                    <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('bf_action_save') . ' ' . lang('bf_user'); ?>" />
-                    <?php echo lang('bf_or') . ' ' . anchor('/', lang('bf_action_cancel')); ?>
-                </fieldset>
+            <fieldset>
+                <?php Template::block('user_fields', 'user_fields', $fieldData); ?>
+            </fieldset>
+            <fieldset>
+                <?php
+                // Allow modules to render custom fields
+                Events::trigger('render_user_form', $renderPayload);
+                ?>
+                <!-- Start User Meta -->
+                <?php $this->load->view('users/user_meta', array('frontend_only' => true)); ?>
+                <!-- End of User Meta -->
+            </fieldset>
+            <fieldset class="form-group">
+                <input type="submit" name="save" class="btn btn-primary"
+                       value="<?php echo lang('bf_action_save') . ' ' . lang('bf_user'); ?>"/>
+                <?php echo lang('bf_or') . ' ' . anchor('/', lang('bf_action_cancel')); ?>
+            </fieldset>
             <?php echo form_close(); ?>
         </div>
     </div>
