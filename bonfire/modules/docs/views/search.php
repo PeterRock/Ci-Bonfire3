@@ -18,20 +18,20 @@
     </div>
 <?php else : ?>
     <ol class="container-fluid">
-    <?php
-    foreach ($results as $result) :
-        ?>
-        <li class="result-item">
-            <h4 class="text-primary">
-                <?php echo anchor(site_url($result['url']), $result['title'], 'class="text-info"'); ?>
-            </h4>
-            <p class="text-success"><?php echo $result['url']; ?></p>
-            <p class="text-muted">
-                <?php echo $result['extract']; ?>
-            </p>
-        </li>
         <?php
-    endforeach; ?>
+        foreach ($results as $result) :
+            ?>
+            <li class="result-item">
+                <h4 class="text-primary">
+                    <?php echo anchor(site_url($result['url']), $result['title'], 'class="text-info"'); ?>
+                </h4>
+                <p class="text-success"><?php echo $result['url']; ?></p>
+                <p class="text-muted">
+                    <?php echo $result['extract']; ?>
+                </p>
+            </li>
+            <?php
+        endforeach; ?>
 
     </ol>
     <?php

@@ -47,10 +47,10 @@
                 if (count($mod_files)) :
                     ?>
                     <?php
-                        $m_link_id = str_replace(" ", "_", $module);
-                        $m_link_id = str_replace($docsExt, '', $m_link_id);
+                    $m_link_id = str_replace(" ", "_", $module);
+                    $m_link_id = str_replace($docsExt, '', $m_link_id);
                     ?>
-                    <?php if (count($mod_files)>1) : ?>
+                    <?php if (count($mod_files) > 1) : ?>
                     <li <?php echo((array_key_exists($current_uri, $mod_files) OR array_key_exists($current_uri . $docsExt, $mod_files)) ? 'class="active"' : ''); ?>>
                         <?php echo anchor('#' . $m_link_id, $module, 'data-toggle="collapse" class="text-uppercase"'); ?>
                         <ul class='nav collapse' id="<?php echo $m_link_id; ?>">
