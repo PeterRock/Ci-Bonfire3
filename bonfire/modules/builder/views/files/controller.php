@@ -86,14 +86,13 @@ if ($db_required != '') {
     // as where clause to filter out soft-deleted fields in public index
     $indexFind .= "
         \$records = \$this->{$module_name_lower}_model->find_all();
-
         Template::set('records', \$records);";
 }
 
 // If this is not the front controller, setup the toolbar title
 if ($controller_name_lower != $module_name_lower) {
     $indexToolbarTitle = "
-    Template::set('toolbar_title', lang('{$module_name_lower}_manage'));";
+        Template::set('toolbar_title', lang('{$module_name_lower}_manage'));";
 }
 
 //------------------------------------------------------------------------------
