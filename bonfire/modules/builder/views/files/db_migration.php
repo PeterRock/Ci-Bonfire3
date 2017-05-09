@@ -60,12 +60,12 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
     switch ($dbFieldType) {
         case 'DATE':
             $migrationFields .= "
-            'default'    => '0000-00-00',";
+            'default'    => NULL,";
             break;
 
         case 'DATETIME':
             $migrationFields .= "
-            'default'    => '0000-00-00 00:00:00',";
+            'default'    => NULL,";
             break;
 
         default:
@@ -97,10 +97,7 @@ if ($useSoftDeletes) {
 // Use the created field? Add field and custom name if chosen.
 if ($useCreated) {
     $migrationFields .= "
-        '{$created_field}' => array(
-            'type'       => 'datetime',
-            'default'    => '0000-00-00 00:00:00',
-        ),";
+        '{$created_field} TIMESTAMP DEFAULT CURRENT_TIMESTAMP',";
     if ($logUser) {
         $migrationFields .= "
         '{$created_by_field}' => array(
@@ -116,7 +113,7 @@ if ($useModified) {
     $migrationFields .= "
         '{$modified_field}' => array(
             'type'       => 'datetime',
-            'default'    => '0000-00-00 00:00:00',
+            'default'    => NULL,
         ),";
     if ($logUser) {
         $migrationFields .= "
