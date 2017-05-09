@@ -1,7 +1,6 @@
 <?php
 
-Assets::add_css('bootstrap.min.css');
-Assets::add_css('font-awesome.min.css');
+Assets::add_css(array('bootstrap.min.css', 'font-awesome.min.css' ), null, true);
 Assets::add_css('jquery.datatables/datatables.min.css');
 
 if (isset($shortcut_data) && is_array($shortcut_data['shortcut_keys'])) {
