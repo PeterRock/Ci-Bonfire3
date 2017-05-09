@@ -161,7 +161,7 @@ if (! function_exists('gravatar_link')) {
             $rating = 'PG';
 
             // Check whether HTTP or HTTPS Request should be used.
-            $httpProtocol = is_https() ? 'https://secure.' : 'http://www.';
+            $httpProtocol = is_https() ? 'https://secure.' : 'http://';
 
             // URL for Gravatar, with placeholders for sprintf().
             $gravatarUrl = "{$httpProtocol}gravatar.com/avatar/%s?s=%s&amp;r=%s&amp;d=%s";
