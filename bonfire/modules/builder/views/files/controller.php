@@ -376,18 +376,24 @@ if ($controller_name_lower != $module_name_lower) {
 
         // Setup the data array for saving to the db
         // Set defaults for certain field types
-        switch (set_value("db_field_type$counter")) {
-            case 'DATE':
-                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : '0000-00-00';";
-                break;
-            case 'DATETIME':
-                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : '0000-00-00 00:00:00';";
-                break;
-            default:
-                // No need to handle fields for which defaults are not set,
-                // the model's prep_data() method should take care of it.
-                break;
+        if (set_value("db_field_type$counter")) {
+            $f_type = set_value("db_field_type$counter");
+            if ($f_type === 'DATE' || $f_type === 'DATETIME') {
+                $save_data_array .= "if (\$this->input->post('{$field_name}')) {\n\t\t\t\$data['{$field_name}'] = \$this->input->post('{$field_name}');\n\t\t}";
+            }
         }
+//        switch (set_value("db_field_type$counter")) {
+//            case 'DATE':
+//                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : '0000-00-00';";
+//                break;
+//            case 'DATETIME':
+//                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : 'NULL';";
+//                break;
+//            default:
+//                // No need to handle fields for which defaults are not set,
+//                // the model's prep_data() method should take care of it.
+//                break;
+//        }
     }
 
     $body = str_replace('{save_data_array}', $save_data_array, $body);
