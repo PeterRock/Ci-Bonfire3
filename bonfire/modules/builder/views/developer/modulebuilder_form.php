@@ -227,7 +227,7 @@ $validationErrors = validation_errors();
                        class="col-sm-2 control-label"><?php echo lang('mb_form_err_delims'); ?></label>
                 <div class="col-sm-10">
                     <input name="form_error_delimiters" id="form_error_delimiters" type="text" class="form-control"
-                           value="<?php echo set_value("form_error_delimiters", "<span class='error'>,</span>"); ?>"/>
+                           value="<?php echo set_value("form_error_delimiters", "<span class='has-error'>,</span>"); ?>"/>
                     <span class="help-block"><?php echo form_error('form_error_delimiters'); ?></span>
                 </div>
             </div>
@@ -467,7 +467,7 @@ $validationErrors = validation_errors();
                         $default_max_len = in_array($existing_table_fields[$count]['type'], $listFieldTypes) ? $existing_table_fields[$count]['values'] : $existing_table_fields[$count]['max_length'];
                     }
                     ?>
-                    <div class="form-group <?php echo form_error($dbFieldLength) ? 'error' : ''; ?>">
+                    <div class="form-group<?php echo form_error($dbFieldLength) ? ' error' : ''; ?>">
                         <label class="col-sm-2 control-label"
                                for="<?php echo $dbFieldLength; ?>"><?php echo lang('mb_form_length'); ?></label>
                         <div class="col-sm-10">
