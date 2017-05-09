@@ -377,11 +377,9 @@ class Developer extends Admin_Controller
             'textarea_editors',
             array(
                 ''          => 'None',
-                'ckeditor'  => 'CKEditor',
-                'elrte'     => 'ElRte with ElFinder',
-                'markitup'  => 'MarkitUp!',
                 'tinymce'   => 'TinyMCE',
-                'xinha'     => 'Xinha',
+                'ckeditor'  => 'CKEditor',
+                'markitup'  => 'MarkitUp!',
             )
         );
         Template::set('textFieldTypes', $textFieldTypes);

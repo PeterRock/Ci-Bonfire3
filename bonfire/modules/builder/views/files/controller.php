@@ -277,7 +277,8 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
         ) {
             if ($textarea_editor == 'ckeditor') {
                 $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/ckeditor/ckeditor.js'));";
+            Assets::add_js(Template::theme_url('js/editors/ckeditor/ckeditor.js'));
+            Assets::add_js(Template::theme_url('js/editors/ckeditor/config.js'));";
             } elseif ($textarea_editor == 'markitup') {
                 $constructorExtras .= "
             Assets::add_css(Template::theme_url('js/editors/markitup/skins/markitup/style.css'));
@@ -287,12 +288,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             Assets::add_js(Template::theme_url('js/editors/markitup/sets/default/set.js'));";
             } elseif ($textarea_editor == 'tinymce') {
                 $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce.js'));
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce_init.js'));";
-            } elseif ($textarea_editor == 'xinha') {
-                $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/xinha_conf.js'));
-            Assets::add_js(Template::theme_url('js/editors/xinha/XinhaCore.js'));";
+            Assets::add_js(Template::theme_url('js/editors/tinymce/tinymce.min.js'));";
             }
 
             $textarea_included = true;
