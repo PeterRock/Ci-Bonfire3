@@ -47,11 +47,9 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             $db_field_type = set_value("db_field_type$counter");
             if ($db_field_type != null) {
                 if ($db_field_type == 'DATE') {
-                    $view .= "
-                    $('#{$field_name}').datetimepicker({dateFormat: 'yy-mm-dd'});";
+                    $view .= "$('#{$field_name}').datetimepicker({format: 'yyyy-mm-dd'});\n";
                 } elseif ($db_field_type == 'DATETIME') {
-    				$view .= "
-                    $('#{$field_name}').datetimepicker({dateFormat: 'yy-mm-dd hh:mm:ss'});";
+    				$view .= "$('#{$field_name}').datetimepicker({format: 'yyyy-mm-dd hh:mm:ss'});";
                 }
             }
             break;

@@ -269,7 +269,8 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             }
 
             $constructorExtras .= "
-            Assets::add_js('bootstrap-datetimepicker/bootstrap-datetimepicker.min.js');";
+            Assets::add_css('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.js');
+            Assets::add_js('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js');";
             $datetime_included = true;
         } elseif (in_array($db_field_type, $textTypes)
             && $textarea_included === false
