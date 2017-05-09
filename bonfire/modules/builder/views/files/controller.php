@@ -86,14 +86,13 @@ if ($db_required != '') {
     // as where clause to filter out soft-deleted fields in public index
     $indexFind .= "
         \$records = \$this->{$module_name_lower}_model->find_all();
-
         Template::set('records', \$records);";
 }
 
 // If this is not the front controller, setup the toolbar title
 if ($controller_name_lower != $module_name_lower) {
     $indexToolbarTitle = "
-    Template::set('toolbar_title', lang('{$module_name_lower}_manage'));";
+        Template::set('toolbar_title', lang('{$module_name_lower}_manage'));";
 }
 
 //------------------------------------------------------------------------------
@@ -269,7 +268,8 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             }
 
             $constructorExtras .= "
-            Assets::add_js('bootstrap-datetimepicker/bootstrap-datetimepicker.min.js');";
+            Assets::add_css('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.js');
+            Assets::add_js('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js');";
             $datetime_included = true;
         } elseif (in_array($db_field_type, $textTypes)
             && $textarea_included === false
@@ -277,7 +277,8 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
         ) {
             if ($textarea_editor == 'ckeditor') {
                 $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/ckeditor/ckeditor.js'));";
+            Assets::add_js(Template::theme_url('js/editors/ckeditor/ckeditor.js'));
+            Assets::add_js(Template::theme_url('js/editors/ckeditor/config.js'));";
             } elseif ($textarea_editor == 'markitup') {
                 $constructorExtras .= "
             Assets::add_css(Template::theme_url('js/editors/markitup/skins/markitup/style.css'));
@@ -287,12 +288,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             Assets::add_js(Template::theme_url('js/editors/markitup/sets/default/set.js'));";
             } elseif ($textarea_editor == 'tinymce') {
                 $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce.js'));
-            Assets::add_js(Template::theme_url('js/editors/tiny_mce/tiny_mce_init.js'));";
-            } elseif ($textarea_editor == 'xinha') {
-                $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/xinha_conf.js'));
-            Assets::add_js(Template::theme_url('js/editors/xinha/XinhaCore.js'));";
+            Assets::add_js(Template::theme_url('js/editors/tinymce/tinymce.min.js'));";
             }
 
             $textarea_included = true;
@@ -319,7 +315,7 @@ if ($controller_name_lower != $module_name_lower) {
         && isset($form_error_delimiters[1])
     ) {
         $constructorExtras .= "
-            \$this->form_validation->set_error_delimiters(\"{$form_error_delimiters[0]}\", \"{$form_error_delimiters[1]}\");";
+        \$this->form_validation->set_error_delimiters(\"{$form_error_delimiters[0]}\", \"{$form_error_delimiters[1]}\");";
     }
 }
 
@@ -376,18 +372,24 @@ if ($controller_name_lower != $module_name_lower) {
 
         // Setup the data array for saving to the db
         // Set defaults for certain field types
-        switch (set_value("db_field_type$counter")) {
-            case 'DATE':
-                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : '0000-00-00';";
-                break;
-            case 'DATETIME':
-                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : '0000-00-00 00:00:00';";
-                break;
-            default:
-                // No need to handle fields for which defaults are not set,
-                // the model's prep_data() method should take care of it.
-                break;
+        if (set_value("db_field_type$counter")) {
+            $f_type = set_value("db_field_type$counter");
+            if ($f_type === 'DATE' || $f_type === 'DATETIME') {
+                $save_data_array .= "if (\$this->input->post('{$field_name}')) {\n\t\t\t\$data['{$field_name}'] = \$this->input->post('{$field_name}');\n\t\t}";
+            }
         }
+//        switch (set_value("db_field_type$counter")) {
+//            case 'DATE':
+//                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : '0000-00-00';";
+//                break;
+//            case 'DATETIME':
+//                $save_data_array .= "\n\t\t\$data['{$field_name}']\t= \$this->input->post('{$field_name}') ? \$this->input->post('{$field_name}') : 'NULL';";
+//                break;
+//            default:
+//                // No need to handle fields for which defaults are not set,
+//                // the model's prep_data() method should take care of it.
+//                break;
+//        }
     }
 
     $body = str_replace('{save_data_array}', $save_data_array, $body);
