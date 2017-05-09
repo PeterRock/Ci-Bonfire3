@@ -95,8 +95,8 @@ if (! function_exists('_form_common')) {
 
         return "
 <div class='form-group{$error}'>
-    <label class='control-label' for='{$defaults['id']}'>{$label}</label>
-    <div class='controls'>
+    <label class='col-sm-2 control-label' for='{$defaults['id']}'>{$label}</label>
+    <div class='col-sm-10'>
          <input {$output} {$extra} />
         {$tooltip}
     </div>
@@ -406,8 +406,8 @@ if (! function_exists('form_dropdown')) {
 
         return "
 <div class='form-group{$error}'>
-    <label class='control-label' for='{$data['id']}'>{$label}</label>
-    <div class='controls'>
+    <label class='col-sm-2 control-label' for='{$data['id']}'>{$label}</label>
+    <div class='col-sm-10'>
         <select {$output} {$extra}>
             {$options_vals}
         </select>

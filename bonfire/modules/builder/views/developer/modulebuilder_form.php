@@ -457,8 +457,8 @@ $validationErrors = validation_errors();
                         }
                     }
 
-                    echo form_dropdown($viewFieldType, $view_field_types, set_value($viewFieldType, $default_field_type), lang('mb_form_type'), '', '<span class="help-block">' . form_error($viewFieldType) . '</span>');
-                    echo form_dropdown($dbFieldType, $db_field_types, set_value($dbFieldType, isset($existing_table_fields[$count]) ? $existing_table_fields[$count]['type'] : ''), lang('mb_form_dbtype'), '', '<span class="help-block">' . form_error($dbFieldType) . '</span>');
+                    echo form_dropdown($viewFieldType, $view_field_types, set_value($viewFieldType, $default_field_type), lang('mb_form_type'), 'class="form-control"', '<span class="help-block">' . form_error($viewFieldType) . '</span>');
+                    echo form_dropdown($dbFieldType, $db_field_types, set_value($dbFieldType, isset($existing_table_fields[$count]) ? $existing_table_fields[$count]['type'] : ''), lang('mb_form_dbtype'), 'class="form-control"', '<span class="help-block">' . form_error($dbFieldType) . '</span>');
 
                     $default_max_len = '';
                     if (isset($existing_table_fields[$count])
