@@ -12,7 +12,6 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
 		continue; // move onto next iteration of the loop
 	}
 
-	$maxlength = null;
 	$field_label = set_value("view_field_label$counter");
 	$field_name = $field_prefix . set_value("view_field_name$counter");
 	$field_type = set_value("view_field_type$counter");
