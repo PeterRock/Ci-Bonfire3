@@ -47,6 +47,9 @@ $config['modulebuilder']['form_error_delimiters'] = array(
     '<span class="error">', '</span>'
 );
 
+/**
+ * Config language translate here
+ */
 $config['modulebuilder']['languages_available'] = array(
     'english',
 );
