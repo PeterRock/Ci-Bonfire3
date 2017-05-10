@@ -100,6 +100,8 @@ $lang['bf_ext_profile_info']	= 'Check "Extended Profiles" to have extra profile 
 
 $lang['bf_yes']					= 'Yes';
 $lang['bf_no']					= 'No';
+$lang['bf_true']				= 'True';
+$lang['bf_false']				= 'False';
 $lang['bf_none']				= 'None';
 $lang['bf_id']					= 'ID';
 
