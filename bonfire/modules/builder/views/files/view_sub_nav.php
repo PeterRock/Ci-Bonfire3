@@ -17,11 +17,7 @@ echo "<?php
 
 ?>
 <ul class='nav nav-tabs'>
-<<<<<<< HEAD
-	<li<?php echo \$checkSegment == '' ? ' class=\"active\"' : ''; ?>>
-=======
 	<li<?php echo (\$checkSegment == '' OR \$checkSegment == 'index')? ' class=\"active\"' : ''; ?>>
->>>>>>> feature/application_languages
 		<a href=\"<?php echo site_url(\$areaUrl); ?>\" id='list'>
             <?php echo lang('{$module_name_lower}_list'); ?>
         </a>

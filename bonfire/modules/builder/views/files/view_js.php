@@ -1,7 +1,6 @@
 <?php
 
 $view = '';
-$xinha_names = '';
 $field_prefix = '';
 if ($db_required == 'new' && $table_as_field_prefix === true) {
     $field_prefix = "{$module_name_lower}_";
