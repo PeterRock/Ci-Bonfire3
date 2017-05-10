@@ -376,10 +376,9 @@ class Developer extends Admin_Controller
         Template::set(
             'textarea_editors',
             array(
+                'ckeditor'  => 'CKEditor',
                 ''          => 'None',
                 'tinymce'   => 'TinyMCE',
-                'ckeditor'  => 'CKEditor',
-                'markitup'  => 'MarkitUp!',
             )
         );
         Template::set('textFieldTypes', $textFieldTypes);

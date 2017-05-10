@@ -261,34 +261,22 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
     if ($db_field_type != null) {
         if ($db_field_type == 'DATE' && $date_included === false) {
             $date_included = true;
+            $constructorExtras .= "Assets::add_css('datetimepicker/jquery.datetimepicker.min.css');\nAssets::add_js('datetimepicker/jquery.datetimepicker.full.min.js');\n";
         } elseif ($db_field_type == 'DATETIME' && $datetime_included === false) {
             // If a date field hasn't been included already then add in the jquery ui files
             if ($date_included === false) {
                 $date_included = true;
             }
-
-            $constructorExtras .= "
-            Assets::add_css('bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.js');
-            Assets::add_js('bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js');";
+            $constructorExtras .= "Assets::add_css('datetimepicker/jquery.datetimepicker.min.css');\nAssets::add_js('datetimepicker/jquery.datetimepicker.full.min.js');\n";
             $datetime_included = true;
         } elseif (in_array($db_field_type, $textTypes)
             && $textarea_included === false
             && ! empty($textarea_editor)
         ) {
             if ($textarea_editor == 'ckeditor') {
-                $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/ckeditor/ckeditor.js'));
-            Assets::add_js(Template::theme_url('js/editors/ckeditor/config.js'));";
-            } elseif ($textarea_editor == 'markitup') {
-                $constructorExtras .= "
-            Assets::add_css(Template::theme_url('js/editors/markitup/skins/markitup/style.css'));
-            Assets::add_css(Template::theme_url('js/editors/markitup/sets/default/style.css'));
-
-            Assets::add_js(Template::theme_url('js/editors/markitup/jquery.markitup.js'));
-            Assets::add_js(Template::theme_url('js/editors/markitup/sets/default/set.js'));";
+                $constructorExtras .= "Assets::add_js(Template::theme_url('js/editors/ckeditor/ckeditor.js'));\nAssets::add_js(Template::theme_url('js/editors/ckeditor/config.js'));\n";
             } elseif ($textarea_editor == 'tinymce') {
-                $constructorExtras .= "
-            Assets::add_js(Template::theme_url('js/editors/tinymce/tinymce.min.js'));";
+                $constructorExtras .= "Assets::add_js(Template::theme_url('js/editors/tinymce/tinymce.min.js'));\n";
             }
 
             $textarea_included = true;

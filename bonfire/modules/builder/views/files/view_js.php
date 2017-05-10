@@ -23,18 +23,11 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
         case 'textarea':
             if ( ! empty($textarea_editor)) {
                 if ($textarea_editor == 'ckeditor') {
-                    $view .= "
-					if ( ! ('{$field_name}' in CKEDITOR.instances)) {
-						CKEDITOR.replace('{$field_name}');
-					}";
-                } elseif ($textarea_editor == 'xinha') {
-                    if ($xinha_names != '') {
-                        $xinha_names .= ', ';
-                    }
-                    $xinha_names .= "'{$field_name}'";
+                    $view .= "if ( ! ('{$field_name}' in CKEDITOR.instances)) {CKEDITOR.replace('{$field_name}');}";
+                } elseif ($textarea_editor == 'tinymce') {
+                    $view .= "tinymce.init({selector: '{$field_name}'});";
                 } elseif ($textarea_editor == 'markitup') {
-                    $view .= "
-                    $('#{$field_name}').markItUp(mySettings);";
+                    $view .= "$('#{$field_name}').markItUp(mySettings);";
                 }
             }
             break;
@@ -49,29 +42,11 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
                 if ($db_field_type == 'DATE') {
                     $view .= "$('#{$field_name}').datetimepicker({timepicker: false, closeOnDateSelect: true,format: 'Y-m-d'});\n";
                 } elseif ($db_field_type == 'DATETIME') {
-    				$view .= "$('#{$field_name}').datetimepicker({format:'Y-m-d H:i'});";
+    				$view .= "$('#{$field_name}').datetimepicker({format:'Y-m-d H:i'});\n";
                 }
             }
             break;
     }
-}
-
-if ($xinha_names != '') {
-	$view .= "
-    var xinha_plugins = ['Linker'],
-        xinha_editors = [{$xinha_names}];
-
-    function xinha_init() {
-        if ( ! Xinha.loadPlugins(xinha_plugins, xinha_init)) {
-            return;
-        }
-
-        var xinha_config = new Xinha.Config();
-        xinha_editors = Xinha.makeEditors(xinha_editors, xinha_config, xinha_plugins);
-        Xinha.startEditors(xinha_editors);
-    }
-
-    xinha_init();";
 }
 
 echo $view;
