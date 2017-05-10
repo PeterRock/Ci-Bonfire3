@@ -65,7 +65,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
 
     $field_name = set_value("view_field_name$counter");
 	$form_name = $field_prefix . $field_name;
-
+    if (!empty($this->input->post("validation_rules{$counter}"))) {
 	$rules .= "
 		array(
 			'field' => '{$form_name}',
@@ -111,6 +111,8 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
     // End the validation rules definition and close the array for this field
 	$rules .= "',
 		),";
+
+    }
 }
 
 if ( ! empty($rules)) {
