@@ -406,7 +406,7 @@ class Migration_Install_initial_tables extends Migration
 		),
 		'last_login' => array(
 			'type' => 'DATETIME',
-			'default' => '0000-00-00 00:00:00',
+			'default' => NULL,
             'null' => false,
 		),
 		'last_ip' => array(
@@ -417,7 +417,7 @@ class Migration_Install_initial_tables extends Migration
 		),
 		'created_on' => array(
 			'type' => 'DATETIME',
-			'default' => '0000-00-00 00:00:00',
+			'default' => NULL,
             'null' => false,
 		),
 		'street_1' => array(

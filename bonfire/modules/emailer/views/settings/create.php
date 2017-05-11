@@ -84,7 +84,7 @@
                     </td>
                     <td><?php echo $user->display_name; ?></td>
                     <td><?php echo empty($user->email) ? '' : mailto($user->email); ?></td>
-                    <td><?php echo $user->last_login == '0000-00-00 00:00:00' ? '---' : user_time(strtotime($user->last_login), null, 'M j, y g:i A'); ?></td>
+                    <td><?php echo $user->last_login == NULL ? '---' : user_time(strtotime($user->last_login), null, 'M j, y g:i A'); ?></td>
                     <td><?php if ($user->active) : ?>
                             <span class="label label-success"><?php echo lang('us_active'); ?></span>
                         <?php else : ?>

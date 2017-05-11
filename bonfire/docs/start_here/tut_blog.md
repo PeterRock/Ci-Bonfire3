@@ -105,7 +105,7 @@ Create a new file at `blog/migrations/001_Initial_tables.php`.
                     'modified_on' => array(
                         'type'    => 'datetime',
                         'null'    => true,
-                        'default' => '0000-00-00 00:00:00',
+                        'default' => NULL,
                     ),
                     'deleted' => array(
                         'type'       => 'tinyint',
