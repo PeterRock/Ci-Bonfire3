@@ -44,7 +44,7 @@ $config['modulebuilder']['primary_key_field'] = 'id';
  * Default form error delimiters
  */
 $config['modulebuilder']['form_error_delimiters'] = array(
-    '<span class="error">', '</span>'
+    '<span class="has-error">', '</span>'
 );
 
 /**

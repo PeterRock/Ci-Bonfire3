@@ -97,7 +97,7 @@ $validationErrors = validation_errors();
                 <label for="module_description"
                        class="col-sm-2 control-label"><?php echo lang('mb_form_mod_desc'); ?></label>
                 <div class="col-sm-10">
-                    <input name="module_description" id="module_description" type="text"
+                    <input name="module_description" id="module_description" type="text" class="form-control"
                            value="<?php echo set_value("module_description", lang('mb_form_mod_desc_ph')); ?>"
                            placeholder="<?php echo lang('mb_form_mod_desc_ph'); ?>"/>
                     <span class="help-block"><?php echo form_error('module_description'); ?></span>
