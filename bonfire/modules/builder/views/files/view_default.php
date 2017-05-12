@@ -125,7 +125,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             <div class=\"form-group<?php echo form_error('{$field_name}') ? ' has-error' : ''; ?>\">
                 <?php echo form_label(lang('{$module_name_lower}_field_{$field_name}'){$required}, '{$form_name}', array('class' => 'col-sm-2 control-label')); ?>
                 <div class='col-sm-10'>
-                    <input id='{$form_name}' type='{$type}' " . ($required_attribute ? "required='required' " : "") . "name='{$form_name}' {$maxlength} value=\"<?php echo set_value('{$form_name}', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : ''); ?>\" />
+                    <input id='{$form_name}' class='form-control' type='{$type}' " . ($required_attribute ? "required='required' " : "") . "name='{$form_name}' {$maxlength} value=\"<?php echo set_value('{$form_name}', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : ''); ?>\" />
                     <span class='help-block'><?php echo form_error('{$field_name}'); ?></span>
                 </div>
             </div>";
