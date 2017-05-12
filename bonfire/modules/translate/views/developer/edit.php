@@ -65,9 +65,10 @@
             </table>
         </fieldset>
         <fieldset class="form-group container">
-            <input type="submit" name="save" class="btn btn-primary col-md-2" value="<?php e(lang('bf_action_save')); ?>"/>
+            <input type="submit" name="save" class="btn btn-primary" value="<?php e(lang('bf_action_save')); ?>"/>
+            <?php echo lang('bf_or'); ?>
             <a href="<?php echo site_url(SITE_AREA . '/developer/translate/index') . '/'; e($trans_lang);
-            ?>" class="btn btn-link"><?php e(lang('bf_action_cancel')); ?></a>
+            ?>" class="btn btn-default"><?php e(lang('bf_action_cancel')); ?></a>
         </fieldset>
         <?php
         echo form_close();
