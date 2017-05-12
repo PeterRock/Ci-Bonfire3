@@ -61,3 +61,6 @@ vendor/*
 
 # Ignore any sparks that have been loaded
 sparks/*
+
+# do not ignore .gitkeep folders
+!.gitkeep
