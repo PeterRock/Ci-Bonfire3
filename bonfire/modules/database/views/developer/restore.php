@@ -9,7 +9,7 @@
         <fieldset class="form-group">
             <input type="submit" name="restore" class="btn btn-primary"
                    value="<?php echo lang('database_restore'); ?>"/>
-            <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/database/backups', lang('bf_action_cancel'), 'class="btn btn-warning"'); ?>
+            <?php echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/database/backups', lang('bf_action_cancel'), 'class="btn btn-default"'); ?>
         </fieldset>
         <?php
         echo form_close();

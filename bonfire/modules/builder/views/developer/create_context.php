@@ -58,7 +58,7 @@
             echo anchor(
                 site_url(SITE_AREA . '/developer/builder'),
                 '<span class="fa fa-ban"></span>&nbsp;' . htmlspecialchars(lang('bf_action_cancel')),
-                array('class' => 'btn btn-warning')
+                array('class' => 'btn btn-default')
             );
             ?>
         </div>
