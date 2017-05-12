@@ -34,7 +34,7 @@
         <div class="col-sm-offset-2 col-sm-10">
             <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('permissions_save'); ?>"/>
             <?php
-            echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/permissions', lang('bf_action_cancel'));
+            echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/permissions', lang('bf_action_cancel'), 'class="btn btn-default"');
             ?>
         </div>
     </fieldset>

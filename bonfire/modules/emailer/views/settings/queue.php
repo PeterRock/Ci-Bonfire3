@@ -77,7 +77,7 @@
             <tr>
                 <td colspan="<?php echo $numColumns; ?>">
                     <?php echo lang('bf_with_selected') . '&nbsp;'; ?>
-                    <button type="submit" name="delete" id="delete-me" class="btn btn-danger btn-sm"
+                    <button type="submit" name="delete" id="delete-me" class="btn btn-danger"
                             onclick="return confirm('<?php e(js_escape(lang('emailer_delete_confirm'))); ?>')">
                         <span class="glyphicon-white glyphicon glyphicon-trash"></span> <?php echo lang('bf_action_delete'); ?>
                     </button>

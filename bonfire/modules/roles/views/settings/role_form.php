@@ -109,7 +109,7 @@ if (validation_errors()) :
         <div class="col-sm-offset-2 col-sm-10">
             <input type="submit" name="save" class="btn btn-primary" value="<?php echo lang('role_save_role'); ?>"/>
             <?php
-            echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/roles', lang('bf_action_cancel'));
+            echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/roles', lang('bf_action_cancel'), 'class="btn btn-default"');
             if (isset($role)
                 && $role->can_delete == 1
                 && has_permission('Bonfire.Roles.Delete')

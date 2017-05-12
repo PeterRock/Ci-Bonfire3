@@ -29,7 +29,7 @@
             <fieldset class="form-group">
                 <input type="submit" name="migrate" value="<?php echo lang('migrations_migrate_button'); ?>"/>
                 <?php
-                echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/migrations', lang('bf_action_cancel'));
+                echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/migrations', lang('bf_action_cancel'), 'class="btn btn-default"');
                 else :
                     ?>
                     <div class="alert alert-warning fade in">
@@ -124,7 +124,7 @@
                     <input type="submit" name="migrate" class="btn btn-primary"
                            value="<?php echo lang('migrations_migrate_button'); ?>"/>
                     <?php
-                    echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/migrations', lang('bf_action_cancel'));
+                    echo ' ' . lang('bf_or') . ' ' . anchor(SITE_AREA . '/developer/migrations', lang('bf_action_cancel'), 'class="btn btn-default"');
                     else:
                         ?>
                         <div class="alert alert-warning fade in">

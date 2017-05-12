@@ -143,7 +143,7 @@ if (isset($user)
     <fieldset class="form-group">
         <input type="submit" name="save" class="btn btn-primary"
                value="<?php echo lang('bf_action_save') . ' ' . lang('bf_user'); ?>"/>
-        <?php echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/users', lang('bf_action_cancel')); ?>
+        <?php echo lang('bf_or') . ' ' . anchor(SITE_AREA . '/settings/users', lang('bf_action_cancel'), 'class="btn btn-default"'); ?>
     </fieldset>
 <?php
 echo form_close();

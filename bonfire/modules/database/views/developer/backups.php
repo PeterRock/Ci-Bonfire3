@@ -26,7 +26,7 @@ $numColumns = 4;
             <tr>
                 <td colspan="<?php echo $numColumns; ?>">
                     <?php echo lang('bf_with_selected'); ?>
-                    <button type="submit" name="delete" class="btn btn-danger btn-sm"
+                    <button type="submit" name="delete" class="btn btn-danger"
                             onclick="return confirm('<?php e(js_escape(lang('database_backup_delete_confirm'))); ?>')"><?php echo lang('bf_action_delete'); ?></button>
                 </td>
             </tr>
