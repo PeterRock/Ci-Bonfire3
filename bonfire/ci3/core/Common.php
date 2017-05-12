@@ -151,8 +151,9 @@ if ( ! function_exists('load_class'))
 		$name = FALSE;
 
 		// Look for the class first in the local application/libraries folder
+        // then in bonfire/libraries folder
 		// then in the native system/libraries folder
-		foreach (array(APPPATH, BASEPATH) as $path)
+		foreach (array(APPPATH, BFPATH, BASEPATH) as $path)
 		{
 			if (file_exists($path.$directory.'/'.$class.'.php'))
 			{
@@ -166,6 +167,19 @@ if ( ! function_exists('load_class'))
 				break;
 			}
 		}
+
+        // Search in the Bonfire folder first for class extensions.
+        // Note that these classes will have a BF_ prefix, instead of the subclass
+        // prefix (MY_) to allow for graceful extending of child classes in the
+        // application.
+        if (file_exists(BFPATH . $directory . '/BF_' . $class . '.php'))
+        {
+            $name = 'BF_' . $class;
+            if (class_exists($name, FALSE) === FALSE)
+            {
+                require_once(BFPATH . $directory . '/BF_' . $class . '.php');
+            }
+        }
 
 		// Is the request a class extension? If so we load it too
 		if (file_exists(APPPATH.$directory.'/'.config_item('subclass_prefix').$class.'.php'))
@@ -319,13 +333,17 @@ if ( ! function_exists('get_mimes'))
 
 		if (empty($_mimes))
 		{
-			$_mimes = file_exists(APPPATH.'config/mimes.php')
-				? include(APPPATH.'config/mimes.php')
-				: array();
-
 			if (file_exists(APPPATH.'config/'.ENVIRONMENT.'/mimes.php'))
 			{
-				$_mimes = array_merge($_mimes, include(APPPATH.'config/'.ENVIRONMENT.'/mimes.php'));
+				$_mimes = include(APPPATH.'config/'.ENVIRONMENT.'/mimes.php');
+			}
+			elseif (file_exists(APPPATH.'config/mimes.php'))
+			{
+				$_mimes = include(APPPATH.'config/mimes.php');
+			}
+			else
+			{
+				$_mimes = array();
 			}
 		}
 
@@ -406,6 +424,11 @@ if ( ! function_exists('show_error'))
 		if ($status_code < 100)
 		{
 			$exit_status = $status_code + 9; // 9 is EXIT__AUTO_MIN
+			if ($exit_status > 125) // 125 is EXIT__AUTO_MAX
+			{
+				$exit_status = 1; // EXIT_ERROR
+			}
+
 			$status_code = 500;
 		}
 		else
