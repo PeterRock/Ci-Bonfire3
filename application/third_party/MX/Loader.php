@@ -187,7 +187,7 @@ class MX_Loader extends CI_Loader
 	/** Load an array of libraries **/
 	public function libraries($libraries)
 	{
-		foreach ($libraries as $library => $alias)
+		foreach ($libraries as $library => $alias) 
 		{
 			(is_int($library)) ? $this->library($alias) : $this->library($library, NULL, $alias);
 		}
@@ -235,7 +235,7 @@ class MX_Loader extends CI_Loader
 	/** Load an array of models **/
 	public function models($models)
 	{
-		foreach ($models as $model => $alias)
+		foreach ($models as $model => $alias) 
 		{
 			(is_int($model)) ? $this->model($alias) : $this->model($model, $alias);
 		}
@@ -426,6 +426,15 @@ class MX_Loader extends CI_Loader
 					$this->$type($item);
 				}
 			}
+		}
+		
+		// Autoload drivers
+		if (isset($autoload['drivers']))
+		{
+		    foreach ($autoload['drivers'] as $item => $alias)
+		    {
+		        (is_int($item)) ? $this->driver($alias) : $this->driver($item, $alias);
+		    }
 		}
 
 		/* autoload database & libraries */
