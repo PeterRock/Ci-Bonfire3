@@ -42,7 +42,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             <div class=\"form-group<?php echo form_error('{$field_name}') ? ' has-error' : ''; ?>\">
                 <?php echo form_label(lang('{$module_name_lower}_field_{$field_name}'){$required}, '{$form_name}', array('class' => 'col-sm-2 control-label')); ?>
                 <div class='col-sm-10'>
-                    <?php echo form_textarea(array('name' => '{$form_name}', 'id' => '{$form_name}', 'rows' => '5', 'cols' => '80', 'value' => set_value('$form_name', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : '')" . ($required_attribute ? ", 'required' => 'required'" : "") . ", 'class'=>'form-control')); ?>
+                    <?php echo form_textarea(array('name' => '{$form_name}', 'id' => '{$form_name}', 'rows' => '5', 'cols' => '80', 'value' => set_value('$form_name', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : '', FALSE)" . ($required_attribute ? ", 'required' => 'required'" : "") . ", 'class'=>'form-control')); ?>
                     <span class='help-block'><?php echo form_error('{$field_name}'); ?></span>
                 </div>
             </div>";
