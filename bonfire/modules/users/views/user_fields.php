@@ -36,6 +36,7 @@ $defaultTimezone = isset($user->timezone) ? $user->timezone : strtoupper(setting
     <input class="<?php echo $controlClass; ?>" <?php echo $registerClass; ?> type="password" id="password"
            name="password" value=""/>
     <span class="help-block"><?php echo form_error('password'); ?><?php echo isset($password_hints) ? $password_hints : ''; ?></span>
+    <span class="help-block"><?php e(lang('us_password_update_notice')); ?></span>
 </div>
 <div class="form-group<?php echo form_error('pass_confirm') ? $errorClass : ''; ?>">
     <label class="control-label" for="pass_confirm"><?php echo lang('bf_password_confirm'); ?></label>
