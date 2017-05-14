@@ -14,7 +14,7 @@ class user_model_test extends CI_UnitTestCase {
         $this->ci->load->model('roles/role_model');
         Mock::generate('Role_model');
 
-        Template::$ignore_session = true;
+//        Template::$ignore_session = true;
     }
 
     //--------------------------------------------------------------------

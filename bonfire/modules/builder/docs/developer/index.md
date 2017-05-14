@@ -78,6 +78,15 @@ The Table Options are related to the DB table if you chose to build the module w
 * **"Modified" Field Name** - Default value: 'modified_on'
 * **Primary Key** - Default value: 'id'
 
+### Generate Language files
+
+The Module Builder will generate language files for you module, 
+and it will only support english by default.
+
+If you want to make it auto build other language files, 
+ you can set config in file `bonfire/modules/builder/config/modulebuilder.php`
+ and set `$config['modulebuilder']['languages_available']` with the language you want.
+
 <a name="known-issues"></a>
 ## Known Issues
 

@@ -42,7 +42,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             <div class=\"form-group<?php echo form_error('{$field_name}') ? ' has-error' : ''; ?>\">
                 <?php echo form_label(lang('{$module_name_lower}_field_{$field_name}'){$required}, '{$form_name}', array('class' => 'col-sm-2 control-label')); ?>
                 <div class='col-sm-10'>
-                    <?php echo form_textarea(array('name' => '{$form_name}', 'id' => '{$form_name}', 'rows' => '5', 'cols' => '80', 'value' => set_value('$form_name', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : '')" . ($required_attribute ? ", 'required' => 'required'" : "") . ")); ?>
+                    <?php echo form_textarea(array('name' => '{$form_name}', 'id' => '{$form_name}', 'rows' => '5', 'cols' => '80', 'value' => set_value('$form_name', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : '')" . ($required_attribute ? ", 'required' => 'required'" : "") . ", 'class'=>'form-control')); ?>
                     <span class='help-block'><?php echo form_error('{$field_name}'); ?></span>
                 </div>
             </div>";
@@ -83,7 +83,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             }
             $viewFields .= "
                 );
-                echo form_dropdown(array('name' => '{$form_name}'" . ($required_attribute ? ", 'required' => 'required'" : "") . "), \$options, set_value('{$form_name}', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : ''), lang('{$module_name_lower}_field_{$field_name}'){$required}), 'class=\"form-control\"';
+                echo form_dropdown(array('name' => '{$form_name}'" . ($required_attribute ? ", 'required' => 'required'" : "") . "), \$options, set_value('{$form_name}', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : ''), lang('{$module_name_lower}_field_{$field_name}'){$required}, 'class=\"form-control\"');
             ?>";
             break;
         case 'checkbox':
@@ -125,7 +125,7 @@ for ($counter = 1; $field_total >= $counter; $counter++) {
             <div class=\"form-group<?php echo form_error('{$field_name}') ? ' has-error' : ''; ?>\">
                 <?php echo form_label(lang('{$module_name_lower}_field_{$field_name}'){$required}, '{$form_name}', array('class' => 'col-sm-2 control-label')); ?>
                 <div class='col-sm-10'>
-                    <input id='{$form_name}' type='{$type}' " . ($required_attribute ? "required='required' " : "") . "name='{$form_name}' {$maxlength} value=\"<?php echo set_value('{$form_name}', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : ''); ?>\" />
+                    <input id='{$form_name}' class='form-control' type='{$type}' " . ($required_attribute ? "required='required' " : "") . "name='{$form_name}' {$maxlength} value=\"<?php echo set_value('{$form_name}', isset(\${$module_name_lower}->{$field_name}) ? \${$module_name_lower}->{$field_name} : ''); ?>\" />
                     <span class='help-block'><?php echo form_error('{$field_name}'); ?></span>
                 </div>
             </div>";
