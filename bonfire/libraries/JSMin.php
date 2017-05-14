@@ -1,392 +1,589 @@
 <?php
-/**
- * Note: This should be replaced with something else ASAP, maybe JShrink (https://github.com/tedious/JShrink).
+/*
+ * This file is part of the JShrink package.
  *
- * @package Bonfire\Libraries\JSMin
- * @link    https://github.com/rgrove/jsmin-php
- * @version 1.1.2
- */
-/**
- * jsmin.php - PHP implementation of Douglas Crockford's JSMin.
+ * (c) Robert Hafner <tedivm@tedivm.com>
  *
- * This is pretty much a direct port of jsmin.c to PHP with just a few
- * PHP-specific performance tweaks. Also, whereas jsmin.c reads from stdin and
- * outputs to stdout, this library accepts a string as input and returns another
- * string as output.
- *
- * PHP 5 or higher is required.
- *
- * Permission is hereby granted to use this version of the library under the
- * same terms as jsmin.c, which has the following license:
- *
- * --
- * Copyright (c) 2002 Douglas Crockford  (www.crockford.com)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of
- * this software and associated documentation files (the "Software"), to deal in
- * the Software without restriction, including without limitation the rights to
- * use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
- * of the Software, and to permit persons to whom the Software is furnished to do
- * so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * The Software shall be used for Good, not Evil.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- * --
- *
- * @package JSMin
- * @author Ryan Grove <ryan@wonko.com>
- * @copyright 2002 Douglas Crockford <douglas@crockford.com> (jsmin.c)
- * @copyright 2008 Ryan Grove <ryan@wonko.com> (PHP port)
- * @copyright 2012 Adam Goforth <aag@adamgoforth.com> (Updates)
- * @license http://opensource.org/licenses/mit-license.php MIT License
- * @version 1.1.2 (2012-05-01)
- * @link https://github.com/rgrove/jsmin-php
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
-class JSMin {
-  const ORD_LF            = 10;
-  const ORD_SPACE         = 32;
-  const ACTION_KEEP_A     = 1;
-  const ACTION_DELETE_A   = 2;
-  const ACTION_DELETE_A_B = 3;
+/**
+ * JShrink
+ *
+ *
+ * @package    JShrink
+ * @author     Robert Hafner <tedivm@tedivm.com>
+ *
+ * !! 2017-05-14
+ * !!removed name space and rename the class name from Minifer to JSMin
+ */
 
-  protected $a           = '';
-  protected $b           = '';
-  protected $input       = '';
-  protected $inputIndex  = 0;
-  protected $inputLength = 0;
-  protected $lookAhead   = null;
-  protected $output      = '';
 
-  // -- Public Static Methods --------------------------------------------------
+/**
+ * Minifier
+ *
+ * Usage - JsMinifier::minify($js);
+ * Usage - JsMinifier::minify($js, $options);
+ * Usage - JsMinifier::minify($js, array('flaggedComments' => false));
+ *
+ * @package JShrink
+ * @author Robert Hafner <tedivm@tedivm.com>
+ * @license http://www.opensource.org/licenses/bsd-license.php  BSD License
+ */
+class JSMin
+{
+    /**
+     * The input javascript to be minified.
+     *
+     * @var string
+     */
+    protected $input;
 
-  /**
-   * Minify Javascript
-   *
-   * @uses __construct()
-   * @uses min()
-   * @param string $js Javascript to be minified
-   * @return string
-   */
-  public static function minify($js) {
-    $jsmin = new JSMin($js);
-    return $jsmin->min();
-  }
+    /**
+     * The location of the character (in the input string) that is next to be
+     * processed.
+     *
+     * @var int
+     */
+    protected $index = 0;
 
-  // -- Public Instance Methods ------------------------------------------------
+    /**
+     * The first of the characters currently being looked at.
+     *
+     * @var string
+     */
+    protected $a = '';
 
-  /**
-   * Constructor
-   *
-   * @param string $input Javascript to be minified
-   */
-  public function __construct($input) {
-    $this->input       = str_replace("\r\n", "\n", $input);
-    $this->inputLength = strlen($this->input);
-  }
+    /**
+     * The next character being looked at (after a);
+     *
+     * @var string
+     */
+    protected $b = '';
 
-  // -- Protected Instance Methods ---------------------------------------------
+    /**
+     * This character is only active when certain look ahead actions take place.
+     *
+     *  @var string
+     */
+    protected $c;
 
-  /**
-   * Action -- do something! What to do is determined by the $command argument.
-   *
-   * action treats a string as a single character. Wow!
-   * action recognizes a regular expression if it is preceded by ( or , or =.
-   *
-   * @uses next()
-   * @uses get()
-   * @throws JSMinException If parser errors are found:
-   *         - Unterminated string literal
-   *         - Unterminated regular expression set in regex literal
-   *         - Unterminated regular expression literal
-   * @param int $command One of class constants:
-   *      ACTION_KEEP_A      Output A. Copy B to A. Get the next B.
-   *      ACTION_DELETE_A    Copy B to A. Get the next B. (Delete A).
-   *      ACTION_DELETE_A_B  Get the next B. (Delete B).
-  */
-  protected function action($command) {
-    switch($command) {
-      case self::ACTION_KEEP_A:
-        $this->output .= $this->a;
+    /**
+     * Contains the options for the current minification process.
+     *
+     * @var array
+     */
+    protected $options;
 
-      case self::ACTION_DELETE_A:
-        $this->a = $this->b;
+    /**
+     * Contains the default options for minification. This array is merged with
+     * the one passed in by the user to create the request specific set of
+     * options (stored in the $options attribute).
+     *
+     * @var array
+     */
+    protected static $defaultOptions = array('flaggedComments' => true);
 
-        if ($this->a === "'" || $this->a === '"') {
-          for (;;) {
-            $this->output .= $this->a;
-            $this->a       = $this->get();
+    /**
+     * Contains lock ids which are used to replace certain code patterns and
+     * prevent them from being minified
+     *
+     * @var array
+     */
+    protected $locks = array();
 
-            if ($this->a === $this->b) {
-              break;
+    /**
+     * Takes a string containing javascript and removes unneeded characters in
+     * order to shrink the code without altering it's functionality.
+     *
+     * @param  string      $js      The raw javascript to be minified
+     * @param  array       $options Various runtime options in an associative array
+     * @throws \Exception
+     * @return bool|string
+     */
+    public static function minify($js, $options = array())
+    {
+        try {
+            ob_start();
+
+            $jshrink = new JSMin();
+            $js = $jshrink->lock($js);
+            $jshrink->minifyDirectToOutput($js, $options);
+
+            // Sometimes there's a leading new line, so we trim that out here.
+            $js = ltrim(ob_get_clean());
+            $js = $jshrink->unlock($js);
+            unset($jshrink);
+
+            return $js;
+
+        } catch (\Exception $e) {
+
+            if (isset($jshrink)) {
+                // Since the breakdownScript function probably wasn't finished
+                // we clean it out before discarding it.
+                $jshrink->clean();
+                unset($jshrink);
             }
 
-            if (ord($this->a) <= self::ORD_LF) {
-              throw new JSMinException('Unterminated string literal.');
-            }
-
-            if ($this->a === '\\') {
-              $this->output .= $this->a;
-              $this->a       = $this->get();
-            }
-          }
+            // without this call things get weird, with partially outputted js.
+            ob_end_clean();
+            throw $e;
         }
+    }
 
-      case self::ACTION_DELETE_A_B:
-        $this->b = $this->next();
+    /**
+     * Processes a javascript string and outputs only the required characters,
+     * stripping out all unneeded characters.
+     *
+     * @param string $js      The raw javascript to be minified
+     * @param array  $options Various runtime options in an associative array
+     */
+    protected function minifyDirectToOutput($js, $options)
+    {
+        $this->initialize($js, $options);
+        $this->loop();
+        $this->clean();
+    }
 
-        if ($this->b === '/' && (
-            $this->a === '(' || $this->a === ',' || $this->a === '=' ||
-            $this->a === ':' || $this->a === '[' || $this->a === '!' ||
-            $this->a === '&' || $this->a === '|' || $this->a === '?' ||
-            $this->a === '{' || $this->a === '}' || $this->a === ';' ||
-            $this->a === "\n" )) {
+    /**
+     *  Initializes internal variables, normalizes new lines,
+     *
+     * @param string $js      The raw javascript to be minified
+     * @param array  $options Various runtime options in an associative array
+     */
+    protected function initialize($js, $options)
+    {
+        $this->options = array_merge(static::$defaultOptions, $options);
+        $js = str_replace("\r\n", "\n", $js);
+        $js = str_replace('/**/', '', $js);
+        $this->input = str_replace("\r", "\n", $js);
 
-          $this->output .= $this->a . $this->b;
+        // We add a newline to the end of the script to make it easier to deal
+        // with comments at the bottom of the script- this prevents the unclosed
+        // comment error that can otherwise occur.
+        $this->input .= PHP_EOL;
 
-          for (;;) {
-            $this->a = $this->get();
+        // Populate "a" with a new line, "b" with the first character, before
+        // entering the loop
+        $this->a = "\n";
+        $this->b = $this->getReal();
+    }
 
-            if ($this->a === '[') {
-              /*
-                inside a regex [...] set, which MAY contain a '/' itself. Example: mootools Form.Validator near line 460:
-                  return Form.Validator.getValidator('IsEmpty').test(element) || (/^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]\.?){0,63}[a-z0-9!#$%&'*+/=?^_`{|}~-]@(?:(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\])$/i).test(element.get('value'));
-              */
-              for (;;) {
-                $this->output .= $this->a;
-                $this->a = $this->get();
+    /**
+     * The primary action occurs here. This function loops through the input string,
+     * outputting anything that's relevant and discarding anything that is not.
+     */
+    protected function loop()
+    {
+        while ($this->a !== false && !is_null($this->a) && $this->a !== '') {
 
-                if ($this->a === ']') {
+            switch ($this->a) {
+                // new lines
+                case "\n":
+                    // if the next line is something that can't stand alone preserve the newline
+                    if (strpos('(-+{[@', $this->b) !== false) {
+                        echo $this->a;
+                        $this->saveString();
+                        break;
+                    }
+
+                    // if B is a space we skip the rest of the switch block and go down to the
+                    // string/regex check below, resetting $this->b with getReal
+                    if($this->b === ' ')
+                        break;
+
+                // otherwise we treat the newline like a space
+
+                case ' ':
+                    if(static::isAlphaNumeric($this->b))
+                        echo $this->a;
+
+                    $this->saveString();
                     break;
-                } elseif ($this->a === '\\') {
-                  $this->output .= $this->a;
-                  $this->a       = $this->get();
-                } elseif (ord($this->a) <= self::ORD_LF) {
-                  throw new JSMinException('Unterminated regular expression set in regex literal.');
-                }
-              }
-            } elseif ($this->a === '/') {
-              break;
-            } elseif ($this->a === '\\') {
-              $this->output .= $this->a;
-              $this->a       = $this->get();
-            } elseif (ord($this->a) <= self::ORD_LF) {
-              throw new JSMinException('Unterminated regular expression literal.');
-            }
-
-            $this->output .= $this->a;
-          }
-
-          $this->b = $this->next();
-        }
-    }
-  }
-
-  /**
-   * Get next char. Convert ctrl char to space.
-   *
-   * @return string|null
-   */
-  protected function get() {
-    $c = $this->lookAhead;
-    $this->lookAhead = null;
-
-    if ($c === null) {
-      if ($this->inputIndex < $this->inputLength) {
-        $c = substr($this->input, $this->inputIndex, 1);
-        $this->inputIndex += 1;
-      } else {
-        $c = null;
-      }
-    }
-
-    if ($c === "\r") {
-      return "\n";
-    }
-
-    if ($c === null || $c === "\n" || ord($c) >= self::ORD_SPACE) {
-      return $c;
-    }
-
-    return ' ';
-  }
-
-  /**
-   * Is $c a letter, digit, underscore, dollar sign, or non-ASCII character.
-   *
-   * @return bool
-   */
-  protected function isAlphaNum($c) {
-    return ord($c) > 126 || $c === '\\' || preg_match('/^[\w\$]$/', $c) === 1;
-  }
-
-  /**
-   * Perform minification, return result
-   *
-   * @uses action()
-   * @uses isAlphaNum()
-   * @uses get()
-   * @uses peek()
-   * @return string
-   */
-  protected function min() {
-    if (0 == strncmp($this->peek(), "\xef", 1)) {
-        $this->get();
-        $this->get();
-        $this->get();
-    }
-
-    $this->a = "\n";
-    $this->action(self::ACTION_DELETE_A_B);
-
-    while ($this->a !== null) {
-      switch ($this->a) {
-        case ' ':
-          if ($this->isAlphaNum($this->b)) {
-            $this->action(self::ACTION_KEEP_A);
-          } else {
-            $this->action(self::ACTION_DELETE_A);
-          }
-          break;
-
-        case "\n":
-          switch ($this->b) {
-            case '{':
-            case '[':
-            case '(':
-            case '+':
-            case '-':
-            case '!':
-            case '~':
-              $this->action(self::ACTION_KEEP_A);
-              break;
-
-            case ' ':
-              $this->action(self::ACTION_DELETE_A_B);
-              break;
-
-            default:
-              if ($this->isAlphaNum($this->b)) {
-                $this->action(self::ACTION_KEEP_A);
-              }
-              else {
-                $this->action(self::ACTION_DELETE_A);
-              }
-          }
-          break;
-
-        default:
-          switch ($this->b) {
-            case ' ':
-              if ($this->isAlphaNum($this->a)) {
-                $this->action(self::ACTION_KEEP_A);
-                break;
-              }
-
-              $this->action(self::ACTION_DELETE_A_B);
-              break;
-
-            case "\n":
-              switch ($this->a) {
-                case '}':
-                case ']':
-                case ')':
-                case '+':
-                case '-':
-                case '"':
-                case "'":
-                  $this->action(self::ACTION_KEEP_A);
-                  break;
 
                 default:
-                  if ($this->isAlphaNum($this->a)) {
-                    $this->action(self::ACTION_KEEP_A);
-                  }
-                  else {
-                    $this->action(self::ACTION_DELETE_A_B);
-                  }
-              }
-              break;
+                    switch ($this->b) {
+                        case "\n":
+                            if (strpos('}])+-"\'', $this->a) !== false) {
+                                echo $this->a;
+                                $this->saveString();
+                                break;
+                            } else {
+                                if (static::isAlphaNumeric($this->a)) {
+                                    echo $this->a;
+                                    $this->saveString();
+                                }
+                            }
+                            break;
 
-            default:
-              $this->action(self::ACTION_KEEP_A);
-              break;
-          }
-      }
+                        case ' ':
+                            if(!static::isAlphaNumeric($this->a))
+                                break;
+
+                        default:
+                            // check for some regex that breaks stuff
+                            if ($this->a === '/' && ($this->b === '\'' || $this->b === '"')) {
+                                $this->saveRegex();
+                                continue;
+                            }
+
+                            echo $this->a;
+                            $this->saveString();
+                            break;
+                    }
+            }
+
+            // do reg check of doom
+            $this->b = $this->getReal();
+
+            if(($this->b == '/' && strpos('(,=:[!&|?', $this->a) !== false))
+                $this->saveRegex();
+        }
     }
 
-    return $this->output;
-  }
+    /**
+     * Resets attributes that do not need to be stored between requests so that
+     * the next request is ready to go. Another reason for this is to make sure
+     * the variables are cleared and are not taking up memory.
+     */
+    protected function clean()
+    {
+        unset($this->input);
+        $this->index = 0;
+        $this->a = $this->b = '';
+        unset($this->c);
+        unset($this->options);
+    }
 
-  /**
-   * Get the next character, skipping over comments. peek() is used to see
-   *  if a '/' is followed by a '/' or '*'.
-   *
-   * @uses get()
-   * @uses peek()
-   * @throws JSMinException On unterminated comment.
-   * @return string
-   */
-  protected function next() {
-    $c = $this->get();
+    /**
+     * Returns the next string for processing based off of the current index.
+     *
+     * @return string
+     */
+    protected function getChar()
+    {
+        // Check to see if we had anything in the look ahead buffer and use that.
+        if (isset($this->c)) {
+            $char = $this->c;
+            unset($this->c);
 
-    if ($c === '/') {
-      switch($this->peek()) {
-        case '/':
-          for (;;) {
-            $c = $this->get();
+        // Otherwise we start pulling from the input.
+        } else {
+            $char = substr($this->input, $this->index, 1);
 
-            if (ord($c) <= self::ORD_LF) {
-              return $c;
+            // If the next character doesn't exist return false.
+            if (isset($char) && $char === false) {
+                return false;
             }
-          }
 
-        case '*':
-          $this->get();
+            // Otherwise increment the pointer and use this char.
+            $this->index++;
+        }
 
-          for (;;) {
-            switch($this->get()) {
-              case '*':
-                if ($this->peek() === '/') {
-                  $this->get();
-                  return ' ';
+        // Normalize all whitespace except for the newline character into a
+        // standard space.
+        if($char !== "\n" && ord($char) < 32)
+
+            return ' ';
+
+        return $char;
+    }
+
+    /**
+     * This function gets the next "real" character. It is essentially a wrapper
+     * around the getChar function that skips comments. This has significant
+     * performance benefits as the skipping is done using native functions (ie,
+     * c code) rather than in script php.
+     *
+     *
+     * @return string            Next 'real' character to be processed.
+     * @throws \RuntimeException
+     */
+    protected function getReal()
+    {
+        $startIndex = $this->index;
+        $char = $this->getChar();
+
+        // Check to see if we're potentially in a comment
+        if ($char !== '/') {
+            return $char;
+        }
+
+        $this->c = $this->getChar();
+
+        if ($this->c === '/') {
+            return $this->processOneLineComments($startIndex);
+
+        } elseif ($this->c === '*') {
+            return $this->processMultiLineComments($startIndex);
+        }
+
+        return $char;
+    }
+
+    /**
+     * Removed one line comments, with the exception of some very specific types of
+     * conditional comments.
+     *
+     * @param  int    $startIndex The index point where "getReal" function started
+     * @return string
+     */
+    protected function processOneLineComments($startIndex)
+    {
+        $thirdCommentString = substr($this->input, $this->index, 1);
+
+        // kill rest of line
+        $this->getNext("\n");
+
+        if ($thirdCommentString == '@') {
+            $endPoint = $this->index - $startIndex;
+            unset($this->c);
+            $char = "\n" . substr($this->input, $startIndex, $endPoint);
+        } else {
+            // first one is contents of $this->c
+            $this->getChar();
+            $char = $this->getChar();
+        }
+
+        return $char;
+    }
+
+    /**
+     * Skips multiline comments where appropriate, and includes them where needed.
+     * Conditional comments and "license" style blocks are preserved.
+     *
+     * @param  int               $startIndex The index point where "getReal" function started
+     * @return bool|string       False if there's no character
+     * @throws \RuntimeException Unclosed comments will throw an error
+     */
+    protected function processMultiLineComments($startIndex)
+    {
+        $this->getChar(); // current C
+        $thirdCommentString = $this->getChar();
+
+        // kill everything up to the next */ if it's there
+        if ($this->getNext('*/')) {
+
+            $this->getChar(); // get *
+            $this->getChar(); // get /
+            $char = $this->getChar(); // get next real character
+
+            // Now we reinsert conditional comments and YUI-style licensing comments
+            if (($this->options['flaggedComments'] && $thirdCommentString === '!')
+                || ($thirdCommentString === '@') ) {
+
+                // If conditional comments or flagged comments are not the first thing in the script
+                // we need to echo a and fill it with a space before moving on.
+                if ($startIndex > 0) {
+                    echo $this->a;
+                    $this->a = " ";
+
+                    // If the comment started on a new line we let it stay on the new line
+                    if ($this->input[($startIndex - 1)] === "\n") {
+                        echo "\n";
+                    }
                 }
+
+                $endPoint = ($this->index - 1) - $startIndex;
+                echo substr($this->input, $startIndex, $endPoint);
+
+                return $char;
+            }
+
+        } else {
+            $char = false;
+        }
+
+        if($char === false)
+            throw new \RuntimeException('Unclosed multiline comment at position: ' . ($this->index - 2));
+
+        // if we're here c is part of the comment and therefore tossed
+        if(isset($this->c))
+            unset($this->c);
+
+        return $char;
+    }
+
+    /**
+     * Pushes the index ahead to the next instance of the supplied string. If it
+     * is found the first character of the string is returned and the index is set
+     * to it's position.
+     *
+     * @param  string       $string
+     * @return string|false Returns the first character of the string or false.
+     */
+    protected function getNext($string)
+    {
+        // Find the next occurrence of "string" after the current position.
+        $pos = strpos($this->input, $string, $this->index);
+
+        // If it's not there return false.
+        if($pos === false)
+
+            return false;
+
+        // Adjust position of index to jump ahead to the asked for string
+        $this->index = $pos;
+
+        // Return the first character of that string.
+        return substr($this->input, $this->index, 1);
+    }
+
+    /**
+     * When a javascript string is detected this function crawls for the end of
+     * it and saves the whole string.
+     *
+     * @throws \RuntimeException Unclosed strings will throw an error
+     */
+    protected function saveString()
+    {
+        $startpos = $this->index;
+
+        // saveString is always called after a gets cleared, so we push b into
+        // that spot.
+        $this->a = $this->b;
+
+        // If this isn't a string we don't need to do anything.
+        if ($this->a !== "'" && $this->a !== '"') {
+            return;
+        }
+
+        // String type is the quote used, " or '
+        $stringType = $this->a;
+
+        // Echo out that starting quote
+        echo $this->a;
+
+        // Loop until the string is done
+        while (true) {
+
+            // Grab the very next character and load it into a
+            $this->a = $this->getChar();
+
+            switch ($this->a) {
+
+                // If the string opener (single or double quote) is used
+                // output it and break out of the while loop-
+                // The string is finished!
+                case $stringType:
+                    break 2;
+
+                // New lines in strings without line delimiters are bad- actual
+                // new lines will be represented by the string \n and not the actual
+                // character, so those will be treated just fine using the switch
+                // block below.
+                case "\n":
+                    throw new \RuntimeException('Unclosed string at position: ' . $startpos );
+                    break;
+
+                // Escaped characters get picked up here. If it's an escaped new line it's not really needed
+                case '\\':
+
+                    // a is a slash. We want to keep it, and the next character,
+                    // unless it's a new line. New lines as actual strings will be
+                    // preserved, but escaped new lines should be reduced.
+                    $this->b = $this->getChar();
+
+                    // If b is a new line we discard a and b and restart the loop.
+                    if ($this->b === "\n") {
+                        break;
+                    }
+
+                    // echo out the escaped character and restart the loop.
+                    echo $this->a . $this->b;
+                    break;
+
+
+                // Since we're not dealing with any special cases we simply
+                // output the character and continue our loop.
+                default:
+                    echo $this->a;
+            }
+        }
+    }
+
+    /**
+     * When a regular expression is detected this function crawls for the end of
+     * it and saves the whole regex.
+     *
+     * @throws \RuntimeException Unclosed regex will throw an error
+     */
+    protected function saveRegex()
+    {
+        echo $this->a . $this->b;
+
+        while (($this->a = $this->getChar()) !== false) {
+            if($this->a === '/')
                 break;
 
-              case null:
-                throw new JSMinException('Unterminated comment.');
+            if ($this->a === '\\') {
+                echo $this->a;
+                $this->a = $this->getChar();
             }
-          }
 
-        default:
-          return $c;
-      }
+            if($this->a === "\n")
+                throw new \RuntimeException('Unclosed regex pattern at position: ' . $this->index);
+
+            echo $this->a;
+        }
+        $this->b = $this->getReal();
     }
 
-    return $c;
-  }
+    /**
+     * Checks to see if a character is alphanumeric.
+     *
+     * @param  string $char Just one character
+     * @return bool
+     */
+    protected static function isAlphaNumeric($char)
+    {
+        return preg_match('/^[\w\$\pL]$/', $char) === 1 || $char == '/';
+    }
 
-  /**
-   * Get next char. If is ctrl character, translate to a space or newline.
-   *
-   * @uses get()
-   * @return string|null
-   */
-  protected function peek() {
-    $this->lookAhead = $this->get();
-    return $this->lookAhead;
-  }
+    /**
+     * Replace patterns in the given string and store the replacement
+     *
+     * @param  string $js The string to lock
+     * @return bool
+     */
+    protected function lock($js)
+    {
+        /* lock things like <code>"asd" + ++x;</code> */
+        $lock = '"LOCK---' . crc32(time()) . '"';
+
+        $matches = array();
+        preg_match('/([+-])(\s+)([+-])/S', $js, $matches);
+        if (empty($matches)) {
+            return $js;
+        }
+
+        $this->locks[$lock] = $matches[2];
+
+        $js = preg_replace('/([+-])\s+([+-])/S', "$1{$lock}$2", $js);
+        /* -- */
+
+        return $js;
+    }
+
+    /**
+     * Replace "locks" with the original characters
+     *
+     * @param  string $js The string to unlock
+     * @return bool
+     */
+    protected function unlock($js)
+    {
+        if (empty($this->locks)) {
+            return $js;
+        }
+
+        foreach ($this->locks as $lock => $replacement) {
+            $js = str_replace($lock, $replacement, $js);
+        }
+
+        return $js;
+    }
+
 }
-
-// -- Exceptions ---------------------------------------------------------------
-class JSMinException extends Exception {}
