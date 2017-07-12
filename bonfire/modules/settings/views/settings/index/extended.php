@@ -1,6 +1,6 @@
 <fieldset>
     <legend><?php echo lang('set_option_extended'); ?></legend>
-    <div class="col-sm-offset-2 col-sm-8">
+    <div class="">
         <?php
         foreach ($extendedSettings as $field) :
             if (empty($field['permission'])
@@ -69,9 +69,9 @@
                 if (!empty($field_control)) :
                     ?>
                     <div class="form-group<?php echo form_error($field['name']) ? $errorClass : ''; ?>">
-                        <label class="control-label"
+                        <label class="col-sm-2 control-label"
                                for="<?php echo $field['name']; ?>"><?php echo $field['label']; ?></label>
-                        <div class="">
+                        <div class="col-sm-10">
                             <?php echo $field_control; ?>
                         </div>
                     </div>
