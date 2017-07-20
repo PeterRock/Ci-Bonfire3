@@ -64,3 +64,6 @@ sparks/*
 
 # do not ignore .gitkeep folders
 !.gitkeep
+
+# ignore uploads folders
+public/uploads/*
